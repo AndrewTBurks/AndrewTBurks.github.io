@@ -162,7 +162,7 @@ var stateNames = [];
 var countyNames = [];
 
 // read shooting data CSV
-d3.csv("DataWithCounties.csv") 
+d3.csv("shootings/DataWithCounties.csv") 
 	.row(function(d) {
 		var el = {
 			victimID: Number(d.victimID),
@@ -192,7 +192,7 @@ d3.csv("DataWithCounties.csv")
 	});
 
 // read state names tsv
-d3.tsv("us-state-names.tsv", function(error, data) {
+d3.tsv("shootings/us-state-names.tsv", function(error, data) {
   	if (error) throw error;
   	// Coerce the data to numbers.
   	data.forEach(function(d) {
@@ -207,7 +207,7 @@ d3.tsv("us-state-names.tsv", function(error, data) {
 
 
 // read county names tsv
-d3.tsv("us-county-names.tsv", function(error, data) {
+d3.tsv("shootings/us-county-names.tsv", function(error, data) {
   	if (error) throw error;
   	// Coerce the data to numbers.
   	data.forEach(function(d) {
@@ -762,7 +762,7 @@ function drawMap(mode) {
 	
 	if(mode === 0){ // state total
 
-		d3.json("us.json", function(error, us) {
+		d3.json("shootings/us.json", function(error, us) {
 	  		if (error) throw error;
 
 	  		g.append("g")
@@ -789,7 +789,7 @@ function drawMap(mode) {
 	}
 	else if(mode === 1){ // county total
 
-		d3.json("us.json", function(error, us) {
+		d3.json("shootings/us.json", function(error, us) {
 	  		if (error) throw error;
 
 	  		g.append("g")
@@ -816,7 +816,7 @@ function drawMap(mode) {
 	}
 	else if(mode === 2){ // state gender
 
-		d3.json("us.json", function(error, us) {
+		d3.json("shootings/us.json", function(error, us) {
 	  		if (error) throw error;
 
 	  		g.append("g")
@@ -844,7 +844,7 @@ function drawMap(mode) {
 	}
 	else if(mode === 3){ // county gender
 
-		d3.json("us.json", function(error, us) {
+		d3.json("shootings/us.json", function(error, us) {
 	  		if (error) throw error;
 
 	  		g.append("g")
