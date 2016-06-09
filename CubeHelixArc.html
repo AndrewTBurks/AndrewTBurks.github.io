@@ -72,12 +72,12 @@ var cDef = d3.scale.cubehelix()
 var arc = d3.svg.arc()
     .outerRadius(radius - 10)
     .innerRadius(radius - 60)
-    .padAngle(0.01);
+    .padAngle(0.02);
 
 var innerArc = d3.svg.arc()
     .outerRadius(radius - 75)
     .innerRadius(radius - 100)
-    .padAngle(0.01);
+    .padAngle(0.02);
 
 var pie = d3.layout.pie()
     .sort(null)
@@ -146,7 +146,7 @@ g2.append("path")
     });
 
 function scrolled() {
-  currRotation = (prevScale > d3.event.scale) ? (currRotation + (2*Math.PI/len))%360 : (currRotation - (2*Math.PI/len))%360;
+  currRotation = (prevScale > d3.event.scale) ? (currRotation + 9)%360 : (currRotation - 9)%360;
   prevScale = d3.event.scale;
   g.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")rotate(" + currRotation + ")");
 }
