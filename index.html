@@ -1,12 +1,130 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0; url=http://andrewtburks.com" />
 
-    <title></title>
-  </head>
-  <body>
-    <p><a href="http://andrewtburks.com/">Redirect</a></p>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Andrew Burks</title>
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Font-Awesome -->
+  <script src="https://use.fontawesome.com/7998ef9b73.js"></script>
+
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet/less" href="style.less">
+
+  <!-- LessCSS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div id="title">
+    <h1>Andrew Burks</h1>
+  </div>
+
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+      <li><a data-toggle="tab" href="#about">About</a></li>
+      <li><a data-toggle="tab" href="#projects">Projects</a></li>
+      <li><a data-toggle="tab" href="#publications">Publications</a></li>
+      <li><a data-toggle="tab" href="#contact">Contact</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>Home</h3>
+        <hr>
+        <p>Make yourself at home!</p>
+      </div>
+      <div id="projects" class="tab-pane fade">
+        <h3>My Projects</h3>
+        <hr>
+        <p>Some content about my projects.</p>
+      </div>
+      <div id="publications" class="tab-pane fade">
+        <h3>My Publications</h3>
+        <hr>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Journal</h3>
+          </div>
+          <div class="panel-body">
+            <div class="publication">
+              G. E. Marai, C. Ma, <strong>A. Burks</strong>, F.Pellolio, G.Canahuate, D.Vock, A.S.R.Mohamed, and C.D.Fuller. <strong>Precision Risk Analysis of Cancer Therapy with Interactive Nomograms and Survival Plots</strong>. Under review.
+            </div>
+            <div class="publication">
+              A. G. Forbes, <strong>A. Burks</strong>, K. Lee, X. Li, P. Boutillier, J. Krivine, and W. Fontana. <strong>Dynamic influence networks for rule-based models</strong>. IEEE Transactions on Visualization and Computer Graphics, 24(1), January 2018.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Peer-reviewed Conference Papers</h3>
+          </div>
+          <div class="panel-body">
+            <div class="publication">
+              D. McNamara, J. Tapia, C. Ma, T. Luciani, <strong>A. Burks</strong>, J. Trelles, and G. E. Marai. <strong>Spatial Analysis of Employee Safety Using Organizable Event Quiltmaps</strong>. In Proceedings of the IEEE VIS 2016 Workshop on Temporal & Sequential
+              Event Analysis, Baltimore, MD, USA, October 2016.
+            </div>
+
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Poster/Abstract Presentations</h3>
+          </div>
+          <div class="panel-body">
+            <div class="publication">
+              C. Ma, <strong>A. Burks</strong>, T. Luciani, A. Terebus, J. Liang, and G. E. Marai. <strong>Visualizing ensemble time-evolving probability landscapes of stochastic networks</strong>. To appear at BioVis 2017.
+            </div>
+            <div class="publication">
+              T. Luciani, J. Trelles, C. Ma, <strong>A. Burks</strong>, M. M. Thomas, K. Bharadwaj, S. Singh, P. Hanula, L. Di and G. E. Marai. <strong>Multi-scale Voronoi-based ACT Assessment</strong>. IEEE VGTC VPG International Data-Visualization Contest, Baltimore, MD,
+              USA, October 2016. <strong>Honorable Mention.</strong>
+
+            </div>
+            <div class="publication">
+              <strong>A. Burks</strong>, C. Sugiyama, T. Luciani, J. Komperda, G.E. Marai, <strong>Interactive Exploration and Tracking of Ensemble Viscous Fingers</strong>. IEEE VIS SciVis Data Contest 2016, IEEE VIS 2016, pp. 1-2, Oct 2016. <strong>Certificate of Merit.</strong>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <div id="about" class="tab-pane fade">
+      <h3>About Me</h3>
+      <hr>
+      <p>Some content about me.</p>
+    </div>
+    <div id="contact" class="tab-pane fade">
+      <h3>Contact Me</h3>
+      <hr>
+      <div class="contactLinksWrapper">
+        <div class="contactEntry">
+          <i class="fa fa-github fa-fw"></i>
+          <a href="https://github.com/AndrewTBurks" target="about:blank">
+              AndrewTBurks
+            </a>
+        </div>
+        <div class="contactEntry">
+          <i class="fa fa-linkedin fa-fw"></i>
+          <a href="https://www.linkedin.com/in/andrew-burks-a79323124/" target="about:blank">
+              Andrew Burks
+            </a>
+        </div>
+        <div class="contactEntry">
+          <i class="fa fa-at fa-fw"></i> andrewtburks@gmail.com
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
 </html>
