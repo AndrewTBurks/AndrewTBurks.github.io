@@ -4,8 +4,22 @@
 
 .contactEntry {
   font-size: 24px;
+  padding: 3px;
+  background-color: @panel2;
+  border: 3px solid @white;
+  border-color: @panel fadeout(@link, 50%) @panel fadeout(@link, 50%);
+
+  &:first-child {
+    .border-radius(5px 5px 0 0);
+    border-top-color: fadeout(@link, 50%);
+  }
+
+  &:last-child {
+    .border-radius(0 0 5px 5px);
+    border-bottom-color: fadeout(@link, 50%);
+  }
 
   a {
-    font-weight: 500;
+    font-weight: 700;
   }
 }
