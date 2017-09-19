@@ -25,10 +25,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" charset="utf-8"></script>
 
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
     ga('create', 'UA-102895793-1', 'auto');
     ga('send', 'pageview');
@@ -68,10 +75,10 @@
                 </p>
                 <p>
                   I am currently pursuing a BS in Computer Science at the University of Illinois at Chicago (<strong>UIC</strong>)
-                  and I am planning to graduate in Dec. 2017. While working towards my degree, I have
-                  been working at the Electronic Visualization Laboratory (<strong>EVL</strong>), participating
-                  in the National Science Foundation's (<strong>NSF</strong>) Research Experiences for
-                  Undergraduates (<strong>REU</strong>) program.
+                  and I am planning to graduate in Dec. 2017. While working towards my degree, I have been working at the
+                  Electronic Visualization Laboratory (<strong>EVL</strong>), participating in the National Science Foundation's
+                  (
+                  <strong>NSF</strong>) Research Experiences for Undergraduates (<strong>REU</strong>) program.
                 </p>
                 <p>
                   My research interests include Data Visualization/Visual Analytics and Human Computer Interaction.
@@ -87,7 +94,166 @@
       <div id="projects" class="tab-pane fade">
         <h3>My Projects</h3>
         <hr>
-        <p>Some content about my projects. <strong>To be updated soon!</strong></p>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Context-Aware Visiualization of Englewood Social Services</h3>
+          </div>
+          <div class="panel-body row">
+            <div class="col-md-6 teaser">
+              <img src="./img/EnglewoodFinder.png" alt="Englewood Teaser">
+            </div>
+            <div class="col-md-6 description">
+              In the Englewood Community Area in Chicago, the youth face two main obstacles they face when looking for nearby social services.
+              First, they may not be aware of some of the services around them. Second, these services that they need may
+              not exist in their area. In the Englewood Community Area, it is a particularly dire situation as many children
+              are in danger or are in lack of basic human needs. To help solve this problem, we implement two web-based tools
+              -- one for volunteers to help find services for children, and the other to analyze the service availability
+              to ensure the equity of social services.
+            </div>
+          </div>
+          <div class="panel-footer">
+            <a href="https://uic-evl.github.io/EnglewoodSocialServices/" target="about:blank">
+              <i class="fa fa-2x fa-link"></i>
+            </a>
+            <a href="https://github.com/uic-evl/EnglewoodSocialServices/" target="about:blank">
+              <i class="fa fa-2x fa-github"></i>
+            </a>
+            <!-- <a href="./content/BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" target="about:blank">
+              <i class="fa fa-2x fa-file-pdf-o"></i>
+            </a> -->
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Dynamic Influence Networks for Rule-Based Models</h3>
+          </div>
+          <div class="panel-body row">
+            <div class="col-md-6 teaser">
+              <img src="./img/DIN.png" alt="Dynamic Influence Networks Teaser">
+            </div>
+            <div class="col-md-6 description">
+              We introduce the Dynamic Influence Network (DIN), a novel visual analytics technique for representing and analyzing rule-
+              based models of protein-protein interaction networks. Rule-based modeling has proved instrumental in developing
+              biological models that are concise, comprehensible, easily extensible, and that mitigate the combinatorial
+              complexity of multi-state and multi-component biological molecules. Our technique visualizes the dynamics of
+              these rules as they evolve over time. Using the data produced by KaSim, an open source stochastic simulator
+              of rule-based models written in the Kappa language, DINs provide a node-link diagram that represents the influence
+              that each rule has on the other rules. That is, rather than representing individual biological components or
+              types, we instead represent the rules about them (as nodes) and the current influence of these rules (as links).
+              Using our interactive DIN-Viz software tool, researchers are able to query this dynamic network to find meaningful
+              patterns about biological processes, and to identify salient aspects of complex rule-based models. To evaluate
+              the effectiveness of our approach, we investigate a simulation of a circadian clock model that illustrates
+              the oscillatory behavior of the KaiC protein phosphorylation cycle.
+            </div>
+          </div>
+          <div class="panel-footer">
+            <a href="https://creativecodinglab.github.io/DynamicInfluenceNetworks/?flux_0.json" target="about:blank">
+              <i class="fa fa-2x fa-link"></i>
+            </a>
+            <a href="https://github.com/CreativeCodingLab/DynamicInfluenceNetworks" target="about:blank">
+              <i class="fa fa-2x fa-github"></i>
+            </a>
+            <a href="./content/BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" target="about:blank">
+              <i class="fa fa-2x fa-file-pdf-o"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>SMARTer UI</h3>
+          </div>
+          <div class="panel-body row">
+            <div class="col-md-6 teaser">
+              <img src="./img/SMARTer.png" alt="SMARTer UI">
+            </div>
+            <div class="col-md-6 description">
+              We present the design and evaluation of an integrated problem solving environment for cancer therapy analysis. The environment
+              intertwines a statistical martingale model and a K Nearest Neighbor approach with visual encodings, including
+              novel interactive nomograms, in order to compute and explain a patient's probability of survival as a function
+              of similar patient results. A coordinated views paradigm enables exploration of the multivariate, heterogeneous
+              and few-valued data from a large head and neck cancer repository. A visual scaffolding approach further enables
+              users to build from familiar representations to unfamiliar ones.
+            </div>
+          </div>
+          <div class="panel-footer">
+            <a href="http://chihuama.com/SMARTER/" target="about:blank">
+              <i class="fa fa-2x fa-link"></i>
+            </a>
+            <!-- <a href="https://github.com/uic-evl/EnglewoodSocialServices/" target="about:blank">
+              <i class="fa fa-2x fa-github"></i>
+            </a> -->
+            <!-- <a href="./content/BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" target="about:blank">
+              <i class="fa fa-2x fa-file-pdf-o"></i>
+            </a> -->
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>EnsembleProb</h3>
+          </div>
+          <div class="panel-body row">
+            <div class="col-md-6 teaser">
+              <img src="./img/EnsembleProb.png" alt="EnsembleProb Teaser">
+            </div>
+            <div class="col-md-6 description">
+              We present a web-based visual analysis tool for the exploration of peak distributions over state space and simulation time
+              in such stochastic networks, and the comparison of peak distributions between multiple simulations. Our approach
+              combines multiple linked views to capture ensemble time-evolving probability landscapes. A peak trajectory
+              cube provides users an overview of peak spatiotemporal distributions between six simulations. A peak projection
+              map shows the exact peak locations of multiple simulations at the user selected time. At a more detailed level,
+              users can inspect a particular state in the peak projection map to view for each simulation both the probability
+              values over time, and the local probability landscape shapes. This information is displayed in a small multiple
+              using two glyphs: profile glyphs and arrow glyphs. The arrow glyph indicates that a state is a peak when all
+              the glyph eight arrows point towards the glyph center.
+            </div>
+          </div>
+          <div class="panel-footer">
+            <a href="http://chihuama.com/EnsembleProb/prototype" target="about:blank">
+              <i class="fa fa-2x fa-link"></i>
+            </a>
+            <!-- <a href="https://github.com/uic-evl/EnglewoodSocialServices/" target="about:blank">
+              <i class="fa fa-2x fa-github"></i>
+            </a> -->
+            <!-- <a href="./content/BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" target="about:blank">
+              <i class="fa fa-2x fa-file-pdf-o"></i>
+            </a> -->
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Multi-scale Voronoi-based ACT Assessment</h3>
+            <h4><strong>Honorable Mention</strong> IEEE VGTC VPG International Data-Visualization Contest 2017</h4>
+          </div>
+          <div class="panel-body row">
+            <div class="col-md-6 teaser">
+              <img src="./img/VGTC-data-contest.png" alt="Voronoi ACT Teaser">
+            </div>
+            <div class="col-md-6 description">
+              Our contest submission aimed to develop a static visual representation that shows how geographic and seasonal changes in
+              the availability of the ACT test affects nearby or adjacent testing sites, by moving students or assessments,
+              changing dates, or some other strategy. The Voronoi visualization (Top Middle) encodes test center distribution
+              at regional level (Illinois) by partitioning each region based on distances to test centers. The Voronoi cell
+              intensity is mapped to Assigned/Capacity; the darker the cell, the higher demand in that region.
+            </div>
+          </div>
+          <div class="panel-footer">
+            <a href="http://vacommunity.org/ieeevpg/viscontest/2016/entries/3.html" target="about:blank">
+              <i class="fa fa-2x fa-link"></i>
+            </a>
+            <!-- <a href="https://github.com/uic-evl/EnglewoodSocialServices/" target="about:blank">
+              <i class="fa fa-2x fa-github"></i>
+            </a> -->
+            <!-- <a href="./content/BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" target="about:blank">
+              <i class="fa fa-2x fa-file-pdf-o"></i>
+            </a> -->
+          </div>
+        </div>
+
       </div>
       <div id="publications" class="tab-pane fade">
         <h3>My Publications</h3>
@@ -98,14 +264,13 @@
           </div>
           <div class="panel-body">
             <div class="publication">
-              G. E. Marai, C. Ma, <strong>A. Burks</strong>, F. Pellolio, G. Canahuate, D. Vock, A. S.
-              R. Mohamed, and C. D. Fuller. <strong>Precision Risk Analysis of Cancer Therapy with Interactive Nomograms and Survival Plots</strong>.
+              G. E. Marai, C. Ma, <strong>A. Burks</strong>, F. Pellolio, G. Canahuate, D. Vock, A. S. R. Mohamed, and C.
+              D. Fuller. <strong>Precision Risk Analysis of Cancer Therapy with Interactive Nomograms and Survival Plots</strong>.
               Under review.
             </div>
             <div class="publication">
-              A. G. Forbes, <strong>A. Burks</strong>, K. Lee, X. Li, P. Boutillier, J. Krivine, and
-              W. Fontana. <strong>Dynamic influence networks for rule-based models</strong>. IEEE Transactions
-              on Visualization and Computer Graphics, 24(1), January 2018.
+              A. G. Forbes, <strong>A. Burks</strong>, K. Lee, X. Li, P. Boutillier, J. Krivine, and W. Fontana. <strong>Dynamic influence networks for rule-based models</strong>.
+              IEEE Transactions on Visualization and Computer Graphics, 24(1), January 2018.
             </div>
           </div>
         </div>
@@ -115,10 +280,9 @@
           </div>
           <div class="panel-body">
             <div class="publication">
-              D. McNamara, J. Tapia, C. Ma, T. Luciani, <strong>A. Burks</strong>, J. Trelles, and G.
-              E. Marai. <strong>Spatial Analysis of Employee Safety Using Organizable Event Quiltmaps</strong>.
-              In Proceedings of the IEEE VIS 2016 Workshop on Temporal & Sequential Event Analysis, Baltimore,
-              MD, USA, October 2016.
+              D. McNamara, J. Tapia, C. Ma, T. Luciani, <strong>A. Burks</strong>, J. Trelles, and G. E. Marai. <strong>Spatial Analysis of Employee Safety Using Organizable Event Quiltmaps</strong>.
+              In Proceedings of the IEEE VIS 2016 Workshop on Temporal & Sequential Event Analysis, Baltimore, MD, USA, October
+              2016.
             </div>
 
           </div>
@@ -129,14 +293,19 @@
           </div>
           <div class="panel-body">
             <div class="publication">
-              C. Ma, <strong>A. Burks</strong>, T. Luciani, A. Terebus, J. Liang, and G. E. Marai.
-              <strong>Visualizing ensemble time-evolving probability landscapes of stochastic networks</strong>.
-              To appear at BioVis 2017.
+              J. Castor, J. Borowicz, <strong>A. Burks</strong>, M. Thomas, T. Luciani, G.E. Marai, <strong>MC2 - Mining Factory
+              Pollution Data through a Spatial-Nonspatial Flow Approach</strong>, IEEE Visual Analytics Science and Technology
+              (VAST) Challenge 2017 Proceedings, pp. 1-2, 2017. <strong>Honorable Mention - Clarity in Visual Communication</strong>
             </div>
             <div class="publication">
-              T. Luciani, J. Trelles, C. Ma, <strong>A. Burks</strong>, M. M. Thomas, K. Bharadwaj, S.
-              Singh, P. Hanula, L. Di and G. E. Marai. <strong>Multi-scale Voronoi-based ACT Assessment</strong>.
-              IEEE VGTC VPG International Data-Visualization Contest, Baltimore, MD, USA, October 2016.
+              C. Ma, <strong>A. Burks</strong>, T. Luciani, A. Terebus, J. Liang, and G. E. Marai.
+              <strong>Visualizing ensemble time-evolving probability landscapes of stochastic networks</strong>. To appear
+              at BioVis 2017.
+            </div>
+            <div class="publication">
+              T. Luciani, J. Trelles, C. Ma, <strong>A. Burks</strong>, M. M. Thomas, K. Bharadwaj, S. Singh, P. Hanula,
+              L. Di and G. E. Marai. <strong>Multi-scale Voronoi-based ACT Assessment</strong>. IEEE VGTC VPG International
+              Data-Visualization Contest, Baltimore, MD, USA, October 2016.
               <strong>Honorable Mention.</strong>
 
             </div>
@@ -160,20 +329,18 @@
           <div class="panel-body">
             <p>
               Through this work, I have gained hands-on experience in two main areas: <strong>Data Visualization and Visual Analytics, and Human Computer Interaction</strong>.
-              The majority of my work goes towards harnessing the latest in web-based technologies to
-              create an accessible experience for any user.
+              The majority of my work goes towards harnessing the latest in web-based technologies to create an accessible
+              experience for any user.
             </p>
             <p>
-              In the field of Data Visualization and Visual Analytics, I have experience working with diverse data
-              sources as well as familiarity with cross-disciplinary collaboration. In past projects,
-              I have tackled problems in the fields of:
+              In the field of Data Visualization and Visual Analytics, I have experience working with diverse data sources as well as familiarity
+              with cross-disciplinary collaboration. In past projects, I have tackled problems in the fields of:
               <ul>
                 <li>
                   <strong>Computational Fluid Dynamics</strong> (Viscous Fingers)
                 </li>
                 <li>
-                  <strong>Computational Biology</strong> (Protein-Protein Interactions & Stochastic Gene
-                  Regulatory Networks)
+                  <strong>Computational Biology</strong> (Protein-Protein Interactions & Stochastic Gene Regulatory Networks)
                 </li>
                 <li>
                   <strong>Precison Medicine</strong>
@@ -188,10 +355,9 @@
             </p>
             <p>
               Aside for Data Visualization, I was funded to work on the $5M NSF grant for <strong>SAGE2: Scalable Amplified Group Environment</strong>.
-              Working on SAGE2, I developed a "Partition" system allow users to have more options to
-              organize their content. Additionally, I worked on maintaning and improving core
-              functionality of the software. Through this work, I learned about the interplay between
-              client(s) and server on cross-client applications for large-displays.
+              Working on SAGE2, I developed a "Partition" system allow users to have more options to organize their content.
+              Additionally, I worked on maintaning and improving core functionality of the software. Through this work, I
+              learned about the interplay between client(s) and server on cross-client applications for large-displays.
             </p>
 
           </div>
