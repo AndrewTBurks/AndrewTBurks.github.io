@@ -110,7 +110,6 @@ class App extends Component {
   }
 
   onShowProjectInfo(project) {
-    console.log(project);
     this.setState({ selectedProject: project, projectModalOpen: true });
   }
 
@@ -124,7 +123,6 @@ class App extends Component {
       <Fragment>
         <CssBaseline/>
         <Paper style={{padding: "10px"}}>
-        {/* <div> */}
           <Typography variant="display1" id="modal-title">
             Andrew Burks
           </Typography>
@@ -134,7 +132,6 @@ class App extends Component {
           <Typography variant="subheading" id="modal-title" gutterBottom>
             Research Assistant - Electronic Visualization Laboratory
           </Typography>
-        {/* </div> */}
         </Paper>
         <Grid container spacing={16} justify="center">
           <Grid item xs={12} sm={6}>
@@ -171,7 +168,7 @@ class App extends Component {
                 <Tab label="Publications" />
               </Tabs>
             </AppBar>
-            <Paper style={{padding: "10px", marginTop: "5px"}}>
+            <Paper style={{padding: "10px", marginTop: "5px", backgroundColor: "#f5f5f5"}}>
               {
                 this.state.rightPage === 0 ? 
                 <Projects projectData={projectData} showProjectInfo={this.onShowProjectInfo}/> :
@@ -180,6 +177,7 @@ class App extends Component {
             </Paper>
           </Grid>
         </Grid>
+
         <Modal open={this.state.projectModalOpen} onClose={this.onHideProjectInfo}>
           <Paper style={paperModalStyle}>
               <Button color="secondary" onClick={this.onHideProjectInfo} style={{position: "absolute", right: "8px", top: "8  px"}}>
@@ -203,6 +201,12 @@ class App extends Component {
                   style={{width: "100%", boxShadow: modalStyle.boxShadow}}/>
               </Grid>
               <Grid item xs={12} sm={6}>
+                {
+                  project.award === "" ? "" :
+                    <Typography variant="body2">
+                      {project.award}
+                    </Typography>
+                }
                 <Typography variant="title">
                   Abstract:
                 </Typography>

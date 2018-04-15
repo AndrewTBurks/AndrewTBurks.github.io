@@ -30,3 +30,7 @@
 body {
   padding: 10px;
 }
+
+.badgeCentered span{
+  top: 0;
+}
