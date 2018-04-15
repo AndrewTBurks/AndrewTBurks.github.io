@@ -11,9 +11,9 @@ const Projects = (props) => {
   let { projectData } = props;
 
   return (
-    <GridList spacing={16}>
-        <GridListTile key="Subheader" cols={2} style={{height: 'auto'}}>
-        <Subheader component="div">Projects</Subheader>
+    <GridList spacing={16} style={{maxHeight: "800px"}}>
+      <GridListTile key="Subheader" cols={2} style={{height: 'auto'}}>
+        <Subheader component="div"></Subheader>
       </GridListTile>
 
       {projectData.map(project => (
@@ -21,7 +21,7 @@ const Projects = (props) => {
             <img src={process.env.PUBLIC_URL + "/img/" + project.image} alt={project.name} />
             <GridListTileBar
               style={{background: "rgba(0,0,0,0.5)"}}
-              title={project.name}
+              title={<span style={{fontWeight: "bold"}}>{project.name}</span>}
               subtitle={<span>by: {project.team}</span>}
               actionIcon={
                 <IconButton style={{color: 'rgba(255, 255, 255, 0.54)'}} onClick={() => props.showProjectInfo(project)}>

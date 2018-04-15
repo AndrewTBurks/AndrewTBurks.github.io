@@ -4,14 +4,19 @@ import './App.css';
 import 'typeface-roboto';
 import CssBaseline from 'material-ui/CssBaseline';
 
-import { Grid , ButtonBase} from 'material-ui';
+import { Grid } from 'material-ui';
 import Typography from 'material-ui/Typography';
 import Modal from 'material-ui/Modal';
 import Button from 'material-ui/Button';
+import AppBar from 'material-ui/AppBar';
+import Tabs, { Tab } from 'material-ui/Tabs';
 
 import Projects from "./pages/projects"
+import Publications from "./pages/pubs"
+import About from "./pages/about"
 
 import projectData from "./projects.json";
+import pubData from "./pubs.json";
 
 let modalStyle = {
   position: 'absolute',
@@ -73,18 +78,18 @@ class App extends Component {
     super(props);
     
     this.state = {
-      page: "home",
+      rightPage: 0,
       selectedProject: projectData[0],
       projectModalOpen: false
     };
 
-    this.onNavSelect = this.onNavSelect.bind(this);
+    this.onRightNav = this.onRightNav.bind(this);
     this.onShowProjectInfo = this.onShowProjectInfo.bind(this);
     this.onHideProjectInfo = this.onHideProjectInfo.bind(this);
   }
 
-  onNavSelect(selectedKey) {
-    this.setState({ page: selectedKey });
+  onRightNav(event, value) {
+    this.setState({ rightPage: value });
   }
 
   onShowProjectInfo(project) {
@@ -108,13 +113,32 @@ class App extends Component {
           <Typography variant="subheading" id="modal-title">
             Ph.D. Student - University of Illinois at Chicago
           </Typography>
-          <Typography variant="subheading" id="modal-title">
+          <Typography variant="subheading" id="modal-title" gutterBottom>
             Research Assistant - Electronic Visualization Laboratory
           </Typography>
         </div>
         <Grid container spacing={16} justify="center">
           <Grid item xs={12} sm={6}>
-            <Projects projectData={projectData} showProjectInfo={this.onShowProjectInfo}/>
+            <About/>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <AppBar position="static" color="default">
+              <Tabs
+                value={this.state.rightPage}
+                onChange={this.onRightNav}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+              >
+                <Tab label="Projects" />
+                <Tab label="Publications" />
+              </Tabs>
+            </AppBar>
+            {
+              this.state.rightPage === 0 ? 
+              <Projects projectData={projectData} showProjectInfo={this.onShowProjectInfo}/> :
+              <Publications pubData={pubData}/>
+            }
           </Grid>
         </Grid>
         <Modal open={this.state.projectModalOpen} onClose={this.onHideProjectInfo}>
