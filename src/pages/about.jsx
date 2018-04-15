@@ -15,7 +15,6 @@ const About = (props) => {
     <Grid container spacing={16}>
       <Grid item xs={12}>
         <Subheader component="div">
-          About Me
         </Subheader>
       </Grid>
       <Grid item xs={12} sm={6}>

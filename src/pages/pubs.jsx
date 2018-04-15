@@ -1,22 +1,36 @@
 import React from 'react';
 
 // import { Grid } from 'material-ui';
-import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
-import Subheader from 'material-ui/List/ListSubheader';
-
 import IconButton from 'material-ui/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 
-const Projects = (props) => {
-  let { projectData } = props;
+import ExpansionPanel, {
+  ExpansionPanelSummary,
+  ExpansionPanelDetails,
+} from 'material-ui/ExpansionPanel';
+import Typography from 'material-ui/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+const Publications = (props) => {
+  let { pubData } = props;
 
   return (
-    <GridList spacing={16}>
-      <GridListTile key="Subheader" cols={2} style={{height: 'auto'}}>
-        <Subheader component="div">Publications</Subheader>
-      </GridListTile>
-    </GridList>
+    <div style={{maxHeight: "800px"}}>
+      {pubData.map(pub => (
+          <ExpansionPanel>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Expansion Panel 1</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+              sit amet blandit leo lobortis eget.
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      ))}
+    </div>
   );
 }
  
-export default Projects;
+export default Publications;

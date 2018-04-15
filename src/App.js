@@ -6,6 +6,7 @@ import CssBaseline from 'material-ui/CssBaseline';
 
 import { Grid } from 'material-ui';
 import Typography from 'material-ui/Typography';
+import Paper from 'material-ui/Paper';
 import Modal from 'material-ui/Modal';
 import Button from 'material-ui/Button';
 import AppBar from 'material-ui/AppBar';
@@ -28,6 +29,16 @@ let modalStyle = {
   left: "50%",
   transform: "translate(-50%, -50%)"
 };
+
+let paperModalStyle = {
+  position: 'absolute',
+  padding: "20px",
+  width: "75%",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)"
+
+}
 
 let createProjectLinks = (proj) => {
   let { link, github, paper } = proj;
@@ -79,17 +90,23 @@ class App extends Component {
     
     this.state = {
       rightPage: 0,
+      leftPage: 0,
       selectedProject: projectData[0],
       projectModalOpen: false
     };
 
     this.onRightNav = this.onRightNav.bind(this);
+    this.onLeftNav = this.onLeftNav.bind(this);
     this.onShowProjectInfo = this.onShowProjectInfo.bind(this);
     this.onHideProjectInfo = this.onHideProjectInfo.bind(this);
   }
 
   onRightNav(event, value) {
     this.setState({ rightPage: value });
+  }
+
+  onLeftNav(event, value) {
+    this.setState({ leftPage: value });
   }
 
   onShowProjectInfo(project) {
@@ -106,7 +123,8 @@ class App extends Component {
     return (
       <Fragment>
         <CssBaseline/>
-        <div>
+        <Paper style={{padding: "10px"}}>
+        {/* <div> */}
           <Typography variant="display1" id="modal-title">
             Andrew Burks
           </Typography>
@@ -116,13 +134,32 @@ class App extends Component {
           <Typography variant="subheading" id="modal-title" gutterBottom>
             Research Assistant - Electronic Visualization Laboratory
           </Typography>
-        </div>
+        {/* </div> */}
+        </Paper>
         <Grid container spacing={16} justify="center">
           <Grid item xs={12} sm={6}>
-            <About/>
+          <AppBar position="static" color="default" style={{marginTop: "5px"}}>
+              <Tabs
+                value={this.state.leftPage}
+                onChange={this.onLeftNav}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+              >
+                <Tab label="About Me" />
+                <Tab label="My Work" />
+              </Tabs>
+            </AppBar>
+            <Paper style={{padding: "10px", marginTop: "5px"}}>
+              {
+                this.state.leftPage === 0 ? 
+                <About/> : 
+                ""
+              }
+            </Paper>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <AppBar position="static" color="default">
+            <AppBar position="static" color="default" style={{marginTop: "5px"}}>
               <Tabs
                 value={this.state.rightPage}
                 onChange={this.onRightNav}
@@ -134,15 +171,17 @@ class App extends Component {
                 <Tab label="Publications" />
               </Tabs>
             </AppBar>
-            {
-              this.state.rightPage === 0 ? 
-              <Projects projectData={projectData} showProjectInfo={this.onShowProjectInfo}/> :
-              <Publications pubData={pubData}/>
-            }
+            <Paper style={{padding: "10px", marginTop: "5px"}}>
+              {
+                this.state.rightPage === 0 ? 
+                <Projects projectData={projectData} showProjectInfo={this.onShowProjectInfo}/> :
+                <Publications pubData={pubData}/>
+              }
+            </Paper>
           </Grid>
         </Grid>
         <Modal open={this.state.projectModalOpen} onClose={this.onHideProjectInfo}>
-          <div style={modalStyle}>
+          <Paper style={paperModalStyle}>
               <Button color="secondary" onClick={this.onHideProjectInfo} style={{position: "absolute", right: "8px", top: "8  px"}}>
                 <i className="fa fa-2x fa-times"></i>
               </Button>
@@ -176,7 +215,7 @@ class App extends Component {
                 {createProjectLinks(project)}
               </Grid>
             </Grid>
-          </div>
+          </Paper>
         </Modal>
       </Fragment>
     );
