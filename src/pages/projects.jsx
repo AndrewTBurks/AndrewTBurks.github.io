@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid } from 'material-ui';
+// import { Grid } from 'material-ui';
 import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
 import Subheader from 'material-ui/List/ListSubheader';
 

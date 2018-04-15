@@ -6,7 +6,7 @@
     "image": "EnglewoodFinder.png",
     "link": "https://uic-evl.github.io/EnglewoodSocialServices/",
     "github": "https://github.com/uic-evl/EnglewoodSocialServices/",
-    "paper": null 
+    "paper": "" 
   },
   {
     "name": "Dynamic Influence Networks for Rule-Based Models",
@@ -24,7 +24,7 @@
     "image": "SMARTer.png",
     "link": "http://chihuama.com/SMARTER/",
     "github": "",
-    "paper": "" 
+    "paper": ""
   },
   {
     "name": "EnsembleProb",
