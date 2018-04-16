@@ -15,7 +15,7 @@ const Publication = (props) => {
 
       {
         pub.award === "" ? "" :
-        <Typography variant="caption">
+        <Typography variant="caption" color="secondary">
           {pub.award}
         </Typography>
       }

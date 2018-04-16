@@ -14,6 +14,7 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 
 import Projects from "./pages/projects"
 import Publications from "./pages/pubs"
+import Home from "./pages/home"
 import About from "./pages/about"
 
 import projectData from "./projects.json";
@@ -57,7 +58,7 @@ let createProjectLinks = (proj) => {
         href={link}
         disabled={link === ""}
         target="about:blank">
-        Tool
+        Link
         <i className="fa fa-2x fa-link" style={iconStyle}></i>
       </Button>
       <Button
@@ -122,14 +123,14 @@ class App extends Component {
     return (
       <Fragment>
         <CssBaseline/>
-        <Paper style={{padding: "10px"}}>
-          <Typography variant="display1" id="modal-title">
+        <Paper style={{padding: "10px 25px"}}>
+          <Typography variant="display1" color="primary">
             Andrew Burks
           </Typography>
-          <Typography variant="subheading" id="modal-title">
+          <Typography variant="subheading" style={{marginLeft: "5px"}}>
             Ph.D. Student - University of Illinois at Chicago
           </Typography>
-          <Typography variant="subheading" id="modal-title" gutterBottom>
+          <Typography variant="subheading" gutterBottom style={{marginLeft: "5px"}}>
             Research Assistant - Electronic Visualization Laboratory
           </Typography>
         </Paper>
@@ -143,15 +144,15 @@ class App extends Component {
                 textColor="primary"
                 centered
               >
+                <Tab label="Home" />
                 <Tab label="About Me" />
-                <Tab label="My Work" />
               </Tabs>
             </AppBar>
             <Paper style={{padding: "10px", marginTop: "5px"}}>
               {
                 this.state.leftPage === 0 ? 
-                <About/> : 
-                ""
+                <Home/> : 
+                <About/>
               }
             </Paper>
           </Grid>
@@ -203,7 +204,7 @@ class App extends Component {
               <Grid item xs={12} sm={6}>
                 {
                   project.award === "" ? "" :
-                    <Typography variant="body2">
+                    <Typography variant="body1" color="secondary">
                       {project.award}
                     </Typography>
                 }
@@ -215,7 +216,7 @@ class App extends Component {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                Links:
+                {/* Links: */}
                 {createProjectLinks(project)}
               </Grid>
             </Grid>

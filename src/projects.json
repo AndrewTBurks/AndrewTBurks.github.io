@@ -1,5 +1,15 @@
 [
   {
+    "name": "SAGE2 + JupyterLab Integration",
+    "abstract": "To better integrate existing data science workflows into the SAGE2 collaborative experience, we provide a SAGE2 plugin for JupyterLab. The plugin supports sharing both static notebooks, as well as dynamically updating cell content to SAGE2. A user simply connects to one or more SAGE2 server by URL, and can start sharing their Jupyter Notebook content. Shared notebooks are rendered by Jupyter nbviewer as static web-pages on the SAGE2 wall. Shared notebook cell image output is sent as an image to SAGE2 and dynamically updates every time that a cell is run.",
+    "team": "A. Burks, L. Renambot",
+    "image": "JupyterLab_SAGE2.jpg",
+    "award": "",
+    "link": "https://www.youtube.com/watch?v=l2pRLhw6GSE",
+    "github": "https://github.com/AndrewTBurks/jupyterlab_sage2",
+    "paper": "" 
+  },
+  {
     "name": "Context-Aware Visualization of Englewood Social Services",
     "abstract": "In the Englewood Community Area in Chicago, the youth face two main obstacles they face when looking for nearby social services. First, they may not be aware of some of the services around them. Second, these services that they need may not exist in their area. In the Englewood Community Area, it is a particularly dire situation as many children are in danger or are in lack of basic human needs. To help solve this problem, we implement two web-based tools -- one for volunteers to help find services for children, and the other to analyze the service availability to ensure the equity of social services.",
     "team": "A. Burks, I. Lindmae, J. Castor, J. Feinberg, G. E. Marai",
@@ -18,6 +28,16 @@
     "link": "https://creativecodinglab.github.io/DynamicInfluenceNetworks/",
     "github": "https://github.com/CreativeCodingLab/DynamicInfluenceNetworks",
     "paper": "BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" 
+  },
+  {
+    "name": "SAGE2 Partitions",
+    "abstract": "While SAGE2 allows users the complete freedom to organize their content, SAGE2 Partitions aim to provide optional structure to the organization. SAGE2 partitions can act as divisions of the screen space, deforming their neighbors when resized. The Partitions can be 'un-snapped' to allow for free movement, becoming a simple grouping of applications. Partitions can be 'tiled' organizing the content within into a grid. As content is added or removed from a Partiton, the groupings are dynamically updated and content dynamically rearranged. Click-and-drag interaction can be used both to create new Partitions in an empty space and essentially select apps to grab, or to 'cut' existing Partitions to divide the size and content.",
+    "team": "A. Burks, L. Renambot",
+    "image": "PartitionsSmall.jpg",
+    "award": "",
+    "link": "",
+    "github": "",
+    "paper": "" 
   },
   {
     "name": "SMART UI",
@@ -55,16 +75,6 @@
     "team": "A. Burks, C. Sugiyama, T. Luciani, J. Komperda, G. E. Marai",
     "image": "InteractiveExploration.jpg",
     "award": "Certificate of Merit - IEEE SciVis Data Visualization Contest 2017",
-    "link": "",
-    "github": "",
-    "paper": "" 
-  },
-  {
-    "name": "",
-    "abstract": "",
-    "team": "",
-    "image": "",
-    "award": "",
     "link": "",
     "github": "",
     "paper": "" 
