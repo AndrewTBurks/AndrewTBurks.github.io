@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html, #root {
   width: 100%;
   height: 100%;
@@ -29,6 +33,18 @@ body {
   --gray: #757981;
 }
 
+body.light {
+}
+
+body.dark {
+  --fontcolor: var(--cyan);
+  --highlight-font: var(--purple);
+
+  --background: var(--dark-gray-d);
+  --primary: var(--dark-gray);
+  --secondary: var(--dark-gray-h);
+}
+
 .navbar {  
   width: 100%;
   height: 50px;
@@ -47,7 +63,9 @@ body {
 
   font-weight: bold;
   margin: 0 30px;
-  font-size: 22px;
+  font-size: 32px;
+
+  font-family: "Lobster";
 }
 
 .navbar .link {
@@ -60,9 +78,9 @@ body {
 
   border-bottom: 5px solid var(--dark-gray-h);
 
-  font-size: 16px;
-  font-weight: bold;
   color: var(--cyan);
+  font-weight: bold;
+  font-size: 22px;
 
   text-decoration: none;
 
@@ -90,17 +108,6 @@ body {
   color: var(--gray);
 }
 
-.footer .link {
-  color: var(--gray);
-
-  cursor: pointer;
-}
-
-.footer .link:hover {
-  color: var(--cyan);
-  text-decoration: underline;
-}
-
 
 .App {
   text-align: center;
@@ -116,18 +123,40 @@ body {
 
 .contentWrapper {
   display: flex;
+  flex-direction: row;
   flex: 1;
 
   align-items: center;
   justify-content: center;
+
+  padding: 40px;
+
+  overflow-y: auto;
 }
 
 .panel {
-  width: 300px;
-  height: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
+  flex-basis: 200px;
+  flex-grow: 1;
+
+  padding: 10px 25px;
+  
   background: var(--dark-gray);
   border: 3px solid var(--dark-gray-h);
 
   box-shadow: 0 0 45px 5px var(--cyan-transparent);
+}
+
+.panel .text {
+  text-align: left;
+}
+
+.panel .panel-section {
+  flex: 1;
+  flex-basis: 200px;
+
+  padding: 15px;
 }

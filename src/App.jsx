@@ -17,6 +17,9 @@ const links = [
   {name: "Publications", to: "/publications"},
 ];
 
+// document.body.className = "dark";
+document.body.className = "light";
+
 class App extends Component {
   render() {
     return (

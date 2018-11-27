@@ -1,0 +1,75 @@
+.Typography {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Typography.default {
+  color: white;
+}
+
+.Typography.special {
+  font-family: 'Lobster';
+  font-size: 32px;
+
+  color: var(--highlight-color);
+}
+
+.Typography.heading {
+  font-size: 36px;
+  font-weight: bold;
+
+  color: var(--purple);
+  margin: 16px 0 8px;
+}
+
+.Typography.subheading {
+  font-size: 32px;
+
+  color: var(--cyan);
+  margin: 8px 0 4px;
+}
+
+.Typography.subsubheading {
+  font-size: 26px;
+
+  margin: 4px 0 2px;
+  color: white;
+}
+
+.Typography.link {
+  font-size: 18px;
+  color: var(--gray);
+
+  cursor: pointer;
+  text-decoration: underline;
+  
+}
+
+.Typography.link:hover {
+  color: var(--cyan);
+}
+
+.Typography.caption {
+  font-size: 18px;
+  color: #757981;
+}
+
+.Typography.subcaption {
+  font-size: 16px;
+  color: #5C6068;
+}
+
+.Typography.default {
+  font-size: 22px;
+}
+
+.Typography.default:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.Typography.default:not(:first-of-type) {
+  margin-top: 8px;
+}
