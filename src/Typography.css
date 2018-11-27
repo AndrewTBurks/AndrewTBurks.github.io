@@ -13,8 +13,6 @@
 .Typography.special {
   font-family: 'Lobster';
   font-size: 32px;
-
-  color: var(--highlight-color);
 }
 
 .Typography.heading {
@@ -67,9 +65,13 @@
 }
 
 .Typography.default:not(:last-of-type) {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .Typography.default:not(:first-of-type) {
   margin-top: 8px;
+}
+
+.Typography.default strong {
+  color: var(--purple);
 }

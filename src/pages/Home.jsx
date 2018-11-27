@@ -7,11 +7,11 @@ export default function Home() {
   
   return <>
       <div className="panel">
-        <div className="panel-section">
-          <img src={process.env.PUBLIC_URL + "/img/Profile.jpg"} alt="Me" style={{width: "100%", height: "auto"}}/>
+        <div className="panel-section" style={{}}>
+          <img src={process.env.PUBLIC_URL + "/img/Profile.jpg"} alt="Me" style={{maxWidth: "100%", maxHeight: "500px"}}/>
         </div>
         <div className="panel-section text">
-          <Typography type="heading">My name is Andrew Burks.</Typography>
+          <Typography type="heading special">My name is Andrew Burks.</Typography>
 
           <Typography type="default">
             I am a Ph.D. Computer Science student at the University of

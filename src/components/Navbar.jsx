@@ -11,14 +11,14 @@ export default function Navbar({title = "Navbar", links = [], location, ...props
         {title}
       </div>
       {links.map(l => (
-        <NavLink {...l}/>
+        <NavLink key={l.name} {...l}/>
       ))}
     </div>
   )
 
   function NavLink({name, to, ...props}) {
     return (
-      <Link key={name} className= {'link' + (to === location.pathname ? ' selected' : '')} to={to}>
+      <Link className= {'link' + (to === location.pathname ? ' selected' : '')} to={to}>
         <Typography>
           {name}
         </Typography>

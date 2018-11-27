@@ -12,9 +12,9 @@ import Content from './Content';
 
 const links = [
   {name: "Home", to: "/"},
-  {name: "About", to: "/about"},
   {name: "Projects", to: "/projects"},
   {name: "Publications", to: "/publications"},
+  {name: "About", to: "/about"},
 ];
 
 // document.body.className = "dark";

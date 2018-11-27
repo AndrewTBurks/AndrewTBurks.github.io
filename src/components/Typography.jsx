@@ -2,6 +2,7 @@ import React from 'react';
 
 import "../Typography.css";
 
+// eslint-disable-next-line
 const types = {
   default: {},
   heading: {},

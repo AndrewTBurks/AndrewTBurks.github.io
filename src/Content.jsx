@@ -3,6 +3,9 @@ import { Router } from '@reach/router';
 
 
 import Home from "./pages/Home";
+import About from './pages/About';
+
+
 import Typography from './components/Typography';
 
 const TestPage = (props) => {
@@ -31,7 +34,7 @@ export default function Content(props) {
   return <div className="contentWrapper">
       <Router>
         <Home default path="/" />
-        <TestPage path="/about" color="orange" />
+        <About path="/about" />
         <TestPage path="/projects" color="limegreen" />
         <FontTest path="publications"/>
 
