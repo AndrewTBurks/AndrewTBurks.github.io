@@ -29,7 +29,7 @@ export default function About() {
             high-capacity networking instrumentation.
           </Typography>
           <Typography type="default">
-            <strong> SAGE2™: Scalable Amplified Group Environment</strong> is an
+            <strong><span style={{color:"#0EB87A"}}>SAGE2™</span>: Scalable Amplified Group Environment</strong> is an
             NSF $5M project to build a web-based system for tiled display walls to
             enhance data intensive co-located and remote collaboration. My research
             in SAGE2 focuses on providing expressive support to collaborative data

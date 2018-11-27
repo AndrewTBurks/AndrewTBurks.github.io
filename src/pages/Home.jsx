@@ -11,7 +11,7 @@ export default function Home() {
           <img src={process.env.PUBLIC_URL + "/img/Profile.jpg"} alt="Me" style={{maxWidth: "100%", maxHeight: "500px"}}/>
         </div>
         <div className="panel-section text">
-          <Typography type="heading special">My name is Andrew Burks.</Typography>
+          <Typography type="heading special">I'm Andrew Burks.</Typography>
 
           <Typography type="default">
             I am a Ph.D. Computer Science student at the University of

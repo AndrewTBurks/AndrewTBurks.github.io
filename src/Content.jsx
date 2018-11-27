@@ -3,10 +3,17 @@ import { Router } from '@reach/router';
 
 
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Publications from "./pages/Publications";
+
 import About from './pages/About';
 
 
+
 import Typography from './components/Typography';
+
+import projectData from "./projects.json";
+import pubData from "./pubs.json";
 
 const TestPage = (props) => {
   return (
@@ -35,9 +42,10 @@ export default function Content(props) {
       <Router>
         <Home default path="/" />
         <About path="/about" />
-        <TestPage path="/projects" color="limegreen" />
-        <FontTest path="publications"/>
-
+        <Projects path="/projects" projects={projectData} />
+        <Publications path="publications" />
+        {/* <About path="/about" />
+        <About path="/about" /> */}
       </Router>
     </div>;
 }

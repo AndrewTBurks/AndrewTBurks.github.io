@@ -7,7 +7,7 @@
 }
 
 .Typography.default {
-  color: white;
+  color: #e0e0e0;
 }
 
 .Typography.special {
@@ -40,6 +40,8 @@
 .Typography.link {
   font-size: 18px;
   color: var(--gray);
+
+  display: inline-block;
 
   cursor: pointer;
   text-decoration: underline;

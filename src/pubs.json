@@ -1,0 +1,71 @@
+{
+  "journal": [
+    {
+      "name": "Precision Risk Analysis of Cancer Therapy with Interactive Nomograms and Survival Plots",
+      "teamBefore": "G. E. Marai, C. Ma, ",
+      "teamAfter": ", et al.",
+      "journal": "in IEEE Transactions on Visualization and Computer Graphics, vol. PP, no. 99, pp. 1-1.",
+      "award": ""
+    },
+    {
+      "name": "Dynamic influence networks for rule-based models",
+      "teamBefore": "A. G. Forbes, ",
+      "teamAfter": ", K. Lee, X. Li, P. Boutillier, J. Krivine, and W. Fontana",
+      "journal": "IEEE Transactions on Visualization and Computer Graphics, 24(1), January 2018.",
+      "award": ""
+    }
+  ],
+  "conference": [
+    {
+      "name": "Spatial Analysis of Employee Safety Using Organizable Event Quiltmaps",
+      "teamBefore": "D. McNamara, J. Tapia, C. Ma, T. Luciani, ",
+      "teamAfter": ", J. Trelles, and G. E. Marai",
+      "journal": "In Proceedings of the IEEE VIS 2016 Workshop on Temporal & Sequential Event Analysis, Baltimore, MD, USA, October 2016.",
+      "award": ""
+    }
+  ],
+  "poster": [
+    {
+      "name": "MC2 - Mining Factory Pollution Data through a Spatial-Nonspatial Flow Approach",
+      "teamBefore": "J. Castor, J. Borowicz, ",
+      "teamAfter": ", M. Thomas, T. Luciani, G.E. Marai",
+      "journal": "IEEE Visual Analytics Science and Technology (VAST) Challenge 2017 Proceedings, pp. 1-2, 2017.",
+      "award": "Honorable Mention - Clarity in Visual Communication"
+    },
+    {
+      "name": "MC3 - A Web-Based Interactive Image Explorer for Temporal Analysis of Satellite Images",
+      "teamBefore": "V. Mahida, B. Kupiec, ",
+      "teamAfter": ", T. Luciani, G.E. Marai",
+      "journal": "IEEE Visual Analytics Science and Technology (VAST) Challenge 2017 Proceedings, pp. 1-2, 2017.",
+      "award": "Honorable Mention - Good Interactive Image Explorer"
+    },
+    {
+      "name": "MC1 - A Bespoke Analysis Tool for Spatio-temporal Park Traffic Data",
+      "teamBefore": "D. Kirilov, I. Lindmae, ",
+      "teamAfter": ", C. Ma, G.E. Marai",
+      "journal": " IEEE Visual Analytics Science and Technology (VAST) Challenge 2017 Proceedings, pp. 1-2, 2017.",
+      "award": ""
+    },
+    {
+      "name": "Visualizing ensemble time-evolving probability landscapes of stochastic networks",
+      "teamBefore": "C. Ma, ",
+      "teamAfter": ", T. Luciani, A. Terebus, J. Liang, and G. E. Marai",
+      "journal": "ISMB/ECCB 2017, pp. 1-2, BioVis’17",
+      "award": ""
+    },
+    {
+      "name": "Multi-scale Voronoi-based ACT Assessment",
+      "teamBefore": "T. Luciani, J. Trelles, C. Ma, ",
+      "teamAfter": ", M. M. Thomas, K. Bharadwaj, S. Singh, P. Hanula, L. Di and G. E. Marai.",
+      "journal": "IEEE VGTC VPG International Data-Visualization Contest, Baltimore, MD, USA, October 2016.",
+      "award": "Honorable Mention"
+    },
+    {
+      "name": "Interactive Exploration and Tracking of Ensemble Viscous Fingers",
+      "teamBefore": "",
+      "teamAfter": ", C. Sugiyama, T. Luciani, J. Komperda, G.E. Marai",
+      "journal": "IEEE VIS SciVis Data Contest 2016, IEEE VIS 2016, pp. 1-2, Oct 2016.",
+      "award": "Certificate of Merit"
+    }
+  ]
+}
