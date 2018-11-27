@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Grid } from 'material-ui';
+import Grid from '@material-ui/core/Grid';
 // import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
-import Subheader from 'material-ui/List/ListSubheader';
+import Subheader from '@material-ui/core/ListSubheader';
 
-import IconButton from 'material-ui/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-import Typography from 'material-ui/Typography';
+// import IconButton from '@material-ui/core/IconButton';
+// import InfoIcon from '@material-ui/icons/Info';
+import Typography from '@material-ui/core/Typography';
 
 const About = (props) => {
-  let { projectData } = props;
+  // let { projectData } = props;
 
   return (
     <Grid container spacing={16}

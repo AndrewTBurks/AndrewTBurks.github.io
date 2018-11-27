@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Grid } from 'material-ui';
-import IconButton from 'material-ui/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
+import Grid from '@material-ui/core/Grid';
+// import IconButton from '@material-ui/core/IconButton';
+// import InfoIcon from '@material-ui/icons/Info';
 
 import ExpansionPanel, {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
-} from 'material-ui/ExpansionPanel';
-import Typography from 'material-ui/Typography';
+} from '@material-ui/core/ExpansionPanel';
+import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-import Badge from 'material-ui/Badge';
+import Badge from '@material-ui/core/Badge';
 
 import Publication from '../components/pub';
 
@@ -23,7 +23,7 @@ const Publications = (props) => {
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Badge color="primary" badgeContent={pubData.journal.length} className="badgeCentered">
-            <Typography variant="title">Journal Publications</Typography>
+            <Typography variant="title">Journal Articles</Typography>
           </Badge>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -39,7 +39,7 @@ const Publications = (props) => {
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Badge color="primary" badgeContent={pubData.conference.length} className="badgeCentered">
-            <Typography variant="title">Peer-reviewed Conference Papers</Typography>
+            <Typography variant="title">Conference Papers</Typography>
           </Badge>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -56,7 +56,7 @@ const Publications = (props) => {
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Badge color="primary" badgeContent={pubData.poster.length} className="badgeCentered">
-            <Typography variant="title">Poster/Abstract Presentations</Typography>
+            <Typography variant="title">Short Papers, Posters & Abstracts</Typography>
           </Badge>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>

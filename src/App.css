@@ -1,7 +1,133 @@
-body {
-  padding: 10px;
+html, #root {
+  width: 100%;
+  height: 100%;
 }
 
-.badgeCentered span{
-  top: 0;
+body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--dark-gray-d);
+
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --cyan: #61dafb;
+  --cyan-transparent: #61dafb33;
+
+  --purple: #9985FB;
+  --purple-transparent: #9985FB33;
+
+  --green: #6EFB7A;
+
+  --dark-gray: #282c34;
+  --dark-gray-h: #42464E;
+  --dark-gray-d: #1B1F27;
+
+  --gray: #757981;
+}
+
+.navbar {  
+  width: 100%;
+  height: 50px;
+  
+  background: var(--dark-gray);
+  color: var(--purple);
+  border-bottom: 5px solid var(--dark-gray-h);
+
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.navbar .title {
+  justify-self: left;
+
+  font-weight: bold;
+  margin: 0 30px;
+  font-size: 22px;
+}
+
+.navbar .link {
+  display: flex;
+  align-items: center;
+
+  padding: 0 15px;
+  height: 100%;
+  margin-bottom: -5px;
+
+  border-bottom: 5px solid var(--dark-gray-h);
+
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--cyan);
+
+  text-decoration: none;
+
+  transition: border-bottom-color 0.4s;
+}
+
+.navbar .link:hover {
+  border-bottom-color: var(--cyan);
+
+}
+
+.navbar .link.selected {
+  color: var(--purple);
+  border-bottom-color: var(--purple);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  height: 40px;
+  background: var(--dark-gray);
+  color: var(--gray);
+}
+
+.footer .link {
+  color: var(--gray);
+
+  cursor: pointer;
+}
+
+.footer .link:hover {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+
+
+.App {
+  text-align: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+
+}
+
+.contentWrapper {
+  display: flex;
+  flex: 1;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  width: 300px;
+  height: 300px;
+
+  background: var(--dark-gray);
+  border: 3px solid var(--dark-gray-h);
+
+  box-shadow: 0 0 45px 5px var(--cyan-transparent);
 }

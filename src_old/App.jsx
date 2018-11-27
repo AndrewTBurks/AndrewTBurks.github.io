@@ -2,20 +2,20 @@ import React, { Component, Fragment } from 'react';
 
 import './App.css';
 import 'typeface-roboto';
-import CssBaseline from 'material-ui/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { Grid } from 'material-ui';
-import Typography from 'material-ui/Typography';
-import Paper from 'material-ui/Paper';
-import Modal from 'material-ui/Modal';
-import Button from 'material-ui/Button';
-import AppBar from 'material-ui/AppBar';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs, { Tab } from '@material-ui/core/Tabs';
 
-import Projects from "./pages/projects"
-import Publications from "./pages/pubs"
-import Home from "./pages/home"
-import About from "./pages/about"
+import { Projects } from "./pages/projects"
+import { default as Publications } from "./pages/pubs"
+import { default as Home } from "./pages/home"
+import { default as About } from "./pages/about"
 
 import projectData from "./projects.json";
 import pubData from "./pubs.json";
@@ -120,8 +120,8 @@ class App extends Component {
 
   render() {
     let project = this.state.selectedProject;
-    return (
-      <Fragment>
+
+    return <Fragment>
         <CssBaseline/>
         <Paper style={{padding: "10px 25px"}}>
           <Typography variant="display1" color="primary">
@@ -222,8 +222,7 @@ class App extends Component {
             </Grid>
           </Paper>
         </Modal>
-      </Fragment>
-    );
+      </Fragment>;
   }
 }
 

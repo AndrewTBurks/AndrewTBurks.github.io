@@ -1,13 +1,13 @@
 import React from 'react';
 
 // import { Grid } from 'material-ui';
-import GridList, { GridListTile, GridListTileBar } from 'material-ui/GridList';
-import Subheader from 'material-ui/List/ListSubheader';
+import GridList, { GridListTile, GridListTileBar } from '@material-ui/core/GridList';
+import Subheader from '@material-ui/core/ListSubheader';
 
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 
-const Projects = (props) => {
+export function Projects(props) {
   let { projectData } = props;
 
   return (
@@ -35,4 +35,4 @@ const Projects = (props) => {
   );
 }
  
-export default Projects;
+// export default Projects;
