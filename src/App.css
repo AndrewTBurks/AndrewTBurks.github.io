@@ -76,7 +76,7 @@ body.dark {
   padding: 0 15px;
   height: 100%;
 
-  margin-bottom: -10px;
+  margin-bottom: -5px;
 
   border-bottom: 5px solid var(--dark-gray-h);
 
@@ -149,7 +149,7 @@ body.dark {
   background: var(--dark-gray);
   border: 3px solid var(--dark-gray-h);
 
-  box-shadow: 0 0 45px 5px var(--cyan-transparent);
+  box-shadow: 0 0 30px 5px var(--cyan-transparent);
 }
 
 .panel .text {
