@@ -39,16 +39,19 @@
 
 .Typography.link {
   font-size: 18px;
-  color: var(--gray);
+  color: #a0a0a0;
 
   display: inline-block;
 
   cursor: pointer;
   text-decoration: underline;
-  
 }
 
 .Typography.link:hover {
+  color: var(--cyan);
+}
+
+.Typography.link i {
   color: var(--cyan);
 }
 
@@ -60,6 +63,11 @@
 .Typography.subcaption {
   font-size: 16px;
   color: #5C6068;
+}
+
+.Typography.award {
+  font-size: 14px;
+  color: var(--cyan);
 }
 
 .Typography.default {

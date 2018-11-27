@@ -187,9 +187,26 @@ body.dark {
   border: 1px solid var(--gray);
   border-bottom-width: 0;
 
+  border-top-width: 4px;
+  border-top-color: var(--purple);
+
   padding: 10px;
   text-align: center;
   background: var(--dark-gray-h);
+}
+
+.card:hover {
+  cursor: zoom-in;
+}
+
+.card:hover .title {
+  background: var(--dark-gray-d);
+
+  border-top-color: var(--cyan);
+}
+
+.card .title .caption {
+  color: #e0e0e0;
 }
 
 .card .image {
@@ -197,9 +214,11 @@ body.dark {
   flex-direction: row;
 
   flex: 1;
-  justify-content: stretch;
-  text-align: center;
-
+  justify-content: center;
+  
+  border: 1px solid var(--gray);
+  border-width: 0 1px;
+  
   overflow: hidden;
 }
 
@@ -207,10 +226,10 @@ body.dark {
   display: flex;
   justify-content: space-around;
 
-  padding: 5px;
+  padding: 8px 5px 5px;
 
   border: 1px solid var(--gray);
-  border-bottom-width: 0;
+  border-top-width: 0;
 
   text-align: center;
   background: var(--dark-gray-h);

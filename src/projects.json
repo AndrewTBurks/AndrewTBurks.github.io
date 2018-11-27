@@ -1,5 +1,15 @@
 [
   {
+    "name": "VisSnippets: A Web-based System for Impromptu Collaborative Data Exploration on Large Displays",
+    "abstract": "Work in Progress ...",
+    "team": "A. Burks, L. Renambot, A. Johnson",
+    "image": "VisSnippets_Teaser.jpg",
+    "award": "",
+    "link": "",
+    "github": "",
+    "paper": "" 
+  },
+  {
     "name": "SAGE2 + JupyterLab Integration",
     "abstract": "To better integrate existing data science workflows into the SAGE2 collaborative experience, we provide a SAGE2 plugin for JupyterLab. The plugin supports sharing both static notebooks, as well as dynamically updating cell content to SAGE2. A user simply connects to one or more SAGE2 server by URL, and can start sharing their Jupyter Notebook content. Shared notebooks are rendered by Jupyter nbviewer as static web-pages on the SAGE2 wall. Shared notebook cell image output is sent as an image to SAGE2 and dynamically updates every time that a cell is run.",
     "team": "A. Burks, L. Renambot",
@@ -10,12 +20,22 @@
     "paper": "" 
   },
   {
+    "name": "Details-First, Show Context, Overview Last: Supporting Exploration of Viscous Fingers in Large-Scale Ensemble Simulations",
+    "abstract": "We present our submission to the SciVis Data Contest 2016. Our submission was a web-based tool for the visual analysis of multi-run fluid flow simulation data. The tool en- ables the summarization and comparison of ensemble simulation runs. The back-end implements an algorithm for the identifica- tion and tracking of features (viscous fingers and their properties) in transient, fluid flow simulations. The front-end allows users to explore 3D simulation run data using linked 3D views and vertical slabs for specific timesteps, a merge-tree view linked to these spatial representations, and Kiviat diagrams for exploring run properties. We evaluate the tool with a computational fluid dynamics expert and report his feedback.",
+    "team": "T. Luciani, A. Burks, C. Sugiyama, J. Komperda, G. E. Marai",
+    "image": "InteractiveExploration.jpg",
+    "award": "Certificate of Merit - IEEE SciVis Contest 2016",
+    "link": "https://andrewtburks.com/SciVis2016/",
+    "github": "",
+    "paper": "detailsfirst_ieee2810.pdf" 
+  },
+  {
     "name": "Context-Aware Visualization of Englewood Social Services",
     "abstract": "In the Englewood Community Area in Chicago, the youth face two main obstacles they face when looking for nearby social services. First, they may not be aware of some of the services around them. Second, these services that they need may not exist in their area. In the Englewood Community Area, it is a particularly dire situation as many children are in danger or are in lack of basic human needs. To help solve this problem, we implement two web-based tools -- one for volunteers to help find services for children, and the other to analyze the service availability to ensure the equity of social services.",
     "team": "A. Burks, I. Lindmae, J. Castor, J. Feinberg, G. E. Marai",
     "image": "EnglewoodFinder.png",
     "award": "",
-    "link": "https://uic-evl.github.io/EnglewoodSocialServices/",
+    "link": "https://englewooddatahub.org",
     "github": "https://github.com/uic-evl/EnglewoodSocialServices/",
     "paper": "" 
   },
@@ -64,18 +84,8 @@
     "abstract": "Our contest submission aimed to develop a static visual representation that shows how geographic and seasonal changes in the availability of the ACT test affects nearby or adjacent testing sites, by moving students or assessments, changing dates, or some other strategy. The Voronoi visualization (Top Middle) encodes test center distribution at regional level (Illinois) by partitioning each region based on distances to test centers. The Voronoi cell intensity is mapped to Assigned/Capacity; the darker the cell, the higher demand in that region.",
     "team": "T. Luciani, J. Trelles, C. Ma, A. Burks, M. M. Thomas, K. Bharadwaj, S. Singh, P. Hanula, L. Di and G. E. Marai.",
     "image": "VGTC-data-contest.png",
-    "award": "Honorable Mention - IEEE VGTC VPG International Data Visualization Contest 2017",
+    "award": "Honorable Mention - IEEE VGTC VPG Contest 2016",
     "link": "http://vacommunity.org/ieeevpg/viscontest/2016/entries/3.html",
-    "github": "",
-    "paper": "" 
-  },
-  {
-    "name": "Interactive Exploration and Tracking of Ensemble Viscous Fingers",
-    "abstract": "We present our submission to the SciVis Data Contest 2016. Our submission was a web-based tool for the visual analysis of multi-run fluid flow simulation data. The tool en- ables the summarization and comparison of ensemble simulation runs. The back-end implements an algorithm for the identifica- tion and tracking of features (viscous fingers and their properties) in transient, fluid flow simulations. The front-end allows users to explore 3D simulation run data using linked 3D views and vertical slabs for specific timesteps, a merge-tree view linked to these spatial representations, and Kiviat diagrams for exploring run properties. We evaluate the tool with a computational fluid dynamics expert and report his feedback.",
-    "team": "A. Burks, C. Sugiyama, T. Luciani, J. Komperda, G. E. Marai",
-    "image": "InteractiveExploration.jpg",
-    "award": "Certificate of Merit - IEEE SciVis Data Visualization Contest 2017",
-    "link": "",
     "github": "",
     "paper": "" 
   }

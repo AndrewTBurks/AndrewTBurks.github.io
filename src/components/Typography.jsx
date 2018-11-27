@@ -14,11 +14,12 @@ const types = {
   caption: {},
   subcaption: {},
 
-  special: {}
+  special: {},
+  award: {},
 };
 
 export default function Typography({type = "", style = {}, ...props}) {
-  return <div className={`Typography ${type}`} style={style}>
+  return <div className={`Typography ${type} ${props.className}`} style={style}>
     {props.children}
   </div>;
 }
