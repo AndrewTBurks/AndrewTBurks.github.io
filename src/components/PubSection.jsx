@@ -3,7 +3,7 @@ import Typography from './Typography'
 
 export default function PubSection(props) {
   return <div>
-    <Typography type="heading" style={{fontWeight: "normal", fontSize: "28px"}}>
+    <Typography type="heading" style={{fontWeight: "normal", fontSize: "24px"}}>
       {props.title}
     </Typography>
     {
