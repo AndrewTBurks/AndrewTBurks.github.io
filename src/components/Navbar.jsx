@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from '@reach/router';
 
 import Typography from './Typography';
 
-export default function Navbar({title = "Navbar", links = [], location, ...props}) {
+export default function Navbar({title = "Navbar", links = [], location="home", ...props}) {
+  let {navigate} = props;
 
   return (
     <div className="navbar">
@@ -18,11 +18,12 @@ export default function Navbar({title = "Navbar", links = [], location, ...props
 
   function NavLink({name, to, ...props}) {
     return (
-      <Link className= {'link' + (to === location.pathname ? ' selected' : '')} to={to}>
+      <div className= {'link' + (to === location ? ' selected' : '')}
+        onClick={() => navigate(to)}>
         <Typography>
           {name}
         </Typography>
-      </Link>
+      </div>
     )
   }
 };

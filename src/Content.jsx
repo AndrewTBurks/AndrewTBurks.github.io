@@ -18,24 +18,18 @@ import projectData from "./projects.json";
 import pubData from "./pubs.json";
 import { Loader } from 'react-loader-spinner';
 
+
 export default function Content(props) {
+  let { location } = props;
+
+  const pages = {
+    home: <Home />,
+    about: <About />,
+    projects: <Projects projects={projectData} showModal={props.showModal}/>,
+    publications:<Publications pubs={pubData}/>
+  };
+
   return <div className="contentWrapper">
-      <React.Suspense fallback={
-        <div style={{display: "flex", alignItems:"center", justifyContent: "center", width: "100%"}}>
-          <Loader
-            type="Triangle"
-            color="var(--purple)"
-            height="100"
-            width="100"
-          />
-        </div>
-      }>
-        <Router>
-          <Home default path="/" />
-          <About path="/about" />
-          <Projects path="/projects" projects={projectData} showModal={props.showModal}/>
-          <Publications path="publications" pubs={pubData}/>
-        </Router>
-      </React.Suspense>
+      {pages[location]}
     </div>;
 }

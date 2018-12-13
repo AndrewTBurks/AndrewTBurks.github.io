@@ -12,15 +12,18 @@ import Modal from "./components/Modal";
 import Content from './Content';
 
 const links = [
-  {name: "Home", to: "/"},
-  {name: "Projects", to: "/projects"},
-  {name: "Publications", to: "/publications"},
-  {name: "About", to: "/about"},
+  {name: "Home", to: "home"},
+  {name: "Projects", to: "projects"},
+  {name: "Publications", to: "publications"},
+  {name: "About", to: "about"},
 ];
 
 class App extends Component {
-  state = { modalOpen: false, modalChild: null };
-
+  state = { 
+    modalOpen: false,
+    modalChild: null,
+    page: "home"
+  };
 
   showModal = (info) => {
     this.setState({
@@ -35,15 +38,17 @@ class App extends Component {
     });
   };
 
+  changePage = (page) => {
+    this.setState({
+      page
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <Location>
-          {({location}) => (
-            <Navbar title="Andrew Burks" links={links} location={location}/>
-          )}
-        </Location>
-        <Content showModal={this.showModal}/>
+        <Navbar title="Andrew Burks" links={links} location={this.state.page} navigate={this.changePage}/>
+        <Content showModal={this.showModal} location={this.state.page}/>
         <Footer />
         <Modal open={this.state.modalOpen} onClose={this.closeModal}>
           {this.state.modalChild}

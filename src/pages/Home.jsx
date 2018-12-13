@@ -2,13 +2,21 @@ import React from 'react';
 
 import Typography from '../components/Typography';
 
+import Img from '../components/Img';
+
+import Loader from 'react-loader-spinner';
+
 export default function Home() {
-  
-  
   return <>
       <div className="panel">
-        <div className="panel-section" style={{}}>
-          <img src={process.env.PUBLIC_URL + "/img/Profile.jpg"} alt="Me" style={{maxWidth: "100%", maxHeight: "500px"}}/>
+        <div className="panel-section">
+          <React.Suspense fallback={(
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", flexDirection: "column", height: "100%" }}>
+              <Loader type="Triangle" color="var(--purple)" height="100" width="100" />
+            </div>
+          )}>
+            <Img src={process.env.PUBLIC_URL + "/img/Profile.jpg"} alt={"Me"} style={{ maxWidth: "100%", maxHeight: "500px", border: "1px solid var(--gray)" }} />
+          </React.Suspense>
         </div>
         <div className="panel-section text">
           <Typography type="heading special">I'm Andrew Burks.</Typography>
