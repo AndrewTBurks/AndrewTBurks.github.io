@@ -1,26 +1,26 @@
 {
-  "journal": [
+  "conference": [
     {
-      "name": "Precision Risk Analysis of Cancer Therapy with Interactive Nomograms and Survival Plots",
-      "teamBefore": "G. E. Marai, C. Ma, ",
-      "teamAfter": ", et al.",
-      "journal": "in IEEE Transactions on Visualization and Computer Graphics, vol. PP, no. 99, pp. 1-1.",
-      "award": ""
+      "name": "Details-First, Show Context, Overview Last: Supporting Exploration of Viscous Fingers in Large-Scale Ensemble Simulations",
+      "teamBefore": "T. Luciani, ",
+      "teamAfter": ", C. Sugiyama, J. Komperda, G.E. Marai",
+      "journal": "IEEE Transactions on Visualization and Computer Graphics (Proc. SciVis'18), vol 25, no 1, pp. 1-11, January 2019.",
+      "award": "Certificate of Merit - IEEE SciVis Contest 2016"
     },
     {
       "name": "Dynamic influence networks for rule-based models",
       "teamBefore": "A. G. Forbes, ",
       "teamAfter": ", K. Lee, X. Li, P. Boutillier, J. Krivine, and W. Fontana",
-      "journal": "IEEE Transactions on Visualization and Computer Graphics, 24(1), January 2018.",
+      "journal": "IEEE Transactions on Visualization and Computer Graphics (Proc. VAST'17), 24(1), January 2018.",
       "award": ""
     }
   ],
-  "conference": [
+  "journal": [
     {
-      "name": "Spatial Analysis of Employee Safety Using Organizable Event Quiltmaps",
-      "teamBefore": "D. McNamara, J. Tapia, C. Ma, T. Luciani, ",
-      "teamAfter": ", J. Trelles, and G. E. Marai",
-      "journal": "In Proceedings of the IEEE VIS 2016 Workshop on Temporal & Sequential Event Analysis, Baltimore, MD, USA, October 2016.",
+      "name": "Precision Risk Analysis of Cancer Therapy with Interactive Nomograms and Survival Plots",
+      "teamBefore": "G. E. Marai, C. Ma, ",
+      "teamAfter": ", et al.",
+      "journal": "IEEE Transactions on Visualization and Computer Graphics, vol. 14, pp. 1-11, March 2018.",
       "award": ""
     }
   ],
@@ -61,11 +61,11 @@
       "award": "Honorable Mention"
     },
     {
-      "name": "Interactive Exploration and Tracking of Ensemble Viscous Fingers",
-      "teamBefore": "",
-      "teamAfter": ", C. Sugiyama, T. Luciani, J. Komperda, G.E. Marai",
-      "journal": "IEEE VIS SciVis Data Contest 2016, IEEE VIS 2016, pp. 1-2, Oct 2016.",
-      "award": "Certificate of Merit"
+      "name": "Spatial Analysis of Employee Safety Using Organizable Event Quiltmaps",
+      "teamBefore": "D. McNamara, J. Tapia, C. Ma, T. Luciani, ",
+      "teamAfter": ", J. Trelles, and G. E. Marai",
+      "journal": "In Proceedings of the IEEE VIS 2016 Workshop on Temporal & Sequential Event Analysis, Baltimore, MD, USA, October 2016.",
+      "award": ""
     }
   ]
 }

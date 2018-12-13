@@ -30,8 +30,6 @@ class App extends Component {
   };
 
   closeModal = () => {
-    console.log("close");
-
     this.setState({
       modalOpen: false,
     });

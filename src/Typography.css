@@ -65,6 +65,24 @@
   color: #5C6068;
 }
 
+.Typography.publication {
+  font-size: 18px;
+  color: #c0c0c0;
+
+  margin: 8px 0 4px;
+}
+
+.Typography.publication strong {
+  color: #e0e0e0;
+}
+
+.Typography.publication {
+  font-size: 18px;
+  color: #c0c0c0;
+
+  margin: 8px 0 4px;
+}
+
 .Typography.award {
   font-size: 14px;
   color: var(--cyan);

@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default function Modal(props) {
-  console.log(props);
-
   return <div className="modal-overlay" 
     onClick={props.onClose} 
     style={{ opacity: props.open ? 1 : 0, pointerEvents: props.open ? "all" : "none" }}>
