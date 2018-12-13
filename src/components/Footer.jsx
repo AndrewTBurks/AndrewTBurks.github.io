@@ -27,7 +27,7 @@ export default function Footer() {
           </Typography>
       </a>
       <a className="link" 
-        href={process.env.PUBLIC_URL + "/content/CV_Andrew_Burks_Nov21.pdf"}
+        href={process.env.PUBLIC_URL + "/content/CV_Andrew_Burks_Dec13.pdf"}
         target="_blank" 
         rel="noopener noreferrer">
           <Typography type="link">
