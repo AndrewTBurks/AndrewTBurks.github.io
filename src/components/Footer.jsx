@@ -26,5 +26,14 @@ export default function Footer() {
             GitHub
           </Typography>
       </a>
+      <a className="link" 
+        href={process.env.PUBLIC_URL + "/content/CV_Andrew_Burks_Nov21.pdf"}
+        target="_blank" 
+        rel="noopener noreferrer">
+          <Typography type="link">
+            <i className="far fa-file-pdf" style={{marginRight: "5px"}} />
+            Curriculum Vitae
+          </Typography>
+      </a>
     </div>;
 };

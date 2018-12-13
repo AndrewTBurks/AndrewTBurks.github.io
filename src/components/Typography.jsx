@@ -19,7 +19,7 @@ const types = {
 };
 
 export default function Typography({type = "", style = {}, ...props}) {
-  return <div className={`Typography ${type} ${props.className}`} style={style}>
+  return <div className={`Typography ${type} ${props.className ? props.className : ""}`} style={style}>
     {props.children}
   </div>;
 }

@@ -70,8 +70,14 @@
   color: var(--cyan);
 }
 
+.Typography.award-large {
+  font-size: 20px;
+  color: var(--cyan);
+}
+
 .Typography.default {
   font-size: 22px;
+  text-align: justify;
 }
 
 .Typography.default:not(:last-of-type) {
@@ -82,6 +88,7 @@
   margin-top: 8px;
 }
 
-.Typography.default strong {
+.Typography.default strong,
+.Typography.subsubheading strong {
   color: var(--purple);
 }

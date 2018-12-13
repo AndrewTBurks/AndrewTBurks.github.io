@@ -18,7 +18,7 @@ export default function About() {
               Interaction
             </strong>. Broadly, I am interested in the role of visualization and "human-data" interfaces in analytical processes and workflows.
           </Typography>
-          <Typography type="default" />
+          <Typography type="default"/>
           <Typography type="default">
             In the data visualization research in which I participated, I
             applied domain-agnostic design to visualization projects across
@@ -29,7 +29,7 @@ export default function About() {
             high-capacity networking instrumentation.
           </Typography>
           <Typography type="default">
-            <strong><span style={{color:"#0EB87A"}}>SAGE2™</span>: Scalable Amplified Group Environment</strong> is an
+            <strong><span style={{color:"#0EB87A"}}>SAGE2™</span> - Scalable Amplified Group Environment</strong> is an
             NSF $5M project to build a web-based system for tiled display walls to
             enhance data intensive co-located and remote collaboration. My research
             in SAGE2 focuses on providing expressive support to collaborative data

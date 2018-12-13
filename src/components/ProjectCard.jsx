@@ -3,28 +3,21 @@ import Typography from './Typography';
 
 import Loader from 'react-loader-spinner';
 
-import {unstable_createResource} from 'react-cache';
-import { scheduleCallback as defer } from 'scheduler';
+import ProjectModalInfo from './ProjectModalInfo'
+import Img from './Img';
+
+// ???
+// import { scheduleCallback as defer } from 'scheduler';
 
 export default function ProjectCard(props) {
   const { info } = props;
 
-  const ImageResource = unstable_createResource(
-    source => 
-      new Promise(resolve => {
-        const img = new Image();
-        img.src = source;
-        img.onload = resolve;
-      })
-  );
+  
 
-  const Img = ({src, alt, ...props }) => {
-    ImageResource.read(src);
-
-    return <img src={src} alt={alt} {...props} />;
-  };
-
-  return <div className="card">
+  return <div className="card" 
+    onClick={() => props.showModal(
+      <ProjectModalInfo {...props}/>
+    )}>
       <div className="title">
         <Typography type="caption">{info.name}</Typography>
         {info.award && <Typography type="award">{info.award}</Typography>}
@@ -45,7 +38,7 @@ export default function ProjectCard(props) {
       </div>
       <Typography className="links">
         {info.link && 
-          <a href={info.link} target="_blank">
+          <a href={info.link} target="_blank" rel="noopener noreferrer">
             <Typography type="link">
               <i className="fas fa-link" style={{marginRight: "5px"}} ></i>
               Link
@@ -53,7 +46,7 @@ export default function ProjectCard(props) {
           </a>}
         
         {info.github && 
-          <a href={info.github} target="_blank">
+          <a href={info.github} target="_blank" rel="noopener noreferrer">
             <Typography type="link">
               <i className="fab fa-github" style={{marginRight: "5px"}} ></i>
               Repo
@@ -61,7 +54,7 @@ export default function ProjectCard(props) {
           </a>}
         
         {info.paper && 
-          <a href={process.env.PUBLIC_URL + "/content/" + info.paper} target="_blank">
+          <a href={process.env.PUBLIC_URL + "/content/" + info.paper} target="_blank" rel="noopener noreferrer">
             <Typography type="link">
               <i className="fas fa-scroll" style={{marginRight: "5px"}} ></i>
               Paper

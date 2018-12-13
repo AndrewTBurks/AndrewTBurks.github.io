@@ -42,7 +42,7 @@ export default function Content(props) {
       <Router>
         <Home default path="/" />
         <About path="/about" />
-        <Projects path="/projects" projects={projectData} />
+        <Projects path="/projects" projects={projectData} showModal={props.showModal}/>
         <Publications path="publications" />
         {/* <About path="/about" />
         <About path="/about" /> */}

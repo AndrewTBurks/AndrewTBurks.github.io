@@ -9,7 +9,7 @@ export default function Projects(props) {
   return (
     <>
       {projects.map(p => (
-        <ProjectCard key={p.name} info={p} />
+        <ProjectCard key={p.name} info={p} showModal={props.showModal}/>
       ))}
     </>
   );

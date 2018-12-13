@@ -6,6 +6,7 @@ import './App.css';
 // components
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
+import Modal from "./components/Modal";
 
 // pages
 import Content from './Content';
@@ -17,10 +18,25 @@ const links = [
   {name: "About", to: "/about"},
 ];
 
-// document.body.className = "dark";
-document.body.className = "light";
-
 class App extends Component {
+  state = { modalOpen: false, modalChild: null };
+
+
+  showModal = (info) => {
+    this.setState({
+      modalOpen: true,
+      modalChild: info
+    });
+  };
+
+  closeModal = () => {
+    console.log("close");
+
+    this.setState({
+      modalOpen: false,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -29,11 +45,14 @@ class App extends Component {
             <Navbar title="Andrew Burks" links={links} location={location}/>
           )}
         </Location>
-        <Content />
+        <Content showModal={this.showModal}/>
         <Footer />
+        <Modal open={this.state.modalOpen} onClose={this.closeModal}>
+          {this.state.modalChild}
+        </Modal>
         </div>
     );
-  }
+  };
 }
 
 export default App;

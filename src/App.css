@@ -236,3 +236,57 @@ body.dark {
   text-align: center;
   background: var(--dark-gray-h);
 }
+
+.modal-overlay {
+  position: absolute;
+  display: flex;
+
+  height: 100%;
+  width: 100%;
+
+  background: #00000066;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  transition: opacity ease-out 0.5s;
+}
+
+.modal {
+  position: absolute;
+  width: 90%;
+  max-width: 1000px;
+
+  height: 90%;
+  max-height: 700px;
+
+  overflow: auto;
+
+  background: var(--dark-gray);
+  border: 1px solid var(--dark-gray-h);
+  box-shadow: 0 0 45px 5px #000000aa;
+
+  padding: 15px 45px;
+}
+
+.modal .closeButton {
+  position: absolute;
+  cursor: pointer;
+
+  right: 15px;
+  top: 10px;
+
+  color: var(--purple);
+}
+
+.modal .closeButton:hover {
+  color: var(--cyan);
+}
+
+.project-modal-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: stretch;
+  align-items: center;
+}
