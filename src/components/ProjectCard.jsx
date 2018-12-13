@@ -38,7 +38,7 @@ export default function ProjectCard(props) {
       </div>
       <Typography className="links">
         {info.link && 
-          <a href={info.link} target="_blank" rel="noopener noreferrer">
+          <a href={info.link} target="_blank" rel="noopener noreferrer" onClick={(e) => {e.stopPropagation()}}>
             <Typography type="link">
               <i className="fas fa-link" style={{marginRight: "5px"}} ></i>
               Link
@@ -46,7 +46,7 @@ export default function ProjectCard(props) {
           </a>}
         
         {info.github && 
-          <a href={info.github} target="_blank" rel="noopener noreferrer">
+          <a href={info.github} target="_blank" rel="noopener noreferrer" onClick={(e) => {e.stopPropagation()}}>
             <Typography type="link">
               <i className="fab fa-github" style={{marginRight: "5px"}} ></i>
               Repo
@@ -54,7 +54,7 @@ export default function ProjectCard(props) {
           </a>}
         
         {info.paper && 
-          <a href={process.env.PUBLIC_URL + "/content/" + info.paper} target="_blank" rel="noopener noreferrer">
+          <a href={process.env.PUBLIC_URL + "/content/" + info.paper} target="_blank" rel="noopener noreferrer" onClick={(e) => {e.stopPropagation()}}>
             <Typography type="link">
               <i className="fas fa-scroll" style={{marginRight: "5px"}} ></i>
               Paper
