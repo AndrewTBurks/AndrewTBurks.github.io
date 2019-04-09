@@ -1,5 +1,4 @@
 import React from 'react';
-import { Router } from '@reach/router';
 
 // const Home = React.lazy(() => import("./pages/Home"));
 // const Projects = React.lazy(() => import("./pages/Projects"));

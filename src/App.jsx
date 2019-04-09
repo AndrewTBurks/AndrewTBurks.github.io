@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Location } from '@reach/router';
+// import { Location } from '@reach/router';
 
 import './App.css';
 

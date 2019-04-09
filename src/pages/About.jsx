@@ -50,6 +50,20 @@ export default function About() {
 
           <Typography type="subheading">Honors and Awards</Typography>
           <Typography type="default" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "stretch" }}>
+            <div type="default" style={{ flex: 0, padding: "5px 20px" }}>
+              2019
+            </div>
+            <div style={{ flex: 1 }}>
+              <div>
+                <div type="default">
+                  <strong>Honorable Mention</strong>, NSF Graduate Research Fellowship Progrm (GRFP).
+                </div>
+
+                {/* <Typography type="caption">Baltimore, MD.</Typography> */}
+              </div>
+            </div>
+          </Typography>
+          <Typography type="default" style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "stretch" }}>
             <div style={{ flex: 0, padding: "5px 20px" }}>2017</div>
 
             <div style={{ flex: 1 }}>
