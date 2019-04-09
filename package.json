@@ -1,5 +1,5 @@
 {
-  "name": "andrewtburks.com",
+  "name": "andrewtburks.dev",
   "version": "0.2.0",
   "private": true,
   "dependencies": {
@@ -23,7 +23,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://andrewtburks.com",
+  "homepage": "https://andrewtburks.dev",
   "browserslist": [
     ">0.2%",
     "not dead",
