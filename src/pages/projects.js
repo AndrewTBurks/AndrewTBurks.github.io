@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby";
 
 import { IconContext } from 'react-icons';
-import { FaAward, FaLink } from 'react-icons/fa';
+import { FaAward, FaLink, FaScroll, } from 'react-icons/fa';
 
 import Layout from "../components/layout"
 import Image from "../components/profile-image"
