@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import { loremIpsum } from 'lorem-ipsum';
+
 import Layout from "../components/layout"
 import Image from "../components/profile-image"
 import SEO from "../components/seo"
@@ -32,6 +34,9 @@ const IndexPage = () => (
         </p>
         <p>
           My current research interests are Collaborative Visualization and Data Exploration.
+        </p>
+        <p>
+          {loremIpsum({count: 10})}
         </p>
       </div>
     </div>

@@ -40,11 +40,11 @@ const BlogPage = () => {
       border: `1px solid black`,
     }}>
       {data.allProjectsJson.nodes.map(proj => {
-        return <div style={{margin: "5px"}}>
+        return <div style={{margin: "5px"}} key={proj.id} >
           <IconContext.Provider value={{color: "var(--sec)", size: "1.25em"}}>
             {proj.award !== "" && <FaAward /> || null}
           </IconContext.Provider>
-          <a key={proj.id} href={proj.link}>
+          <a href={proj.link}>
             {proj.name}
           </a>
         </div>
