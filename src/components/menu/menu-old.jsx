@@ -10,7 +10,9 @@ import {
   FaBlog
 } from 'react-icons/fa';
 
-import { ThemeContext } from './theme-context';
+import { ThemeContext } from '../theme-context';
+
+import "./menu.scss";
 
 const PAGES = [
   {
@@ -33,7 +35,7 @@ const PAGES = [
     title: "Blog",
     link: "/blog"
   }
-]
+];
 
 function Menu() {
   let { theme, setTheme } = useContext(ThemeContext);

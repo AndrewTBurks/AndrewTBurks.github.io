@@ -33,7 +33,7 @@ const BlogPage = () => {
   console.log(data);
 
   return <Layout>
-    <SEO title="Blog" />
+    <SEO title="Projects" />
     <div className="panel" style={{
       maxWidth: `100%`,
       marginBottom: `1.45rem`,

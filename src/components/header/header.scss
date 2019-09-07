@@ -1,0 +1,23 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  background: var(--prim);
+  box-shadow: 0 0 10px 10px var(--prim);
+  // border-bottom: 4px solid var(--sec-d);
+}
+
+.header-wrapper {
+  position: relative;
+  color: var(--text);
+
+
+  margin: 0 auto;
+  max-width: 960px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
