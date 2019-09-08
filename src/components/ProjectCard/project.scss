@@ -1,12 +1,39 @@
 .project-card {
   position: relative;
 
-  flex: 1 0 400px;
+  flex: 1 1 600px;
   height: 400px;
 
   // background: orange;
   background: var(--prim-l);
   margin: 10px;
+
+  border: 2px solid var(--sec-d);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+
+  cursor: zoom-in;
+
+  .gatsby-image-wrapper {
+    flex: 1;
+  }
+
+  .overlay {
+    padding: 15px 25px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    background: rgba(0, 0, 0, 0.8);
+
+    color: white;
+    font-weight: 700;
+  }
 
   .award {
     padding: 10px 15px;
@@ -15,7 +42,7 @@
     top: 0;
 
     background: var(--sec-l);
-    box-shadow: 0 0 10px 2px var(--prim);
+    box-shadow: 0 0 10px 2px var(--sec-l);
     border-bottom-right-radius: 15px;
   }
 }

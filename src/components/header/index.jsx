@@ -13,7 +13,9 @@ import {
   FaHome,
   FaScroll,
   FaLaptopCode,
-  FaBlog 
+  FaBlog, 
+  FaBriefcase,
+  FaAward
 } from 'react-icons/fa';
 
 // import Menu from "../menu/menu-old";
@@ -30,6 +32,16 @@ const PAGES = [
     Icon: FaHome,
     title: "Home",
     link: "/"
+  },
+  {
+    Icon: FaBriefcase,
+    title: "Experience",
+    link: "/experience"
+  },
+  {
+    Icon: FaAward,
+    title: "Awards",
+    link: "/awards"
   },
   {
     Icon: FaLaptopCode,
@@ -80,25 +92,29 @@ const Header = ({ siteTitle }) => {
   });
   
   return <animated.header
-    style={{
-      ...styles,
-    }}
     onMouseOver={() => dispatch({action: "show"})}
   >
     <div
       className='header-wrapper'
     >
-      <h2 style={{ margin: `1.45rem 1.0875rem`, }}>
-        <Link
-          to="/"
-          style={{
-            color: `inherit`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h2>
+      <animated.div className="hiding"
+        style={{
+          ...styles,
+        }}>
+        <div style={{width: "50%"}}>
+          <h2 style={{ margin: `1.45rem 1.0875rem`, }}>
+            <Link
+              to="/"
+              style={{
+                color: `inherit`,
+                textDecoration: `none`,
+              }}
+            >
+              {siteTitle}
+            </Link>
+          </h2>
+        </div>
+      </animated.div>
 
       <div style={{marginLeft: "auto"}}/>
 
@@ -109,9 +125,6 @@ const Header = ({ siteTitle }) => {
         createOption: (i) => {
           // return <span style={{width: "10px", height: "10px", background: "orange"}}/>
           return <div className={`radial-button ${theme === ((i % NUM_SCHEMES) + 1) ? "active" : ""}`}
-            style={{
-              fontWeight: theme === i + 1 ? "bold" : "normal"
-            }}
             onClick={() => setTheme((i % NUM_SCHEMES) + 1)}
           >
             <IconContext.Provider value={{ className: `menuIcon`, style: { marginTop: "3px" } }}>

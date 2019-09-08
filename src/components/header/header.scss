@@ -5,19 +5,30 @@ header {
   right: 0;
   z-index: 100;
 
-  background: var(--prim);
-  box-shadow: 0 0 10px 10px var(--prim);
   // border-bottom: 4px solid var(--sec-d);
 }
 
 .header-wrapper {
   position: relative;
-  color: var(--text);
+  color: #fff;
 
 
   margin: 0 auto;
+  padding: 10px 10px;
   max-width: 960px;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  .hiding {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: var(--prim);
+    box-shadow: 0 0 10px 10px var(--prim);
+  }
 }

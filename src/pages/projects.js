@@ -25,6 +25,7 @@ const ProjectsPage = () => {
           image
           id
           link
+          shortname
           name
           paper
           team
@@ -42,7 +43,6 @@ const ProjectsPage = () => {
     <div style={{
       maxWidth: `100%`,
       marginBottom: `1.45rem`,
-      border: `1px solid black`,
       display: "flex",
       flexFlow: "row wrap",
       justifyContent: "flex-start"
@@ -51,8 +51,6 @@ const ProjectsPage = () => {
         let {node} = images.edges.find(({
           node
         }) => node.relativePath === proj.image);
-
-        console.log(node.childImageSharp)
 
         return <Card 
           key={proj.id} 
