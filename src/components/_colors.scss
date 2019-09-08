@@ -1,44 +1,53 @@
 // scheme 1: https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=37474F&secondary.color=80CBC4
-// scheme 2: 
+// scheme 2: https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=E0E0E0&secondary.color=FF8F00
+// scheme 3: https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=4DB6AC&secondary.color=A5D6A7
 
 $prim: (
-  1: #37474f,
-  2: #e0e0e0
+  1: #263238,
+  2: #e0e0e0,
+  3: #212121
 );
 
 $prim-l: (
-  1: #62727b,
-  2: #ffffff
+  1: #4f5b62,
+  2: #ffffff,
+  3: #484848
 );
 
 $prim-d: (
-  1: #102027,
-  2: #aeaeae
+  1: #000a12,
+  2: #aeaeae,
+  3: #000000
 );
 
 $sec: (
   1: #80cbc4,
-  2: #ff8f00
+  2: #ff8f00,
+  3: #9575cd
 );
 
 $sec-l: (
   1: #b2fef7,
-  2: #ffc046
+  2: #ffc046,
+  3: #c7a4ff
 );
 
 $sec-d: (
   1: #4f9a94,
-  2: #c56000
+  2: #c56000,
+  3: #65499c
 );
 
 $text: (
   1: #fff,
   2: #000,
+  3: #fff
 );
 
 $link: (
   1: map-get($sec, 1),
-  2: #0d47a1
+  2: #0d47a1,
+  3: map-get($sec, 3)
 );
 
 @mixin theme($count) {
@@ -58,3 +67,4 @@ $link: (
 
 @include theme(1);
 @include theme(2);
+@include theme(3);

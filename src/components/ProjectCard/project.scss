@@ -1,0 +1,21 @@
+.project-card {
+  position: relative;
+
+  flex: 1 0 400px;
+  height: 400px;
+
+  // background: orange;
+  background: var(--prim-l);
+  margin: 10px;
+
+  .award {
+    padding: 10px 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background: var(--sec-l);
+    box-shadow: 0 0 10px 2px var(--prim);
+    border-bottom-right-radius: 15px;
+  }
+}

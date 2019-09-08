@@ -17,17 +17,20 @@ const IndexPage = () => (
       marginBottom: `1.45rem`,
       display: 'flex',
       alignItems: `flex-start`,
-      flexFlow: `row wrap`
+      flexFlow: `row wrap`,
+      boxSizing: 'border-box'
     }}>
       <div style={{
-        flex: `1 0 300px`
+        flex: `1 0 400px`,
+        maxWidth: "100%"
       }}>
         <Image />
       </div>
       <div style={{
-        margin: `20px`,
-        flex: `1 0 300px`,
-        maxWidth: "300px"
+        padding: `20px`,
+        flex: `1 0 400px`,
+        maxWidth: "100%",
+        boxSizing: 'border-box'
       }}>
         <p>
           I am a Ph.D. Computer Science student at the University of Illinois at Chicago. I am currently a Research Assistant at the Electronic Visualization Laboratory at UIC. I have experience working on research projects related to data visualization and the development of collaborative software for large/tiled displays.

@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { Link, navigateTo } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useReducer, useEffect, useContext } from "react";
 
@@ -24,7 +24,7 @@ import RadialMenu from '../menu';
 import { ThemeContext } from '../theme-context';
 
 
-const NUM_SCHEMES = 2;
+const NUM_SCHEMES = 3;
 const PAGES = [
   {
     Icon: FaHome,
@@ -101,27 +101,27 @@ const Header = ({ siteTitle }) => {
       </h2>
 
       <div style={{marginLeft: "auto"}}/>
+
       <RadialMenu {...{
-        count: 6,
+        count: NUM_SCHEMES,
         Icon: FaPalette,
         className: (i) => `scheme${(i % NUM_SCHEMES) + 1}`,
         createOption: (i) => {
           // return <span style={{width: "10px", height: "10px", background: "orange"}}/>
-          return <div style={{
-            border: "2px solid var(--sec)",
-            background: "radial-gradient(var(--prim-d), var(--prim-l))",
-            color: "var(--text)",
-            borderRadius: "50%",
-            padding: "10px  15px",
-            // margin: "5px",
-            fontWeight: theme === i + 1 ? "bold" : "normal"
-          }} onClick={() => setTheme((i % NUM_SCHEMES) + 1)}>
+          return <div className={`radial-button ${theme === ((i % NUM_SCHEMES) + 1) ? "active" : ""}`}
+            style={{
+              fontWeight: theme === i + 1 ? "bold" : "normal"
+            }}
+            onClick={() => setTheme((i % NUM_SCHEMES) + 1)}
+          >
             <IconContext.Provider value={{ className: `menuIcon`, style: { marginTop: "3px" } }}>
-              <FaSwatchbook color="var(--sec-d)" />
+              <FaSwatchbook/>
             </IconContext.Provider>
           </div>
         }
       }}/>
+
+      <div style={{ marginLeft: "5px" }} />
 
       <RadialMenu {...{
         count: PAGES.length,
@@ -132,22 +132,17 @@ const Header = ({ siteTitle }) => {
 
           // console.log(title, link, Icon);
 
-            return <Link to={link}>
-            <div style={{
-              border: "2px solid var(--sec)",
-              background: "radial-gradient(var(--prim-l), var(--prim-d))",
-              color: "var(--text)",
-              borderRadius: "50%",
-              padding: "10px  15px",
-              // margin: "5px",
+          return <div className={`radial-button ${window.location.pathname === link ? "active" : ""}`}
+            style={{
               fontWeight: theme === i + 1 ? "bold" : "normal"
-            }}>
+            }}
+            onClick={() => navigateTo(link)}
+          >
 
-              <IconContext.Provider value={{ className: `menuIcon`, style: { marginTop: "3px" } }}>
-                <Icon color="var(--sec-d)" />
-              </IconContext.Provider>
-            </div>
-          </Link>
+            <IconContext.Provider value={{ className: `menuIcon`, style: { marginTop: "3px" } }}>
+              <Icon/>
+            </IconContext.Provider>
+          </div>
         }
       }} />
     </div>
