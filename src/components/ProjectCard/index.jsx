@@ -21,8 +21,6 @@ function ProjectCard({
   let [open, setOpen] = useState(false);
   let [infoVisible, setInfoVisible] = useState(false);
 
-  console.log(infoVisible);
-
   const buttonMap = {
     abstract: {
       Icon: FaInfo,
