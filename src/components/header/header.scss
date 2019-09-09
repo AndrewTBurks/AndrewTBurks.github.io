@@ -10,7 +10,6 @@ header {
 
 .header-wrapper {
   position: relative;
-  color: #fff;
 
 
   margin: 0 auto;
@@ -28,6 +27,7 @@ header {
     height: 100%;
     width: 100%;
 
+    color: var(--sec);
     background: var(--prim);
     box-shadow: 0 0 10px 10px var(--prim);
   }

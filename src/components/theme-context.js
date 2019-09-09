@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
-const ThemeContext = React.createContext(1);
+const ThemeContext = React.createContext(4);
 
 function ThemeProvier({children}) {
-  let [theme, setTheme] = useState(3);
+  let [theme, setTheme] = useState(4);
 
   useEffect(() => {
     document.body.className = `scheme${theme}`;

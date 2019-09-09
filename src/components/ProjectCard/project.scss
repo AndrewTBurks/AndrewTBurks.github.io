@@ -1,5 +1,6 @@
 .project-card {
   position: relative;
+  outline: none;
 
   flex: 1 1 600px;
   height: 400px;
@@ -14,7 +15,7 @@
   flex-direction: column;
   justify-content: stretch;
 
-  cursor: zoom-in;
+  cursor: pointer;
 
   .gatsby-image-wrapper {
     flex: 1;
@@ -29,13 +30,83 @@
     bottom: 0;
 
     display: flex;
-    background: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+
+    background: rgba(0, 0, 0, 0.9);
 
     color: white;
     font-weight: 700;
+
+    overflow: hidden;
+
+    .name {
+      font-size: 1.2rem;
+    }
+
+    .award-name {
+      color: var(--sec-l)
+    }
+
+    &.open {
+      cursor: auto;
+      // overflow-y: auto;
+    }
+
+    .content {
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      flex: 1;
+
+      .team {
+        font-weight: 400;
+        margin-top: 10px;
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-around;
+        align-items: flex-start;
+
+        flex: 1;
+
+        .info-button {
+          margin: 20px;
+          border: 2px solid var(--sec);
+          background: var(--prim-l);
+          // background: radial-gradient(var(--prim-l), var(--prim));
+          color: var(--sec);
+          border-radius: 50%;
+          padding: 8px 13px;
+
+          cursor: pointer;
+
+
+          .menuIcon {
+            transition: transform 250ms ease-in-out;
+          }
+
+          &:hover {
+            box-shadow: 0 0 10px 2px var(--sec-l);
+
+            .menuIcon {
+              transform: scale(1.2);
+              color: var(--sec-l);
+            }
+          }
+
+        }
+      }
+
+    }
   }
 
-  .award {
+  .award-symbol {
     padding: 10px 15px;
     position: absolute;
     left: 0;

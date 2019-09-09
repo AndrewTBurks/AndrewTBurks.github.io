@@ -14,7 +14,7 @@ import Header from "./header"
 import "./layout.scss";
 import "./_colors.scss";
 
-const Layout = ({ children, scheme }) => {
+const Layout = ({ children, scheme, ...props }) => {
   let { theme } = useContext(ThemeContext);
 
   const data = useStaticQuery(graphql`
@@ -29,7 +29,7 @@ const Layout = ({ children, scheme }) => {
 
   return (
     <div
-        className={`scheme${theme || scheme || 1}`}>
+        className={`scheme${theme}`}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{

@@ -23,7 +23,6 @@ function Menu({Icon, count, className, createOption, ...props}) {
   return <animated.button className={`menu ${open ? "open" : ""}`}
     style={{...buttonStyles}}
     onClick={() => setOpen(o => !o)}
-    onBlur={() => setOpen(false)}
   >
     <IconContext.Provider value={{ className: `menuIcon`, size: `1.5em` }}>
       <Icon />

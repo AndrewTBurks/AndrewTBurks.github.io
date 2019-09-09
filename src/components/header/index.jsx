@@ -4,6 +4,7 @@ import React, { useReducer, useEffect, useContext } from "react";
 
 import { useSpring, animated } from 'react-spring';
 
+import { globalHistory } from '@reach/router';
 
 import { IconContext } from 'react-icons';
 import {
@@ -15,7 +16,10 @@ import {
   FaLaptopCode,
   FaBlog, 
   FaBriefcase,
-  FaAward
+  FaAward,
+  FaLinkedin,
+  FaGithub,
+  FaTwitter
 } from 'react-icons/fa';
 
 // import Menu from "../menu/menu-old";
@@ -26,23 +30,23 @@ import RadialMenu from '../menu';
 import { ThemeContext } from '../theme-context';
 
 
-const NUM_SCHEMES = 3;
+const NUM_SCHEMES = 4;
 const PAGES = [
   {
     Icon: FaHome,
     title: "Home",
     link: "/"
   },
-  {
-    Icon: FaBriefcase,
-    title: "Experience",
-    link: "/experience"
-  },
-  {
-    Icon: FaAward,
-    title: "Awards",
-    link: "/awards"
-  },
+  // {
+  //   Icon: FaBriefcase,
+  //   title: "Experience",
+  //   link: "/experience"
+  // },
+  // {
+  //   Icon: FaAward,
+  //   title: "Awards",
+  //   link: "/awards"
+  // },
   {
     Icon: FaLaptopCode,
     title: "Projects",
@@ -54,13 +58,28 @@ const PAGES = [
     link: "/publications"
   },
   {
-    Icon: FaBlog,
-    title: "Blog",
-    link: "/blog"
-  }
+    Icon: FaLinkedin,
+    title: "LinkedIn",
+    link: "https://www.linkedin.com/in/andrew-burks/"
+  },
+  {
+    Icon: FaGithub,
+    title: "GitHub",
+    link: "https://github.com/AndrewTBurks"
+  },
+  {
+    Icon: FaTwitter,
+    title: "Twitter",
+    link: "https://twitter.com/AndrewTBurks"
+  },
+  // {
+  //   Icon: FaBlog,
+  //   title: "Blog",
+  //   link: "/blog"
+  // }
 ];
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, location }) => {
   let { theme, setTheme } = useContext(ThemeContext);
 
   let [hidden, dispatch] = useReducer((prevState, {action}) => {
@@ -145,17 +164,27 @@ const Header = ({ siteTitle }) => {
 
           // console.log(title, link, Icon);
 
-          return <div className={`radial-button ${window.location.pathname === link ? "active" : ""}`}
-            style={{
-              fontWeight: theme === i + 1 ? "bold" : "normal"
-            }}
+          let content = <IconContext.Provider value={{
+            className: `menuIcon`, style: { marginTop: "3px" }
+          }}>
+            <Icon />
+          </IconContext.Provider>;
+
+          if (link.includes("http")) {
+            return <a className={`radial-button ${globalHistory.location.pathname === link ? "active" : ""}`}
+              href={link}
+              disabled={true}
+              target="__blank"
+            >
+              {content}
+            </a>;
+          }
+
+          return <div className={`radial-button ${globalHistory.location.pathname === link ? "active" : ""}`}
             onClick={() => navigateTo(link)}
           >
-
-            <IconContext.Provider value={{ className: `menuIcon`, style: { marginTop: "3px" } }}>
-              <Icon/>
-            </IconContext.Provider>
-          </div>
+            {content}
+          </div>;
         }
       }} />
     </div>
