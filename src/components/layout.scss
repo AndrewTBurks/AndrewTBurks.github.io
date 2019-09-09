@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,700&display=swap');
 
 html {
   font-family: 'Montserrat', sans-serif;
@@ -580,7 +580,7 @@ thead {
 td,
 th {
   text-align: left;
-  border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
+  border-bottom: 1px solid rgba(#888, 0.6);
   font-feature-settings: "tnum";
   -moz-font-feature-settings: "tnum";
   -ms-font-feature-settings: "tnum";
@@ -592,7 +592,7 @@ th {
 }
 th:first-child,
 td:first-child {
-  padding-left: 0;
+  // padding-left: 0;
 }
 th:last-child,
 td:last-child {

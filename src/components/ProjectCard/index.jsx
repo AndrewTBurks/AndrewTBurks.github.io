@@ -16,25 +16,31 @@ function ProjectCard({
   team, // FaUsers
   Image,
   ...props }) {
-  // let [ref, inView] = useInView({threshold: 1});
-
-  const buttonMap = {
-    abstract: {
-      Icon: FaInfo
-    },
-    github: {
-      Icon: FaCode
-    },
-    link: {
-      Icon: FaLink
-    },
-    paper: {
-      Icon: FaFilePdf
-    }
-  };
+  let [ref, inView] = useInView({ threshold: 1 });
 
   let [open, setOpen] = useState(false);
   let [infoVisible, setInfoVisible] = useState(false);
+
+  console.log(infoVisible);
+
+  const buttonMap = {
+    abstract: {
+      Icon: FaInfo,
+      onClick: (e) => {
+        e.stopPropagation();
+        setInfoVisible(v => !v);
+      }
+    },
+    github: {
+      Icon: () => <a href={props.github} target="_blank" style={{color: "inherit"}}><FaCode /></a>
+    },
+    link: {
+      Icon: () => <a href={props.link} target="_blank" style={{color: "inherit"}}><FaLink /></a>
+    },
+    paper: {
+      Icon: () => <a href={props.paper} target="_blank" style={{color: "inherit"}}><FaFilePdf/></a>
+    }
+  };
 
   let overlay = useRef();
   let overlayStyle = useSpring({
@@ -45,16 +51,26 @@ function ProjectCard({
     overlay.current.scrollTop = 0;
   }, [open]);
 
+  useEffect(() => {
+    if (!inView) {
+      setOpen(false);
+    }
+  }, [inView]);
+
   let contentStyle = useSpring({
     opacity: open ? 1 : 0
   });
 
+  let infoStyle = useSpring({
+    overflowY: infoVisible ? "auto" : "hidden",
+    opacity: infoVisible ? 1 : 0
+  });
+
   return <div
-    // ref={ref}
+    ref={ref}
     tabIndex={-1}
     className="project-card" 
-    onFocus={() => setOpen(true)}
-    onBlur={() => setOpen(false)}
+    onClick={() => setOpen(o => !o)}
   >
     {Image}
     <animated.div className={`overlay ${open ? "open" : ""}`}
@@ -78,13 +94,17 @@ function ProjectCard({
             {Object.keys(buttonMap).filter(a => props[a]).map(attr => {
               let { Icon, onClick } = buttonMap[attr];
 
-              return <div className="info-button" key={attr}><Icon /></div>;
+              return <div className="info-button" onClick={onClick} key={attr}><Icon /></div>;
             })}
             {/* <div className="info-button"><FaScroll /></div>
             <div className="info-button"><FaScroll /></div> */}
           </IconContext.Provider>
         </div>
-        {/* <p className="description" dangerouslySetInnerHTML={{__html: abstract}} /> */}
+        <div className="description-wrapper">
+          <animated.div className="description" style={{...infoStyle}}>
+            <p dangerouslySetInnerHTML={{__html: props.abstract}} />
+          </animated.div>
+        </div>
       </animated.div>
     </animated.div>
     {award && 

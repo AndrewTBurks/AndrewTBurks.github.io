@@ -3,7 +3,7 @@
   outline: none;
 
   flex: 1 1 600px;
-  height: 400px;
+  height: 500px;
 
   // background: orange;
   background: var(--prim-l);
@@ -64,6 +64,7 @@
       .team {
         font-weight: 400;
         margin-top: 10px;
+        margin-bottom: 10px;
       }
 
       .buttons {
@@ -73,8 +74,6 @@
         justify-content: space-around;
         align-items: flex-start;
 
-        flex: 1;
-
         .info-button {
           margin: 20px;
           border: 2px solid var(--sec);
@@ -82,10 +81,14 @@
           // background: radial-gradient(var(--prim-l), var(--prim));
           color: var(--sec);
           border-radius: 50%;
-          padding: 8px 13px;
+          // padding: 8px 13px;
 
           cursor: pointer;
 
+          &>.menuIcon, &>a {
+            display: inline-block;
+            margin: 8px 13px;
+          }
 
           .menuIcon {
             transition: transform 250ms ease-in-out;
@@ -103,6 +106,21 @@
         }
       }
 
+      .description-wrapper {
+        flex: 1;
+        position: relative;
+        width: 100%;
+
+        .description {
+          font-size: 0.9em;
+          position: absolute;
+          
+          width: 100%;
+          top: 0;
+          bottom: 0;
+          max-height: 100%;
+        }
+      }
     }
   }
 

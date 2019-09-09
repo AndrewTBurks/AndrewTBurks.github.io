@@ -11,6 +11,8 @@
 
   border-radius: 100px;
 
+  border: 1px solid var(--sec);
+
   &:hover {
     background: var(--prim-l);
 
@@ -56,12 +58,17 @@
         color: var(--text);
       }
 
+      // &>.menuIcon, &>a {
+      // }
+
       .radial-button {
         border: 2px solid var(--sec);
         background: var(--prim-l);
         // background: radial-gradient(var(--prim-l), var(--prim));
         color: var(--sec);
         border-radius: 50%;
+
+        display: inline-block;
         padding: 8px 13px;
 
         &.active {
@@ -83,7 +90,7 @@
   
   &.open { 
     background: var(--prim-l);
-    border-color: var(--prim-l);
+    border-bottom-color: var(--prim-l);
 
     &>.menuIcon {
       color: var(--sec-l);

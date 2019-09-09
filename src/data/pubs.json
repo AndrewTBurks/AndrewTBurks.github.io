@@ -1,14 +1,21 @@
 {
   "conference": [
     {
+      "name": "Usage Patterns of Wideband Display Environments In e-Science Research, Development and Training",
+      "teamBefore": "J. Leigh, L. Renambot, A. Johnson, M. Brown, J. Haga, R. Pelayo, J. Burns, F. Cristobal, J. McLean, D. Kobayashi, N. Kirshenbaum, ",
+      "teamAfter": ", K. Bharadwaj, A. Nishimoto, A. Gonzalez, T. Wooton, M. Belcaid and L. Long",
+      "journal": "IEEE International Conference on e-Science. 2019.",
+      "award": ""
+    },
+    {
       "name": "Details-First, Show Context, Overview Last: Supporting Exploration of Viscous Fingers in Large-Scale Ensemble Simulations",
       "teamBefore": "T. Luciani, ",
       "teamAfter": ", C. Sugiyama, J. Komperda, G.E. Marai",
-      "journal": "IEEE Transactions on Visualization and Computer Graphics (Proc. SciVis'18), vol 25, no 1, pp. 1-11, January 2019.",
+      "journal": "IEEE Transactions on Visualization and Computer Graphics (Proc. SciVis'18), 25(1), January 2019.",
       "award": "Certificate of Merit - IEEE SciVis Contest 2016"
     },
     {
-      "name": "Dynamic influence networks for rule-based models",
+      "name": "Dynamic Influence Networks for Rule-Based Models",
       "teamBefore": "A. G. Forbes, ",
       "teamAfter": ", K. Lee, X. Li, P. Boutillier, J. Krivine, and W. Fontana",
       "journal": "IEEE Transactions on Visualization and Computer Graphics (Proc. VAST'17), 24(1), January 2018.",
