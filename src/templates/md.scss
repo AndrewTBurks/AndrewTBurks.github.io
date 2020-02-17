@@ -24,11 +24,22 @@
 
     .embedVideo-container {
         text-align: center;
+
+        iframe {
+            max-width: 100%;
+        }
     }
 
-    figcaption {
+    figure {
         text-align: center;
         font-size: 80%;
+
+        figcaption {
+            text-align: left;
+            margin: 0 auto;
+            padding: 0 10px;
+            display: inline-flex;
+        }
     }
 
     img {
