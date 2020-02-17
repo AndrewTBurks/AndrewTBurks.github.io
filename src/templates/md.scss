@@ -1,0 +1,37 @@
+.blog-post-container .blog-post-content {
+    padding-left: 15px;
+
+    li {
+        margin: 0;
+    }
+
+    h1, h2, strong, .svg-inline--fa {
+        color: var(--sec)
+    }
+
+    h1, h2 {
+        border-bottom: 1px solid var(--sec);
+        padding-bottom: 5px;
+        padding-left: 5px;
+        margin-left: -10px;
+    }
+
+    h3, h4, h5 {
+        font-weight: normal;
+        padding-left: 5px;
+        margin-left: -10px;
+    }
+
+    .embedVideo-container {
+        text-align: center;
+    }
+
+    figcaption {
+        text-align: center;
+        font-size: 80%;
+    }
+
+    img {
+        box-shadow: 2px 4px 12px 2px #0006;
+    }
+}
