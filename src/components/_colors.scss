@@ -73,7 +73,23 @@ $link: (
   }
 }
 
+
 @include theme(1);
 @include theme(2);
 @include theme(3);
 @include theme(4);
+
+// default theme to avoid page flash on load
+$defaultTheme: 3;
+:root {
+  --prim: #{map-get($prim, $defaultTheme)};
+  --prim-l: #{map-get($prim-l, $defaultTheme)};
+  --prim-d: #{map-get($prim-d, $defaultTheme)};
+
+  --sec: #{map-get($sec, $defaultTheme)};
+  --sec-l: #{map-get($sec-l, $defaultTheme)};
+  --sec-d: #{map-get($sec-d, $defaultTheme)};
+
+  --text: #{map-get($text, $defaultTheme)}; 
+  --link: #{map-get($link, $defaultTheme)}; 
+}

@@ -10,7 +10,7 @@
     }
 
     h1, h2 {
-        border-bottom: 1px solid var(--sec);
+        border-bottom: 1px solid var(--sec-d);
         padding-bottom: 5px;
         padding-left: 5px;
         margin-left: -10px;
@@ -20,6 +20,15 @@
         font-weight: normal;
         padding-left: 5px;
         margin-left: -10px;
+
+        display: flex;
+    }
+
+    h3:after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px dotted var(--sec-d);
+        margin: auto 10px;
     }
 
     .embedVideo-container {
@@ -27,6 +36,11 @@
 
         iframe {
             max-width: 100%;
+
+            border-radius: 20px;
+            box-shadow: 2px 4px 16px 4px #0006,
+                0 0 0 4px var(--sec);
+            // border: 2px solid var(--sec);
         }
     }
 
@@ -39,6 +53,8 @@
             margin: 0 auto;
             padding: 0 10px;
             display: inline-flex;
+            
+            font-style: italic;
         }
     }
 
