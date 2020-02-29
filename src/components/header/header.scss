@@ -11,7 +11,6 @@ header {
 .header-wrapper {
   position: relative;
 
-
   margin: 0 auto;
   padding: 10px 10px;
   max-width: 960px;
@@ -29,6 +28,6 @@ header {
 
     color: var(--sec);
     background: var(--prim);
-    box-shadow: 0 0 10px 10px var(--prim);
+    box-shadow: 0 0 8px 3px var(--prim), 0 0 20px 8px #0008;
   }
 }
