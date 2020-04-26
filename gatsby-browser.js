@@ -6,10 +6,10 @@
 
 // You can delete this file if you're not using it
 
-import React, { useState } from "react"
+import React, { useState } from "react";
 import ThemeProvider from "./src/components/theme-context";
+require("prismjs/themes/prism-tomorrow.css");
 
 export const wrapRootElement = ({ element }) => {
-  return <ThemeProvider>{element}</ThemeProvider>
-}
-
+  return <ThemeProvider>{element}</ThemeProvider>;
+};

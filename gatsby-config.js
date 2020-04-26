@@ -52,7 +52,7 @@ module.exports = {
             options: {
               maxWidth: 650,
               showCaptions: true,
-              quality: 90
+              quality: 90,
             },
           },
           `gatsby-remark-autolink-headers`,
@@ -66,12 +66,14 @@ module.exports = {
               noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
               urlOverrides: [
                 {
-                  id: 'youtube',
-                  embedURL: (videoId) => `https://www.youtube-nocookie.com/embed/${videoId}`,
-                }
-              ] //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
-            }
-          }
+                  id: "youtube",
+                  embedURL: videoId =>
+                    `https://www.youtube-nocookie.com/embed/${videoId}`,
+                },
+              ], //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
+            },
+          },
+          `gatsby-remark-prismjs`,
         ],
       },
     },
@@ -79,4 +81,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
