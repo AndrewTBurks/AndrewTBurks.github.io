@@ -73,7 +73,12 @@ module.exports = {
               ], //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
             },
           },
-          `gatsby-remark-prismjs`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: "~",
+            },
+          },
         ],
       },
     },

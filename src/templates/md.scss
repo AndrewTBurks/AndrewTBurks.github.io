@@ -33,7 +33,12 @@
   h4 {
     font-size: 1.15rem;
     font-weight: lighter;
-    padding-left: 20px;
+
+    &:before {
+      content: "\2053";
+      padding-right: 5px;
+      color: var(--sec);
+    }
   }
 
   h3:after {
