@@ -1,0 +1,28 @@
+import Layout from "../components/layout";
+import SEO from "../components/SEO";
+
+import { motion } from "framer-motion";
+
+export default ({ children }) => (
+  <Layout>
+    <SEO title={"About Me"} />
+    <div
+      className="panel"
+      style={{
+        maxWidth: `100%`,
+        marginBottom: `1.45rem`,
+        display: "flex",
+        alignItems: `flex-start`,
+        flexFlow: `row wrap`,
+        boxSizing: "border-box",
+        padding: 20,
+      }}
+    >
+      {children}
+    </div>
+  </Layout>
+);
+
+# Hello world
+
+<motion.div></motion.div>
