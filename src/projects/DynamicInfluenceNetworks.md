@@ -1,6 +1,6 @@
 ---
 path: "/projects/dynamic-influence-networks"
-date: "2020-06-13"
+date: "2017-08-01"
 shorttitle: "Dynamic Influence Networks"
 title: "Dynamic Influence Networks for Rule-Based Models"
 authors:

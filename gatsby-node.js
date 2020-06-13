@@ -78,7 +78,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   projectEdges.forEach((edge, index) => {
     let { node } = edge;
     const previous =
-      index === projectEdges.length - 1 ? null : projectEdges[index + 1]?.node;
+      index === projectEdges.length - 1 ? null : projectEdges[index + 1].node;
     const next = index === 0 ? null : projectEdges[index - 1].node;
 
     createPage({

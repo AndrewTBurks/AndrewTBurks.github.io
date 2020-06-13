@@ -1,6 +1,6 @@
 ---
 path: "/projects/sage2-jupyterlab"
-date: "2020-06-13"
+date: "2019-11-10"
 shorttitle: "SAGE2 + JupyterLab"
 title: "SAGE2 + JupyterLab Integration"
 authors: ["Andrew Burks", "Luc Renambot"]

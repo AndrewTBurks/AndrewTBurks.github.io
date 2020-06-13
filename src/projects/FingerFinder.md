@@ -1,6 +1,6 @@
 ---
 path: "/projects/fingerfinder"
-date: "2020-06-13"
+date: "2019-01-01"
 shorttitle: "FingerFinder"
 title: "Details-First, Show Context, Overview Last: Supporting Exploration of Viscous Fingers in Large-Scale Ensemble Simulations"
 authors:

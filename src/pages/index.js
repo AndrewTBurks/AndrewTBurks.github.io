@@ -122,6 +122,16 @@ const IndexPage = () => (
           </thead>
           <tbody>
             <tr>
+              <td>2020</td>
+              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+                Honorable Mention
+              </td>
+              <td>
+                PEARC'20: Application Software, Suppport, and Outcomes Track
+                (Student Papers)
+              </td>
+            </tr>
+            <tr>
               <td>2019</td>
               <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
                 Honorable Mention

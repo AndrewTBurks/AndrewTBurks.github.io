@@ -6,56 +6,63 @@ $prim: (
   1: #263238,
   2: #e0e0e0,
   3: #212121,
-  4: #e8eaf6
+  4: #e8eaf6,
 );
 
 $prim-l: (
   1: #4f5b62,
   2: #ffffff,
   3: #484848,
-  4: #ffffff
+  4: #ffffff,
 );
 
 $prim-d: (
   1: #000a12,
   2: #aeaeae,
   3: #000000,
-  4: #b6b8c3
+  4: #b6b8c3,
 );
 
 $sec: (
   1: #80cbc4,
   2: #ff8f00,
   3: #9575cd,
-  4: #607d8b
+  4: #607d8b,
 );
 
 $sec-l: (
   1: #b2fef7,
   2: #ffc046,
   3: #c7a4ff,
-  4: #8eacbb
+  4: #8eacbb,
 );
 
 $sec-d: (
   1: #4f9a94,
   2: #c56000,
   3: #65499c,
-  4: #34515e
+  4: #34515e,
 );
 
 $text: (
   1: #fff,
   2: #000,
   3: #fff,
-  4: #000a12
+  4: #000a12,
+);
+
+$text-sec: (
+  1: #e0e0e0,
+  2: #000,
+  3: #e0e0e0,
+  4: #000a12,
 );
 
 $link: (
   1: map-get($sec, 1),
   2: #0d47a1,
   3: map-get($sec, 3),
-  4: map-get($sec-d, 3)
+  4: map-get($sec-d, 3),
 );
 
 @mixin theme($count) {
@@ -68,11 +75,11 @@ $link: (
     --sec-l: #{map-get($sec-l, $count)};
     --sec-d: #{map-get($sec-d, $count)};
 
-    --text: #{map-get($text, $count)}; 
-    --link: #{map-get($link, $count)}; 
+    --text: #{map-get($text, $count)};
+    --text-sec: #{map-get($text-sec, $count)};
+    --link: #{map-get($link, $count)};
   }
 }
-
 
 @include theme(1);
 @include theme(2);
@@ -90,6 +97,6 @@ $defaultTheme: 3;
   --sec-l: #{map-get($sec-l, $defaultTheme)};
   --sec-d: #{map-get($sec-d, $defaultTheme)};
 
-  --text: #{map-get($text, $defaultTheme)}; 
-  --link: #{map-get($link, $defaultTheme)}; 
+  --text: #{map-get($text, $defaultTheme)};
+  --link: #{map-get($link, $defaultTheme)};
 }

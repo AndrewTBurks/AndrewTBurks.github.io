@@ -18,7 +18,6 @@ const ProjectsPage = () => {
         ) {
           edges {
             node {
-              id
               excerpt(pruneLength: 250)
               timeToRead
               frontmatter {

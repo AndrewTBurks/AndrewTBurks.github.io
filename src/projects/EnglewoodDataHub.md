@@ -1,6 +1,6 @@
 ---
 path: "/projects/englewood-data-hub"
-date: "2020-06-13"
+date: "2017-08-15"
 shorttitle: "Englewood Data Hub"
 title: "Context-Aware Visualization of Englewood Social Services"
 authors:

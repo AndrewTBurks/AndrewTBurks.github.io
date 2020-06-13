@@ -1,6 +1,20 @@
 {
   "conference": [
     {
+      "name": "VisSnippets: A Web-based System for Impromptu Collaborative Data Exploration on Large Displays",
+      "teamBefore": "",
+      "teamAfter": ", L. Renambot, A. Johnson",
+      "journal": "In Practice and Experience in Advanced Research Computing (PEARC ’20). 2020.",
+      "award": "Honorable Mention - Application Software, Suppport, and Outcomes"
+    },
+    {
+      "name": "The Smart Amplified Group Environment",
+      "teamBefore": "N. Kirshenbaum, D. Kobayashi, J. Leigh, L. Renambot, ",
+      "teamAfter": ", K. Bharadwaj, L. Long, M. Brown, J. Haga and C. North",
+      "journal": "4th Workshop on Immersive Analytics: Envisioning Future Productivity for Immersive Analytics, CHI 2020",
+      "award": ""
+    },
+    {
       "name": "Usage Patterns of Wideband Display Environments In e-Science Research, Development and Training",
       "teamBefore": "J. Leigh, L. Renambot, A. Johnson, M. Brown, J. Haga, R. Pelayo, J. Burns, F. Cristobal, J. McLean, D. Kobayashi, N. Kirshenbaum, ",
       "teamAfter": ", K. Bharadwaj, A. Nishimoto, A. Gonzalez, T. Wooton, M. Belcaid and L. Long",
