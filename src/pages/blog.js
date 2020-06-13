@@ -1,18 +1,21 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby";
 
-import Layout from "../components/layout"
-import BlogEntry from "../components/BlogEntry"
-import Img from "gatsby-image"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import BlogEntry from "../components/BlogEntry";
+import Img from "gatsby-image";
+import SEO from "../components/seo";
 
 const BlogPage = () => {
   let data = useStaticQuery(
     graphql`
       query {
-        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: { fields: { collection: { eq: "blog" } } }
+        ) {
           edges {
             node {
               id
@@ -34,7 +37,7 @@ const BlogPage = () => {
         }
       }
     `
-  )
+  );
 
   return (
     <Layout>
@@ -52,7 +55,7 @@ const BlogPage = () => {
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPage
+export default BlogPage;

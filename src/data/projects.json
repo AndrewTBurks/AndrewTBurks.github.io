@@ -8,7 +8,7 @@
     "award": "",
     "link": "https://www.evl.uic.edu/entry.php?id=2428",
     "github": "",
-    "paper": "" 
+    "paper": ""
   },
   {
     "shortname": "SAGE2 + JupyterLab",
@@ -19,7 +19,7 @@
     "award": "",
     "link": "https://www.youtube.com/watch?v=l2pRLhw6GSE",
     "github": "https://github.com/AndrewTBurks/jupyterlab_sage2",
-    "paper": "" 
+    "paper": ""
   },
   {
     "shortname": "FingerFinder",
@@ -30,7 +30,7 @@
     "award": "Certificate of Merit - IEEE SciVis Contest 2016",
     "link": "https://andrewtburks.dev/FingerFinder/",
     "github": "https://github.com/AndrewTBurks/FingerFinder",
-    "paper": "detailsfirst_ieee2018.pdf" 
+    "paper": "detailsfirst_ieee2018.pdf"
   },
   {
     "shortname": "Englewood Data Hub",
@@ -41,7 +41,7 @@
     "award": "",
     "link": "https://englewooddatahub.org",
     "github": "https://github.com/uic-evl/EnglewoodSocialServices/",
-    "paper": "" 
+    "paper": ""
   },
   {
     "shortname": "Dynamic Influence Networks",
@@ -52,7 +52,7 @@
     "award": "",
     "link": "https://creativecodinglab.github.io/DynamicInfluenceNetworks/",
     "github": "https://github.com/CreativeCodingLab/DynamicInfluenceNetworks",
-    "paper": "BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf" 
+    "paper": "BURKS-LEE-2017- IEEE_TVCG 08017593-small.pdf"
   },
   {
     "shortname": "SAGE2 Partitions",
@@ -63,7 +63,7 @@
     "award": "",
     "link": "",
     "github": "",
-    "paper": "" 
+    "paper": ""
   },
   {
     "shortname": "SMART UI",
@@ -85,7 +85,7 @@
     "award": "",
     "link": "http://chihuama.com/EnsembleProb/prototype",
     "github": "",
-    "paper": "" 
+    "paper": ""
   },
   {
     "shortname": "Voronoi ACT",
@@ -96,6 +96,6 @@
     "award": "Honorable Mention - IEEE VGTC VPG Contest 2016",
     "link": "http://vacommunity.org/ieeevpg/viscontest/2016/entries/3.html",
     "github": "",
-    "paper": "" 
+    "paper": ""
   }
 ]

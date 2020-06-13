@@ -1,78 +1,70 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby";
 
-import { IconContext } from 'react-icons';
-import { FaAward, FaLink, FaScroll, } from 'react-icons/fa';
-
-import useImageList from "../components/useImageList"
-
-import Layout from "../components/layout"
-import Card from "../components/ProjectCard"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import ProjectEntry from "../components/ProjectEntry";
+import Img from "gatsby-image";
+import SEO from "../components/seo";
 
 const ProjectsPage = () => {
   let data = useStaticQuery(
-  graphql`
-    query MyQuery {
-      allProjectsJson {
-        nodes {
-          abstract
-          award
-          github
-          image
-          id
-          link
-          shortname
-          name
-          paper
-          team
+    graphql`
+      query {
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___date] }
+          filter: { fields: { collection: { eq: "projects" } } }
+        ) {
+          edges {
+            node {
+              id
+              excerpt(pruneLength: 250)
+              timeToRead
+              frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                path
+                title
+                shorttitle
+                keywords
+                abstract
+                award
+                featuredImage {
+                  childImageSharp {
+                    fluid(maxWidth: 400) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-    }
-  `);
+    `
+  );
 
-  let {images} = useImageList();
+  console.log(data);
 
-  // let data = [];
+  return (
+    <Layout>
+      <SEO title="Projects" />
+      <div
+        // className="panel"
+        style={{
+          maxWidth: `100%`,
+          // marginBottom: `1.45rem`,
+          // border: `1px solid black`,
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+        }}
+      >
+        {data.allMarkdownRemark.edges.map(edge => (
+          <ProjectEntry {...edge.node.frontmatter} key={edge.node.id} />
+        ))}
+      </div>
+    </Layout>
+  );
+};
 
-  return <Layout>
-    <SEO title="Projects" />
-    <div style={{
-      maxWidth: `100%`,
-      marginBottom: `1.45rem`,
-      display: "flex",
-      flexFlow: "row wrap",
-      justifyContent: "flex-start"
-    }}>
-      {data.allProjectsJson.nodes.map(proj => {
-        let {node} = images.edges.find(({
-          node
-        }) => node.relativePath === proj.image);
-
-        return <Card 
-          key={proj.id} 
-          {...proj}
-          Image={
-            <Img fluid={node.childImageSharp.fluid}/>
-          }
-        />
-      })}
-      
-      {/* {data.allProjectsJson.nodes.map(proj => {
-        return <div style={{margin: "5px"}} key={proj.id} >
-          <IconContext.Provider value={{color: "var(--sec)", size: "1.25em"}}>
-            {proj.award !== "" && <FaAward /> || null}
-          </IconContext.Provider>
-          <a href={proj.link}>
-            {proj.name}
-          </a>
-        </div>
-      })} */}
-    </div>
-  </Layout>
-}
-
-export default ProjectsPage
+export default ProjectsPage;

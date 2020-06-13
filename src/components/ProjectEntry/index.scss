@@ -1,0 +1,21 @@
+.project-entry {
+  margin: 10px;
+
+  padding: 10px 20px 20px 20px;
+
+  border-radius: 8px 2px 2px 2px;
+  background: var(--prim);
+
+  border: 2px solid transparent;
+  border-bottom-color: var(--prim-l);
+  display: flex;
+  flex-flow: column;
+
+  .gatsby-image-wrapper {
+    width: 400px;
+    max-width: 100%;
+    align-self: center;
+
+    border: 1px solid var(--prim-l);
+  }
+}
