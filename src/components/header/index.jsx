@@ -119,12 +119,20 @@ const Header = ({ siteTitle, location }) => {
           }}
         >
           <div style={{ width: "50%" }}>
-            <h2 style={{ margin: `1.45rem 1.0875rem` }}>
+            <h2
+              style={{
+                margin: `1.45rem 1.0875rem`,
+              }}
+            >
               <Link
                 to="/"
                 style={{
                   color: `inherit`,
                   textDecoration: `none`,
+                  background: "var(--background)",
+                  padding: 18,
+                  marginLeft: 10,
+                  borderRadius: 100,
                 }}
               >
                 {siteTitle}
@@ -135,7 +143,7 @@ const Header = ({ siteTitle, location }) => {
 
         <div style={{ marginLeft: "auto" }} />
 
-        <RadialMenu
+        {/* <RadialMenu
           {...{
             count: NUM_SCHEMES,
             Icon: FaPalette,
@@ -162,7 +170,13 @@ const Header = ({ siteTitle, location }) => {
               );
             },
           }}
-        />
+        /> */}
+        <button
+          onClick={() => setTheme(t => (t === 3 ? 4 : 3))}
+          style={{ zIndex: 10 }}
+        >
+          Theme
+        </button>
 
         <div style={{ marginLeft: "5px" }} />
 

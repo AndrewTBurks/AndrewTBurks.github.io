@@ -68,18 +68,18 @@ export default function({
 
       <div className="content">
         {(award && (
-          <p style={{ color: "var(--sec)", fontSize: 14, fontWeight: 600 }}>
+          <p style={{ color: "var(--accent)", fontSize: 14, fontWeight: 600 }}>
             {" "}
             <FaAward /> {award}
           </p>
         )) ||
           null}
         {(keywords && <h6>{keywords.join(" & ")}</h6>) || null}
-        <p>{date}</p>
         {(featuredImage && (
           <Img fluid={featuredImage.childImageSharp.fluid} />
         )) ||
           null}
+        <p style={{ margin: "0.1rem", marginTop: "auto" }}>{date}</p>
       </div>
     </motion.div>
   );

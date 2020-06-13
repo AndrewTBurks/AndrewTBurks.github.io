@@ -2,6 +2,36 @@
 // scheme 2: https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=E0E0E0&secondary.color=FF8F00
 // scheme 3: https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=4DB6AC&secondary.color=A5D6A7
 
+$background: (
+  dark: #1b1b1b,
+  light: #f0f0f0,
+);
+
+$text: (
+  dark: #e0e0e0,
+  light: #263238,
+);
+
+$link: (
+  dark: #81d4fa,
+  light: #005cb2,
+);
+
+$accent: (
+  dark: #e57373,
+  light: #af4448,
+);
+
+$accent-alt: (
+  dark: #ffb74d,
+  light: #f57c00,
+);
+
+$content: (
+  dark: #424242,
+  light: #fff,
+);
+
 $prim: (
   1: #263238,
   2: #e0e0e0,
@@ -44,7 +74,7 @@ $sec-d: (
   4: #34515e,
 );
 
-$text: (
+$text-old: (
   1: #fff,
   2: #000,
   3: #fff,
@@ -58,12 +88,24 @@ $text-sec: (
   4: #000a12,
 );
 
-$link: (
-  1: map-get($sec, 1),
-  2: #0d47a1,
-  3: map-get($sec, 3),
-  4: map-get($sec-d, 3),
-);
+// $link: (
+//   1: map-get($sec, 1),
+//   2: #0d47a1,
+//   3: map-get($sec, 3),
+//   4: map-get($sec-d, 3),
+// );
+
+@mixin scheme($count, $name) {
+  .scheme#{$count} {
+    --background: #{map-get($background, $name)};
+    --text: #{map-get($text, $name)};
+    --link: #{map-get($link, $name)};
+
+    --accent: #{map-get($accent, $name)};
+    --accent-alt: #{map-get($accent-alt, $name)};
+    --content: #{map-get($content, $name)};
+  }
+}
 
 @mixin theme($count) {
   .scheme#{$count} {
@@ -75,9 +117,9 @@ $link: (
     --sec-l: #{map-get($sec-l, $count)};
     --sec-d: #{map-get($sec-d, $count)};
 
-    --text: #{map-get($text, $count)};
+    --text-old: #{map-get($text-old, $count)};
     --text-sec: #{map-get($text-sec, $count)};
-    --link: #{map-get($link, $count)};
+    // --link: #{map-get($link, $count)};
   }
 }
 
@@ -85,6 +127,11 @@ $link: (
 @include theme(2);
 @include theme(3);
 @include theme(4);
+
+@include scheme(1, "dark");
+@include scheme(2, "light");
+@include scheme(3, "dark");
+@include scheme(4, "light");
 
 // default theme to avoid page flash on load
 $defaultTheme: 3;
@@ -99,4 +146,45 @@ $defaultTheme: 3;
 
   --text: #{map-get($text, $defaultTheme)};
   --link: #{map-get($link, $defaultTheme)};
+}
+
+:export {
+}
+
+@mixin BoxShadow($dp) {
+  @if $dp==0 {
+    box-shadow: none;
+  } @else if $dp==1 {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  } @else if $dp==2 {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  } @else if $dp==3 {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+      0 3px 3px -2px rgba(0, 0, 0, 0.12), 0 1px 8px 0 rgba(0, 0, 0, 0.2);
+  } @else if $dp==4 {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  } @else if $dp==6 {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+      0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  } @else if $dp==8 {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  } @else if $dp==9 {
+    box-shadow: 0 9px 12px 1px rgba(0, 0, 0, 0.14),
+      0 3px 16px 2px rgba(0, 0, 0, 0.12), 0 5px 6px -3px rgba(0, 0, 0, 0.2);
+  } @else if $dp==12 {
+    box-shadow: 0 12px 17px 2px rgba(0, 0, 0, 0.14),
+      0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 7px 8px -4px rgba(0, 0, 0, 0.2);
+  } @else if $dp==16 {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+      0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  } @else if $dp==24 {
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  } @else {
+    @error "Invalid argument for $dp: {" + $dp + "}, look at the method definition for possible values";
+  }
 }

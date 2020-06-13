@@ -4,22 +4,22 @@
   background: none;
   border: none;
 
-  padding: 1.0875rem;
+  padding: 0.5rem;
   cursor: pointer;
 
-  background: var(--prim);
+  background: var(--background);
 
   border-radius: 100px;
 
-  border: 1px solid var(--sec);
+  border: 1px solid var(--link);
   box-shadow: 0 0 8px #0006;
 
   &:hover {
-    background: var(--prim-l);
+    background: var(--content);
 
     & > .menuIcon {
       transform: scale(1.2);
-      color: var(--sec-l);
+      color: var(--link);
     }
   }
 
@@ -63,10 +63,10 @@
       // }
 
       .radial-button {
-        border: 2px solid var(--sec);
-        background: var(--prim-l);
+        border: 2px solid var(--link);
+        background: var(--background);
         // background: radial-gradient(var(--prim-l), var(--prim));
-        color: var(--sec);
+        color: var(--link);
         border-radius: 50%;
 
         display: inline-block;
@@ -74,27 +74,26 @@
 
         &.active {
           border-width: 6px;
-          background: var(--sec-d);
+          background: var(--content);
         }
       }
 
       &:hover {
-        box-shadow: 0 0 10px 2px var(--sec-l);
+        box-shadow: 0 0 10px 2px var(--link);
 
         .menuIcon {
           transform: scale(1.2);
-          color: var(--sec-l);
         }
       }
     }
   }
 
   &.open {
-    background: var(--prim-l);
-    border-bottom-color: var(--prim-l);
+    background: var(--content);
+    border-bottom-color: var(--content);
 
     & > .menuIcon {
-      color: var(--sec-l);
+      color: var(--link);
     }
 
     .menu-options {
@@ -107,6 +106,6 @@
   }
 
   .menuIcon {
-    color: var(--sec);
+    color: var(--link);
   }
 }

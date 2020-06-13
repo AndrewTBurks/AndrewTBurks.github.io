@@ -12,17 +12,17 @@ let menuVariants = {
   closed: ({ theme }) => ({
     borderBottomRightRadius: "100px",
     borderBottomLeftRadius: "100px",
-    background: colors.prim[theme],
-    borderBottomColor: colors.sec[theme],
+    // background: colors.prim[theme],
+    // borderBottomColor: colors.sec[theme],
   }),
   open: ({ theme }) => ({
     borderBottomRightRadius: "0px",
     borderBottomLeftRadius: "0px",
-    background: colors["prim-l"][theme],
-    borderBottomColor: colors["prim-l"][theme],
+    // background: colors["prim-l"][theme],
+    // borderBottomColor: colors["prim-l"][theme],
   }),
   hovered: ({ theme }) => ({
-    background: colors["prim-l"][theme],
+    // background: colors["prim-l"][theme],
   }),
 };
 
@@ -44,9 +44,6 @@ let menuOptionsVariants = {
 
 function Menu({ Icon, count, className, createOption, theme, ...props }) {
   let [open, setOpen] = useState(false);
-
-  console.log(theme);
-
   return (
     <motion.button
       className={`menu ${open ? "open" : ""}`}
@@ -57,7 +54,6 @@ function Menu({ Icon, count, className, createOption, theme, ...props }) {
       variants={menuVariants}
       onClick={() => setOpen(o => !o)}
       onBlur={evt => {
-        console.log("blur", evt.currentTarget, evt.relatedTarget);
         if (!evt.currentTarget.contains(evt.relatedTarget)) {
           setOpen(false);
         }

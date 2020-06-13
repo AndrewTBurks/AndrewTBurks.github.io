@@ -5,12 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useContext } from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
 
-import { ThemeContext } from './theme-context';
-import Header from "./header"
+import { ThemeContext } from "./theme-context";
+import Header from "./header";
 import "./layout.scss";
 import "./_colors.scss";
 
@@ -28,12 +28,11 @@ const Layout = ({ children, scheme, ...props }) => {
   `);
 
   return (
-    <div
-        className={`scheme${theme}`}>
+    <div className={`scheme${theme}`}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
-          margin: `125px auto 0`,
+          margin: `80px auto 0`,
           maxWidth: 960,
           padding: `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
@@ -47,11 +46,11 @@ const Layout = ({ children, scheme, ...props }) => {
         </footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

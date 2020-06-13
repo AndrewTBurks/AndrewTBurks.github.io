@@ -10,25 +10,36 @@ import "../fontawesome/all.js";
 import "../fontawesome/all.css";
 import { FaAward, FaCode, FaLink, FaFilePdf } from "react-icons/fa";
 
+const buttonStyle = {
+  color: "inherit",
+  color: "var(--link)",
+  textDecoration: "none",
+  fontWeight: 300,
+  display: "lnline-flex",
+  alignItems: "center",
+  whiteSpace: "pre",
+  padding: 4,
+};
+
 const buttonMap = {
   github: {
     Icon: props => (
-      <a href={props.github} target="_blank" style={{ color: "inherit" }}>
-        <FaCode />
+      <a href={props.github} target="_blank" style={buttonStyle}>
+        <FaCode /> github
       </a>
     ),
   },
   link: {
     Icon: props => (
-      <a href={props.link} target="_blank" style={{ color: "inherit" }}>
-        <FaLink />
+      <a href={props.link} target="_blank" style={buttonStyle}>
+        <FaLink /> link
       </a>
     ),
   },
   paper: {
     Icon: props => (
-      <a href={props.paper} target="_blank" style={{ color: "inherit" }}>
-        <FaFilePdf />
+      <a href={props.paper} target="_blank" style={buttonStyle}>
+        <FaFilePdf /> paper
       </a>
     ),
   },
@@ -48,23 +59,21 @@ export default function Template({
           <h1 style={{ color: "var(--text)" }}>{frontmatter.title}</h1>
           {frontmatter.award &&
             ((
-              <h3 style={{ color: "var(--sec)" }}>
+              <h3 style={{ color: "var(--accent)" }}>
                 <FaAward /> {frontmatter.award}
               </h3>
             ) ||
               null)}
           <h4 style={{ fontWeight: "lighter" }}>{frontmatter.date}</h4>
-          <div style={{ color: "var(--link)", fontSize: "1.6rem" }}>
+          <div
+            style={{ fontSize: "1.4rem", color: "var(--text-sec)", padding: 4 }}
+          >
             {Object.keys(buttonMap)
               .filter(a => frontmatter[a])
               .map(attr => {
                 let { Icon } = buttonMap[attr];
 
-                return (
-                  // <div className="info-button" onClick={onClick} key={attr}>
-                  <Icon {...frontmatter} />
-                  // </div>
-                );
+                return <Icon key={attr} {...frontmatter} />;
               })}
           </div>
           <hr />

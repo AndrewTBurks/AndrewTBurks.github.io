@@ -22,6 +22,7 @@ const IndexPage = () => (
         alignItems: `flex-start`,
         flexFlow: `row wrap`,
         boxSizing: "border-box",
+        color: "var(--text-sec)",
       }}
     >
       <div
@@ -106,7 +107,7 @@ const IndexPage = () => (
             <IconContext.Provider
               value={{
                 size: "1.5em",
-                color: "var(--sec)",
+                color: "var(--accent)",
               }}
             >
               <tr>
@@ -123,7 +124,7 @@ const IndexPage = () => (
           <tbody>
             <tr>
               <td>2020</td>
-              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+              <td style={{ fontWeight: "bold", color: "var(--accent)" }}>
                 Honorable Mention
               </td>
               <td>
@@ -133,33 +134,33 @@ const IndexPage = () => (
             </tr>
             <tr>
               <td>2019</td>
-              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+              <td style={{ fontWeight: "bold", color: "var(--accent)" }}>
                 Honorable Mention
               </td>
               <td>NSF Graduate Research Fellowship Program (GRFP)</td>
             </tr>
             <tr>
               <td rowSpan={2}>2017</td>
-              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+              <td style={{ fontWeight: "bold", color: "var(--accent)" }}>
                 Honorable Mention - Clarity in Visual Communication
               </td>
               <td>IEEE VIS 2017 VAST Challenge: Mini-Challenge 2</td>
             </tr>
             <tr>
-              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+              <td style={{ fontWeight: "bold", color: "var(--accent)" }}>
                 Honorable Mention - Good Interactive Image Explorer
               </td>
               <td>IEEE VIS 2017 VAST Challenge: Mini-Challenge 3</td>
             </tr>
             <tr>
               <td rowSpan={2}>2016</td>
-              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+              <td style={{ fontWeight: "bold", color: "var(--accent)" }}>
                 Honorable Mention
               </td>
               <td>IEEE VIS Conference: VGTC VPG Data Visualization Contest</td>
             </tr>
             <tr>
-              <td style={{ fontWeight: "bold", color: "var(--sec)" }}>
+              <td style={{ fontWeight: "bold", color: "var(--accent)" }}>
                 Certificate of Merit
               </td>
               <td>IEEE VIS Conference: SciVis Contest</td>

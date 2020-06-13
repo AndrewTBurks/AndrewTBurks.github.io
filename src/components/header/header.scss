@@ -12,7 +12,7 @@ header {
   position: relative;
 
   margin: 0 auto;
-  padding: 10px 10px;
+  padding: 10px 30px;
   max-width: 960px;
   display: flex;
   flex-direction: row;
@@ -26,8 +26,10 @@ header {
     height: 100%;
     width: 100%;
 
-    color: var(--sec);
-    background: var(--prim);
-    box-shadow: 0 0 8px 3px var(--prim), 0 0 20px 8px #0008;
+    color: var(--link);
+
+    // color: var(--sec);
+    // background: var(--prim);
+    // box-shadow: 0 0 8px 3px var(--prim), 0 0 20px 8px #0008;
   }
 }
