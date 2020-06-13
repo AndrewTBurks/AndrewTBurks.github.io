@@ -1,35 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 import { motion } from "framer-motion";
+import { FaAward } from "react-icons/fa";
+
+import ThemeContext, { colors } from "../theme-context";
 
 import "./index.scss";
-import { FaAward } from "react-icons/fa";
 
 const cardVariants = {};
 
 const titleBarVariants = {
-  visible: {
-    background: "var(--prim-l)",
-  },
-  hovered: {
-    background: "var(--sec-l)",
-  },
+  visible: ({ theme }) => ({
+    background: colors["prim-l"][theme],
+  }),
+  hovered: ({ theme }) => ({
+    background: colors["sec-l"][theme],
+  }),
 };
 
 const titleVariants = {
-  visible: {
+  visible: ({ theme }) => ({
     // scale: 1,
-    color: "var(--link)",
+    color: colors["link"][theme],
     x: 0,
-  },
-  hovered: {
+  }),
+  hovered: ({ theme }) => ({
     // scale: 1.2,
-    color: "var(--prim)",
+    color: colors["prim"][theme],
     x: 8,
-  },
+  }),
 };
 
 export default function({
@@ -40,6 +42,7 @@ export default function({
   featuredImage,
   award,
 }) {
+  let theme = useContext(ThemeContext);
   return (
     <motion.div
       className="project-entry"
@@ -52,17 +55,20 @@ export default function({
         <motion.div
           className="title"
           initial={false}
+          custom={{ theme }}
           variants={titleBarVariants}
           animate="visible"
           whileHover="hovered"
         >
-          <motion.span variants={titleVariants}>{shorttitle}</motion.span>
+          <motion.span custom={{ theme }} variants={titleVariants}>
+            {shorttitle}
+          </motion.span>
         </motion.div>
       </Link>
 
       <div className="content">
         {(award && (
-          <p style={{ color: "var(--sec-l)", fontSize: 14, fontWeight: 600 }}>
+          <p style={{ color: "var(--sec)", fontSize: 14, fontWeight: 600 }}>
             {" "}
             <FaAward /> {award}
           </p>

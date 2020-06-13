@@ -1,45 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { motion } from "framer-motion";
 
 import { IconContext } from "react-icons";
 
+import ThemeContext, { colors } from "../theme-context";
+
 import "./menu.scss";
 
 let menuVariants = {
-  closed: {
+  closed: ({ theme }) => ({
     borderBottomRightRadius: "100px",
     borderBottomLeftRadius: "100px",
-    background: "var(--prim)",
-    borderBottomColor: "var(--sec)",
-  },
-  open: {
+    background: colors.prim[theme],
+    borderBottomColor: colors.sec[theme],
+  }),
+  open: ({ theme }) => ({
     borderBottomRightRadius: "0px",
     borderBottomLeftRadius: "0px",
-    background: "var(--prim-l)",
-    borderBottomColor: "var(--prim-l)",
-  },
-  hovered: {
-    background: "var(--prim-l)",
-  },
+    background: colors["prim-l"][theme],
+    borderBottomColor: colors["prim-l"][theme],
+  }),
+  hovered: ({ theme }) => ({
+    background: colors["prim-l"][theme],
+  }),
 };
 
 let menuOptionsVariants = {
   closed: {
-    width: "50px",
-    height: "50px",
+    // width: "50px",
+    // height: "50px",
+    scale: 0.25,
     opacity: 0,
   },
   open: {
-    width: "200px",
-    height: "200px",
+    // width: "200px",
+    // height: "200px",
+    scale: 1,
     opacity: 1,
   },
   hovered: {},
 };
 
-function Menu({ Icon, count, className, createOption, ...props }) {
+function Menu({ Icon, count, className, createOption, theme, ...props }) {
   let [open, setOpen] = useState(false);
+
+  console.log(theme);
 
   return (
     <motion.button
@@ -47,17 +53,30 @@ function Menu({ Icon, count, className, createOption, ...props }) {
       intitial={false}
       animate={open ? "open" : "closed"}
       whileHover="hovered"
+      custom={{ theme }}
       variants={menuVariants}
       onClick={() => setOpen(o => !o)}
+      onBlur={evt => {
+        console.log("blur", evt.currentTarget, evt.relatedTarget);
+        if (!evt.currentTarget.contains(evt.relatedTarget)) {
+          setOpen(false);
+        }
+      }}
+      // tabIndex={-1}
     >
       <IconContext.Provider value={{ className: `menuIcon`, size: `1.5em` }}>
         <Icon />
       </IconContext.Provider>
       <motion.div
         className="menu-options"
+        initial="closed"
         variants={menuOptionsVariants}
         onClick={e => {
           e.stopPropagation();
+        }}
+        style={{
+          width: 200,
+          height: 200,
         }}
       >
         {[...Array(count).keys()].map(i => (
