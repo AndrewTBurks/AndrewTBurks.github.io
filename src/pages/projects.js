@@ -55,7 +55,12 @@ const ProjectsPage = () => {
           // marginBottom: `1.45rem`,
           // border: `1px solid black`,
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gridAutoRows: "1fr",
+          // gridAutoColumns: "minmax(250px, 1fr)",
+          gridGap: "0.8rem",
+          justifyContent: "center",
+          padding: 10,
         }}
       >
         {data.allMarkdownRemark.edges.map(edge => (

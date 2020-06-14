@@ -7,21 +7,21 @@ import { IconContext } from "react-icons";
 
 function PubEntry({ award, teamBefore, teamAfter, name, journal, ...props }) {
   return (
-    <div className="pub-entry" style={{ color: "var(--text-sec)" }}>
+    <div className="pub-entry" style={{ color: "var(--text)" }}>
       {(award && (
         <div className="pub-award">
-          <FaAward color="var(--sec)" /> {award}
+          <FaAward color="var(--accent)" /> {award}
         </div>
       )) ||
         null}
       <div className="pub-title">{name}</div>
       <div className="pub-authors">
-        <FaUsers color="var(--sec)" /> {teamBefore}{" "}
+        <FaUsers color="var(--link)" /> {teamBefore}{" "}
         <div className="me">A. Burks</div>
         {teamAfter}
       </div>
       <div className="pub-venue">
-        <FaMapPin color="var(--sec)" /> {journal}
+        <FaMapPin color="var(--link)" /> {journal}
       </div>
     </div>
   );

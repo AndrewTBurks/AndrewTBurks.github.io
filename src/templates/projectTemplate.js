@@ -19,13 +19,14 @@ const buttonStyle = {
   alignItems: "center",
   whiteSpace: "pre",
   padding: 4,
+  margin: "0 8px",
 };
 
 const buttonMap = {
   github: {
     Icon: props => (
       <a href={props.github} target="_blank" style={buttonStyle}>
-        <FaCode /> github
+        <FaCode /> code
       </a>
     ),
   },

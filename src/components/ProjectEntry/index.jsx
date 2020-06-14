@@ -68,18 +68,65 @@ export default function({
 
       <div className="content">
         {(award && (
-          <p style={{ color: "var(--accent)", fontSize: 14, fontWeight: 600 }}>
+          <p
+            style={{
+              color: "var(--accent)",
+              fontSize: 14,
+              fontWeight: 600,
+              marginBottom: "0.2rem",
+            }}
+          >
             {" "}
             <FaAward /> {award}
           </p>
         )) ||
           null}
-        {(keywords && <h6>{keywords.join(" & ")}</h6>) || null}
+        {(keywords && (
+          <div
+            style={{
+              fontSize: 14,
+              display: "flex",
+              flexFlow: "row wrap",
+              justifyContent: "stretch",
+              marginBottom: "0.8rem",
+              flexShrink: 0,
+            }}
+          >
+            {keywords.map(k => (
+              <span
+                style={{
+                  border: "1px solid var(--link)",
+                  color: "var(--link)",
+                  whiteSpace: "pre",
+                  margin: 2,
+                  padding: "0px 12px",
+                  borderRadius: 100,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  cursor: "pointer",
+                  flexShrink: 0,
+                }}
+              >
+                {k}
+              </span>
+            ))}
+          </div>
+        )) ||
+          null}
         {(featuredImage && (
           <Img fluid={featuredImage.childImageSharp.fluid} />
         )) ||
           null}
-        <p style={{ margin: "0.1rem", marginTop: "auto" }}>{date}</p>
+        <p
+          style={{
+            padding: "0.1rem",
+            margin: "auto 0 0 0",
+            fontStyle: "italic",
+            fontWeight: 300,
+          }}
+        >
+          {date}
+        </p>
       </div>
     </motion.div>
   );
