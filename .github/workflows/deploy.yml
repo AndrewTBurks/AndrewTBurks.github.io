@@ -31,7 +31,8 @@ jobs:
     # Install any dependencies
     - name: Install Dependencies
       run: yarn
-      	
+
+
     # Deploy the site to the master branch
     - name: Deploy
       run: npm deploy
