@@ -12,6 +12,10 @@
   font-family: "Lora", serif;
 }
 
+.accent-font {
+  @include accent-font();
+}
+
 html {
   @include font;
   -ms-text-size-adjust: 100%;
@@ -637,7 +641,8 @@ pre tt:after {
   border-radius: 15px;
   overflow: hidden;
 
-  @include BoxShadow(16);
+  box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 480px) {

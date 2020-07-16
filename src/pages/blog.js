@@ -20,6 +20,7 @@ const BlogPage = () => {
             node {
               id
               excerpt(pruneLength: 250)
+              timeToRead
               frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 path
@@ -41,17 +42,20 @@ const BlogPage = () => {
 
   return (
     <Layout>
-      <SEO title="Blog" />
+      <SEO title='Blog' />
       <div
-        className="panel"
+        // className="panel"
         style={{
           maxWidth: `100%`,
           marginBottom: `1.45rem`,
-          border: `1px solid black`,
         }}
       >
         {data.allMdx.edges.map(edge => (
-          <BlogEntry {...edge.node.frontmatter} key={edge.node.id} />
+          <BlogEntry
+            {...edge.node.frontmatter}
+            timeToRead={edge.node.timeToRead}
+            key={edge.node.id}
+          />
         ))}
       </div>
     </Layout>
