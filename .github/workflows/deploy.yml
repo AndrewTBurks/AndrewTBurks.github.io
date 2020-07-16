@@ -30,6 +30,6 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
-			
+	
     - name: Deploy
       run: npm deploy
