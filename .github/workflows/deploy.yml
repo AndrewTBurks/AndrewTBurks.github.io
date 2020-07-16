@@ -31,8 +31,15 @@ jobs:
     # Install any dependencies
     - name: Install Dependencies
       run: yarn
-
-
+      
     # Deploy the site to the master branch
-    - name: Deploy
-      run: yarn deploy
+    - name: Build
+      run: yarn build && ls
+      
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.5.8
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: master # The branch the action should deploy to.
+        FOLDER: public # The folder the action should deploy.
+
