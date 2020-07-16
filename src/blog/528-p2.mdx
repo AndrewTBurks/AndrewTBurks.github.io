@@ -153,14 +153,20 @@ You may point the wand at any node in the graph to reveal the name of that opera
 ![Deaths by Country Bar Chart](../images/528p2/BarChartCountry.PNG "You will see the visualization appear to your right.") -->
 
 <table style="width: 90%; margin-left: auto; margin-right: auto;">
-<td style="width: 50%; border: none; font-size: 1rem;">
-<figure>
-<img src="../images/528p2/SelectBarChartCountry.PNG" alt="Selecting BarChart Country"></img>
-</figure>
-</td>
-<td style="width: 50%; border: none; font-size: 0.9rem;">
-<img src="../images/528p2/BarChartCountry.PNG" alt="View the selected chart"></img>
-</td>
+  <td style="width: 50%; border: none; font-size: 1rem;">
+    <figure>
+      <img
+        src="../images/528p2/SelectBarChartCountry.PNG"
+        alt="Selecting BarChart Country"
+      ></img>
+    </figure>
+  </td>
+  <td style="width: 50%; border: none; font-size: 0.9rem;">
+    <img
+      src="../images/528p2/BarChartCountry.PNG"
+      alt="View the selected chart"
+    ></img>
+  </td>
 </table>
 
 Selecting a Data node (denoted with a blue color), will bring the data into Unity and visualize it in 3D space based on the attributes provided in the snippet. The X, Y and Z dimensions encode the `TotalConfirmed`, `TotalDeaths`, and `NewDeaths` attributes, respectively. The user may then view and move through the plotted data and select a data point. Selection is performed in the same way that you would select a node from the graph.
@@ -172,14 +178,20 @@ Selecting a Data node (denoted with a blue color), will bring the data into Unit
 After selecting a country, the VegaLite Line Chart which uses that selection as input will have updated. _Note: Updates within the Unity application do not yet propagate automatically, and new data selections will require the user to click the desired visualization again to see the update._
 
 <table style="width: 90%; margin-left: auto; margin-right: auto;">
-<td style="width: 50%; border: none; font-size: 1rem;">
-<figure>
-<img src="../images/528p2/SelectVegaLiteLineChart.PNG" alt="Swap the chart to the VegaLite Line Chart"></img>
-</figure>
-</td>
-<td style="width: 50%; border: none; font-size: 0.9rem;">
-<img src="../images/528p2/ViewVegaLiteLineChart.PNG" alt="View the new for Germany"></img>
-</td>
+  <td style="width: 50%; border: none; font-size: 1rem;">
+    <figure>
+      <img
+        src="../images/528p2/SelectVegaLiteLineChart.PNG"
+        alt="Swap the chart to the VegaLite Line Chart"
+      ></img>
+    </figure>
+  </td>
+  <td style="width: 50%; border: none; font-size: 0.9rem;">
+    <img
+      src="../images/528p2/ViewVegaLiteLineChart.PNG"
+      alt="View the new for Germany"
+    ></img>
+  </td>
 </table>
 
 By opening the menu, you can choose a new attribute to encode using the size and color of each sphere. By double or triple encoding a chosen value, this can help to mitigate weak depth cues when viewing the data from certain angles. Additionally, using color alongside size helps to disentangle the Size from the Depth channel. The hue of the data point indicates which spatial axis attribute is also being encoded through color and size (e.g. a Blue hue indicates the Z axis attribute, a Red hue indicates the X axis attribute).
@@ -242,7 +254,10 @@ The source for the VisSnippets Frontend and Backend described are currently clos
 
 ## Analysis Details
 
-<div class="content-warning">Warning: Your screen may not be wide enough to properly view the table below (recommended: >850px)</div>
+<div class="content-warning">
+  Warning: Your screen may not be wide enough to properly view the table below
+  (recommended: >850px)
+</div>
 
 The table below outlines the specific set of operations put together to form the data pipeline seen in the application.
 

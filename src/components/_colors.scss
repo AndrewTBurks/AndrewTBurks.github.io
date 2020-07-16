@@ -12,6 +12,11 @@ $text: (
   light: #263238,
 );
 
+$text-emph: (
+  dark: #f0f0f0,
+  light: #1b1b1b,
+);
+
 $link: (
   dark: #81d4fa,
   light: #005cb2,
@@ -99,6 +104,7 @@ $text-sec: (
   .scheme#{$count} {
     --background: #{map-get($background, $name)};
     --text: #{map-get($text, $name)};
+    --text-emph: #{map-get($text-emph, $name)};
     --link: #{map-get($link, $name)};
 
     --accent: #{map-get($accent, $name)};

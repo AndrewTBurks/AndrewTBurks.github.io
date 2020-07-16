@@ -12,9 +12,9 @@ const BlogPage = () => {
   let data = useStaticQuery(
     graphql`
       query {
-        allMarkdownRemark(
+        allMdx(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { fields: { collection: { eq: "blog" } } }
+          filter: { frontmatter: { path: { regex: "//blog/.*/" } } }
         ) {
           edges {
             node {
@@ -50,7 +50,7 @@ const BlogPage = () => {
           border: `1px solid black`,
         }}
       >
-        {data.allMarkdownRemark.edges.map(edge => (
+        {data.allMdx.edges.map(edge => (
           <BlogEntry {...edge.node.frontmatter} key={edge.node.id} />
         ))}
       </div>

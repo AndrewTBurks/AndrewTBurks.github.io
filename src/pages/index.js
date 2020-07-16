@@ -4,17 +4,41 @@ import { Link } from "gatsby";
 import { loremIpsum } from "lorem-ipsum";
 
 import { IconContext } from "react-icons";
-import { FaCalendarAlt, FaAward } from "react-icons/fa";
+import {
+  FaCalendarAlt,
+  FaAward,
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+} from "react-icons/fa";
 
 import Layout from "../components/layout";
 import Image from "../components/profile-image";
 import SEO from "../components/seo";
 
+const socials = [
+  {
+    Icon: FaGithub,
+    title: "GitHub",
+    link: "https://github.com/AndrewTBurks",
+  },
+  {
+    Icon: FaTwitter,
+    title: "Twitter",
+    link: "https://twitter.com/AndrewTBurks",
+  },
+  {
+    Icon: FaLinkedin,
+    title: "LinkedIn",
+    link: "https://www.linkedin.com/in/andrew-burks/",
+  },
+];
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <div
-      className="panel"
+      // className="panel"
       style={{
         maxWidth: `100%`,
         marginBottom: `1.45rem`,
@@ -27,20 +51,15 @@ const IndexPage = () => (
     >
       <div
         style={{
-          flex: `1 0 400px`,
-          maxWidth: "100%",
-        }}
-      >
-        <Image />
-      </div>
-      <div
-        style={{
           padding: `20px`,
           flex: `1 0 400px`,
           maxWidth: "100%",
           boxSizing: "border-box",
         }}
       >
+        <h1 style={{ fontWeight: "bold", color: "var(--accent)" }}>
+          Hi, I'm Andrew!
+        </h1>
         <p>
           I am a Ph.D. Candidate in the Computer Science department at the
           University of Illinois at Chicago. I am currently a Research Assistant
@@ -58,6 +77,53 @@ const IndexPage = () => (
           . Broadly, I am interested in the role of visualization and
           "human-data" interfaces in analytical processes and workflows.
         </p>
+      </div>
+      <div
+        style={{
+          flex: `1 0 400px`,
+          maxWidth: "100%",
+          margin: 20,
+        }}
+      >
+        <div
+          style={{
+            borderRadius: "100%",
+            overflow: "hidden",
+            boxShadow:
+              "0 8px 17px 2px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2)",
+          }}
+        >
+          <Image />
+        </div>
+        <div
+          className="socials"
+          style={{
+            width: "100%",
+            height: 60,
+            background: "var(--content)",
+            margin: "10px 0",
+            display: "flex",
+            padding: 10,
+            placeItems: "center",
+            borderRadius: 10,
+            boxShadow:
+              "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)",
+          }}
+        >
+          {socials.map(({ Icon, title, link }) => (
+            <a
+              href={link}
+              target="__blank"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                margin: "auto",
+              }}
+            >
+              {title} <Icon fontSize={28} style={{ marginLeft: 4 }} />
+            </a>
+          ))}
+        </div>
       </div>
 
       <div style={{ padding: 20 }} id="my-work">

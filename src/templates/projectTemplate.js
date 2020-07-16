@@ -1,6 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+
+import { motion } from "framer-motion";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -19,29 +22,29 @@ const buttonStyle = {
   alignItems: "center",
   whiteSpace: "pre",
   padding: 4,
-  margin: "0 8px",
+  // margin: "0 8px",
 };
 
 const buttonMap = {
   github: {
     Icon: props => (
-      <a href={props.github} target="_blank" style={buttonStyle}>
-        <FaCode /> code
-      </a>
+      <motion.a href={props.github} target="_blank" style={buttonStyle}>
+        <FaCode />
+      </motion.a>
     ),
   },
   link: {
     Icon: props => (
-      <a href={props.link} target="_blank" style={buttonStyle}>
-        <FaLink /> link
-      </a>
+      <motion.a href={props.link} target="_blank" style={buttonStyle}>
+        <FaLink />
+      </motion.a>
     ),
   },
   paper: {
     Icon: props => (
-      <a href={props.paper} target="_blank" style={buttonStyle}>
-        <FaFilePdf /> paper
-      </a>
+      <motion.a href={props.paper} target="_blank" style={buttonStyle}>
+        <FaFilePdf />
+      </motion.a>
     ),
   },
 };
@@ -49,8 +52,8 @@ const buttonMap = {
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data; // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark;
+  const { mdx } = data; // data.markdownRemark holds our post data
+  const { frontmatter, body } = mdx;
 
   return (
     <Layout>
@@ -58,13 +61,6 @@ export default function Template({
       <div className="blog-post-container panel" style={{ padding: 20 }}>
         <div className="blog-post">
           <h1 style={{ color: "var(--text)" }}>{frontmatter.title}</h1>
-          {frontmatter.award &&
-            ((
-              <h3 style={{ color: "var(--accent)" }}>
-                <FaAward /> {frontmatter.award}
-              </h3>
-            ) ||
-              null)}
           <h4 style={{ fontWeight: "lighter" }}>{frontmatter.date}</h4>
           <div
             style={{ fontSize: "1.4rem", color: "var(--text-sec)", padding: 4 }}
@@ -78,16 +74,30 @@ export default function Template({
               })}
           </div>
           <hr />
+          {frontmatter.award &&
+            ((
+              <h3 style={{ color: "var(--accent)", fontWeight: 300 }}>
+                <FaAward fontSize={"1.38316rem"} /> {frontmatter.award}
+              </h3>
+            ) ||
+              null)}
           <h4>Abstract:</h4>
-          <p>{frontmatter.abstract}</p>
+          <p
+            style={{
+              marginLeft: 8,
+              paddingLeft: 12,
+              borderLeft: "1px solid var(--accent)",
+            }}
+          >
+            {frontmatter.abstract}
+          </p>
           {(frontmatter.featuredImage && (
             <Img fluid={frontmatter.featuredImage.childImageSharp.fluid} />
           )) ||
             null}
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <div className="blog-post-content">
+            <MDXRenderer>{body}</MDXRenderer>
+          </div>
         </div>
       </div>
     </Layout>
@@ -95,8 +105,8 @@ export default function Template({
 }
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       excerpt(pruneLength: 250)
       timeToRead
       frontmatter {
@@ -104,7 +114,6 @@ export const pageQuery = graphql`
         path
         title
         shorttitle
-        keywords
         abstract
         award
         link

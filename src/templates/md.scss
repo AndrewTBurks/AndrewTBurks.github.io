@@ -1,5 +1,17 @@
+@import "../components/colors";
+
 .blog-post-container .blog-post-content {
   padding-left: 15px;
+  margin-top: 15px;
+
+  a.anchor.before {
+    margin-right: 5px;
+    color: var(--link);
+
+    path {
+      fill: currentColor;
+    }
+  }
 
   li {
     margin: 0;
@@ -7,14 +19,16 @@
 
   h1,
   h2,
-  strong,
+  strong {
+    color: var(--accent);
+  }
   .svg-inline--fa {
-    color: var(--sec);
+    color: var(--text-emph);
   }
 
   h1,
   h2 {
-    border-bottom: 1px solid var(--sec-d);
+    border-bottom: 1px solid var(--accent);
     padding-bottom: 5px;
     padding-left: 5px;
     margin-left: -10px;
@@ -37,14 +51,14 @@
     &:before {
       content: "\2053";
       padding-right: 5px;
-      color: var(--sec);
+      color: var(--accent);
     }
   }
 
   h3:after {
     content: "";
     flex: 1;
-    border-bottom: 1px dotted var(--sec-d);
+    border-bottom: 1px dotted var(--link);
     margin: auto 10px;
   }
 
@@ -55,7 +69,7 @@
       max-width: 100%;
 
       border-radius: 20px;
-      box-shadow: 2px 4px 16px 4px #0006, 0 0 0 4px var(--sec);
+      box-shadow: 2px 4px 16px 4px #0006, 0 0 0 4px var(--link);
       // border: 2px solid var(--sec);
     }
   }
@@ -113,7 +127,7 @@
 
   .content-warning {
     display: block;
-    color: red;
+    color: var(--accent);
     font-weight: bold;
 
     @media screen and (min-width: 850px) {

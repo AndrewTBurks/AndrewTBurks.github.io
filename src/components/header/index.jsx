@@ -1,4 +1,4 @@
-import { Link, navigateTo } from "gatsby";
+import { Link, navigate } from "gatsby";
 import PropTypes from "prop-types";
 import React, { useReducer, useEffect, useContext } from "react";
 
@@ -228,7 +228,7 @@ const Header = ({ siteTitle, location }) => {
                   className={`radial-button ${
                     globalHistory.location.pathname === link ? "active" : ""
                   }`}
-                  onClick={() => navigateTo(link)}
+                  onClick={() => navigate(link)}
                 >
                   {content}
                 </div>

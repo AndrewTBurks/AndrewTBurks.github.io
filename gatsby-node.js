@@ -28,15 +28,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const projectTemplate = path.resolve(`src/templates/projectTemplate.js`);
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMdx(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
         edges {
           node {
-            fields {
-              collection
-            }
             frontmatter {
               title
               path
@@ -51,12 +45,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
-  const allEdges = result.data.allMarkdownRemark.edges;
-  let projectEdges = allEdges.filter(
-    edge => edge.node.fields.collection === `projects`
+  const allEdges = result.data.allMdx.edges;
+  let projectEdges = allEdges.filter(edge =>
+    edge.node.frontmatter.path.startsWith("/projects")
   );
-  let blogEdges = allEdges.filter(
-    edge => edge.node.fields.collection === `blog`
+  let blogEdges = allEdges.filter(edge =>
+    edge.node.frontmatter.path.startsWith("/blog")
   );
 
   blogEdges.forEach((edge, index) => {

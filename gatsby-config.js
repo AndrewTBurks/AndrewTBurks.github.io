@@ -58,15 +58,18 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        gfm: true,
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 650,
               showCaptions: true,
               quality: 90,
+              linkImagesToOriginal: true,
+              wrapperStyle: result => `width: 100%;margin-left: 0;`,
             },
           },
           `gatsby-remark-autolink-headers`,

@@ -13,12 +13,12 @@ import "./index.scss";
 const cardVariants = {};
 
 const titleBarVariants = {
-  visible: ({ theme }) => ({
-    background: colors["prim-l"][theme],
-  }),
-  hovered: ({ theme }) => ({
-    background: colors["sec-l"][theme],
-  }),
+  visible: {
+    background: "var(--link)",
+  },
+  hovered: {
+    background: "var(--accent)",
+  },
 };
 
 const titleVariants = {
@@ -44,90 +44,100 @@ export default function({
 }) {
   let theme = useContext(ThemeContext);
   return (
-    <motion.div
+    <Link
+      to={path}
       className="project-entry"
-      // variants={cardVariants}
-      // initial={false}
-      // animate="visible"
-      // whileHover="hovered"
+      style={{
+        textDecoration: "none",
+        placeItems: "stretch",
+      }}
     >
-      <Link to={path}>
+      <motion.div
+        // className="project-entry"
+        // variants={cardVariants}
+        // initial={false}
+        animate="visible"
+        whileHover="hovered"
+        style={{
+          height: "100%",
+          display: "flex",
+          flexFlow: "column",
+        }}
+      >
         <motion.div
           className="title"
           initial={false}
-          custom={{ theme }}
           variants={titleBarVariants}
-          animate="visible"
-          whileHover="hovered"
+          // animate="visible"
+          // whileHover="hovered"
         >
           <motion.span custom={{ theme }} variants={titleVariants}>
             {shorttitle}
           </motion.span>
         </motion.div>
-      </Link>
 
-      <div className="content">
-        {(award && (
+        <div className="content">
+          {(featuredImage && (
+            <Img fluid={featuredImage.childImageSharp.fluid} />
+          )) ||
+            null}
+          {(award && (
+            <p
+              style={{
+                color: "var(--accent)",
+                fontSize: 14,
+                fontWeight: 600,
+                marginBottom: "0.2rem",
+              }}
+            >
+              <FaAward /> {award}
+            </p>
+          )) ||
+            null}
+          {(keywords && (
+            <div
+              style={{
+                fontSize: 14,
+                display: "flex",
+                flexFlow: "row wrap",
+                justifyContent: "stretch",
+                marginBottom: "0.8rem",
+                flexShrink: 0,
+              }}
+            >
+              {keywords.map(k => (
+                <span
+                  style={{
+                    border: "1px solid var(--link)",
+                    color: "var(--link)",
+                    whiteSpace: "pre",
+                    margin: 2,
+                    padding: "0px 12px",
+                    borderRadius: 100,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    flexShrink: 0,
+                  }}
+                >
+                  {k}
+                </span>
+              ))}
+            </div>
+          )) ||
+            null}
           <p
             style={{
-              color: "var(--accent)",
-              fontSize: 14,
-              fontWeight: 600,
-              marginBottom: "0.2rem",
+              padding: "0.1rem",
+              margin: "auto 0 0 0",
+              fontStyle: "italic",
+              fontWeight: 300,
             }}
           >
-            {" "}
-            <FaAward /> {award}
+            {date}
           </p>
-        )) ||
-          null}
-        {(keywords && (
-          <div
-            style={{
-              fontSize: 14,
-              display: "flex",
-              flexFlow: "row wrap",
-              justifyContent: "stretch",
-              marginBottom: "0.8rem",
-              flexShrink: 0,
-            }}
-          >
-            {keywords.map(k => (
-              <span
-                style={{
-                  border: "1px solid var(--link)",
-                  color: "var(--link)",
-                  whiteSpace: "pre",
-                  margin: 2,
-                  padding: "0px 12px",
-                  borderRadius: 100,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  flexShrink: 0,
-                }}
-              >
-                {k}
-              </span>
-            ))}
-          </div>
-        )) ||
-          null}
-        {(featuredImage && (
-          <Img fluid={featuredImage.childImageSharp.fluid} />
-        )) ||
-          null}
-        <p
-          style={{
-            padding: "0.1rem",
-            margin: "auto 0 0 0",
-            fontStyle: "italic",
-            fontWeight: 300,
-          }}
-        >
-          {date}
-        </p>
-      </div>
-    </motion.div>
+        </div>
+      </motion.div>
+    </Link>
   );
 }
