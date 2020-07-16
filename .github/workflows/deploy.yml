@@ -35,4 +35,4 @@ jobs:
 
     # Deploy the site to the master branch
     - name: Deploy
-      run: npm deploy
+      run: yarn deploy
