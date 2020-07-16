@@ -111,9 +111,9 @@ const Header = ({ siteTitle, location }) => {
 
   return (
     <animated.header onMouseOver={() => dispatch({ action: "show" })}>
-      <div className="header-wrapper">
+      <div className='header-wrapper'>
         <animated.div
-          className="hiding"
+          className='hiding'
           style={{
             ...styles,
           }}
@@ -131,7 +131,7 @@ const Header = ({ siteTitle, location }) => {
               }}
             >
               <Link
-                to="/"
+                to='/'
                 style={{
                   color: `inherit`,
                   textDecoration: `none`,
@@ -179,12 +179,12 @@ const Header = ({ siteTitle, location }) => {
         /> */}
         <button
           onClick={() => setTheme(t => (t === 3 ? 4 : 3))}
-          style={{ zIndex: 10 }}
+          style={{ zIndex: 10, margin: "auto 0" }}
         >
           Theme
         </button>
 
-        <div style={{ marginLeft: "5px" }} />
+        {/* <div style={{ marginLeft: "5px" }} />
 
         <RadialMenu
           {...{
@@ -235,7 +235,7 @@ const Header = ({ siteTitle, location }) => {
               );
             },
           }}
-        />
+        /> */}
       </div>
     </animated.header>
   );

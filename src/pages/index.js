@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import { loremIpsum } from "lorem-ipsum";
+import { motion } from "framer-motion";
 
 import { IconContext } from "react-icons";
 import {
@@ -10,6 +10,10 @@ import {
   FaLinkedin,
   FaGithub,
   FaTwitter,
+  FaScroll,
+  FaLaptopCode,
+  FaCommentDots,
+  FaHandPointRight,
 } from "react-icons/fa";
 
 import Layout from "../components/layout";
@@ -34,9 +38,69 @@ const socials = [
   },
 ];
 
+const cards = [
+  {
+    Icon: FaLaptopCode,
+    title: "Projects",
+    desc: "Research projects that I have worked on...",
+    link: "/projects",
+  },
+  {
+    Icon: FaScroll,
+    title: "Publications",
+    desc: "Papers I have written and pubished...",
+    link: "/publications",
+  },
+  {
+    Icon: FaCommentDots,
+    title: "Blog",
+    desc: "Rambings of a mad man...",
+    link: "/blog",
+  },
+];
+
+const cardVariants = {
+  visible: {
+    scale: 1,
+    boxShadow:
+      "0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2)",
+  },
+  hovered: {
+    scale: 1.05,
+    boxShadow:
+      "0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3)",
+  },
+  tapped: {
+    scale: 0.95,
+    boxShadow:
+      "0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)",
+  },
+};
+
+const handVariants = {
+  visible: {
+    rotate: 0,
+  },
+  hovered: {
+    rotate: [20, -20, 20],
+
+    transition: {
+      duration: 0.4,
+      // does spring work?
+      damping: 1,
+      stiffness: 50,
+
+      loop: Infinity,
+    },
+  },
+  tapped: {},
+};
+
+const WiggleHand = motion.custom(FaHandPointRight);
+
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO title='Home' />
     <div
       // className="panel"
       style={{
@@ -96,7 +160,7 @@ const IndexPage = () => (
           <Image />
         </div>
         <div
-          className="socials"
+          className='socials'
           style={{
             width: "100%",
             height: 60,
@@ -113,7 +177,7 @@ const IndexPage = () => (
           {socials.map(({ Icon, title, link }) => (
             <a
               href={link}
-              target="__blank"
+              target='__blank'
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -126,7 +190,69 @@ const IndexPage = () => (
         </div>
       </div>
 
-      <div style={{ padding: 20 }} id="my-work">
+      <div
+        className='page-cards'
+        style={{
+          width: "100%",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gridTemplateRows: "repeat(auto-fit, 175px)",
+          justifyContent: "space-between",
+          justifyItems: "stretch",
+          alignItems: "stretch",
+          gridGap: "1rem",
+        }}
+      >
+        {cards.map(({ Icon, title, desc, link }) => (
+          <Link
+            key={link}
+            to={link}
+            style={{ textDecoration: "none", display: "inline-flex" }}
+          >
+            <motion.div
+              style={{
+                background: "var(--content)",
+                // margin: "10px 0",
+                flex: 1,
+                display: "flex",
+                flexFlow: "column",
+                padding: 10,
+                borderRadius: 10,
+              }}
+              variants={cardVariants}
+              initial={false}
+              animate={"visible"}
+              whileHover={"hovered"}
+              whileTap={"tapped"}
+            >
+              <h2
+                style={{
+                  fontSize: "1.4rem",
+                  color: "var(--link)",
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Icon style={{ marginRight: 6 }} /> {title}
+              </h2>
+              <p style={{ color: "var(--text)", paddingLeft: 12, flex: 1 }}>
+                {desc}
+              </p>
+              <div style={{ textAlign: "right", fontSize: "1.4rem" }}>
+                <motion.div
+                  style={{ display: "inline-flex" }}
+                  variants={handVariants}
+                >
+                  <FaHandPointRight />
+                </motion.div>
+              </div>
+            </motion.div>
+          </Link>
+        ))}
+      </div>
+
+      {/* <div style={{ padding: 20 }} id="my-work">
         <h2>My Work</h2>
 
         <p>
@@ -164,7 +290,7 @@ const IndexPage = () => (
           To learn more, see my <Link to="/projects">Projects</Link> and{" "}
           <Link to="/publications">Publications</Link>
         </strong>
-      </div>
+      </div> */}
 
       <div style={{ padding: 20, marginTop: 10 }}>
         <h2>Awards</h2>
