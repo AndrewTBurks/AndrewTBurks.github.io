@@ -34,7 +34,7 @@ jobs:
       
     # Deploy the site to the master branch
     - name: Build
-      run: yarn build
+      run: yarn build && ls
       
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.5.8
