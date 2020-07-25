@@ -42,7 +42,10 @@ const BlogPage = () => {
 
   return (
     <Layout>
-      <SEO title='Blog' />
+      <SEO
+        title='Blog'
+        description={"Small writeups of projects, ideas, or anything else"}
+      />
       <div
         // className="panel"
         style={{

@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -11,7 +11,14 @@ import SEO from "../components/seo";
 import "./md.scss";
 import "../fontawesome/all.js";
 import "../fontawesome/all.css";
-import { FaAward, FaCode, FaLink, FaFilePdf } from "react-icons/fa";
+import {
+  FaAward,
+  FaCode,
+  FaLink,
+  FaFilePdf,
+  FaHome,
+  FaHandPointLeft,
+} from "react-icons/fa";
 
 const buttonStyle = {
   color: "inherit",
@@ -28,21 +35,21 @@ const buttonStyle = {
 const buttonMap = {
   github: {
     Icon: props => (
-      <motion.a href={props.github} target="_blank" style={buttonStyle}>
+      <motion.a href={props.github} target='_blank' style={buttonStyle}>
         <FaCode />
       </motion.a>
     ),
   },
   link: {
     Icon: props => (
-      <motion.a href={props.link} target="_blank" style={buttonStyle}>
+      <motion.a href={props.link} target='_blank' style={buttonStyle}>
         <FaLink />
       </motion.a>
     ),
   },
   paper: {
     Icon: props => (
-      <motion.a href={props.paper} target="_blank" style={buttonStyle}>
+      <motion.a href={props.paper} target='_blank' style={buttonStyle}>
         <FaFilePdf />
       </motion.a>
     ),
@@ -57,9 +64,22 @@ export default function Template({
 
   return (
     <Layout>
-      <SEO title={frontmatter.shorttitle} />
-      <div className="blog-post-container panel" style={{ padding: 20 }}>
-        <div className="blog-post">
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.abstract}
+        imageurl={frontmatter.featuredImage.publicURL}
+      />
+      <div className='blog-post-container panel' style={{ padding: 20 }}>
+        <div className='blog-post'>
+          <div style={{ padding: "8px 0" }}>
+            <Link to='/' style={{ marginRight: 8 }}>
+              <FaHome /> Home
+            </Link>{" "}
+            <Link to='/projects' style={{ marginRight: 8 }}>
+              {" "}
+              <FaHandPointLeft /> Projects
+            </Link>
+          </div>
           <h1 style={{ color: "var(--text)" }}>{frontmatter.title}</h1>
           <h4 style={{ fontWeight: "lighter" }}>{frontmatter.date}</h4>
           <div
@@ -95,7 +115,7 @@ export default function Template({
             <Img fluid={frontmatter.featuredImage.childImageSharp.fluid} />
           )) ||
             null}
-          <div className="blog-post-content">
+          <div className='blog-post-content'>
             <MDXRenderer>{body}</MDXRenderer>
           </div>
         </div>
@@ -120,6 +140,7 @@ export const pageQuery = graphql`
         github
         paper
         featuredImage {
+          publicURL
           childImageSharp {
             fluid(maxWidth: 800) {
               ...GatsbyImageSharpFluid

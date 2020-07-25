@@ -22,16 +22,16 @@ const titleBarVariants = {
 };
 
 const titleVariants = {
-  visible: ({ theme }) => ({
+  visible: {
     // scale: 1,
-    color: colors["link"][theme],
+    // color: colors["link"][theme],
     x: 0,
-  }),
-  hovered: ({ theme }) => ({
+  },
+  hovered: {
     // scale: 1.2,
-    color: colors["prim"][theme],
+    // color: colors["prim"][theme],
     x: 8,
-  }),
+  },
 };
 
 export default function({
@@ -42,41 +42,30 @@ export default function({
   featuredImage,
   award,
 }) {
-  let theme = useContext(ThemeContext);
   return (
     <Link
       to={path}
-      className="project-entry"
+      className='project-entry'
       style={{
         textDecoration: "none",
         placeItems: "stretch",
       }}
     >
       <motion.div
-        // className="project-entry"
-        // variants={cardVariants}
-        // initial={false}
-        animate="visible"
-        whileHover="hovered"
+        initial={false}
+        animate='visible'
+        whileHover='hovered'
         style={{
           height: "100%",
           display: "flex",
           flexFlow: "column",
         }}
       >
-        <motion.div
-          className="title"
-          initial={false}
-          variants={titleBarVariants}
-          // animate="visible"
-          // whileHover="hovered"
-        >
-          <motion.span custom={{ theme }} variants={titleVariants}>
-            {shorttitle}
-          </motion.span>
-        </motion.div>
+        <div className='title'>
+          <motion.span variants={titleVariants}>{shorttitle}</motion.span>
+        </div>
 
-        <div className="content">
+        <div className='content'>
           {(featuredImage && (
             <Img fluid={featuredImage.childImageSharp.fluid} />
           )) ||

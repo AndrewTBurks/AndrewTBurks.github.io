@@ -28,6 +28,7 @@ const ProjectsPage = () => {
                 abstract
                 award
                 featuredImage {
+                  publicURL
                   childImageSharp {
                     fluid(maxWidth: 400) {
                       ...GatsbyImageSharpFluid
@@ -46,7 +47,11 @@ const ProjectsPage = () => {
 
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO
+        title='Projects'
+        description='Research projects that I have worked on'
+        imageurl={data.allMdx.edges[0].node.frontmatter.featuredImage.publicURL}
+      />
       <div
         // className="panel"
         style={{

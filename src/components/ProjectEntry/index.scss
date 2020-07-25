@@ -38,4 +38,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  &:hover {
+    .title {
+      background: var(--accent);
+    }
+  }
 }

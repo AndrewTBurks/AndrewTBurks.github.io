@@ -152,6 +152,15 @@ $defaultTheme: 3;
 
   --text: #{map-get($text, $defaultTheme)};
   --link: #{map-get($link, $defaultTheme)};
+
+  --background: #{map-get($background, $defaultTheme)};
+  --text: #{map-get($text, $defaultTheme)};
+  --text-emph: #{map-get($text-emph, $defaultTheme)};
+  --link: #{map-get($link, $defaultTheme)};
+
+  --accent: #{map-get($accent, $defaultTheme)};
+  --accent-alt: #{map-get($accent-alt, $defaultTheme)};
+  --content: #{map-get($content, $defaultTheme)};
 }
 
 :export {

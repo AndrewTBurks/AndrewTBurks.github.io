@@ -1,76 +1,84 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
 import { useStaticQuery, graphql } from "gatsby";
 
-import Layout from "../components/layout"
-import Image from "../components/profile-image"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-import PubEntry from "../components/PubEntry"
+import PubEntry from "../components/PubEntry";
 
-const PubsPage = () => {
-  let { dataJson } = useStaticQuery(
-  graphql`
-    query {
-      dataJson {
-        conference {
-          award
-          teamBefore
-          teamAfter
-          name
-          journal
+const PubsPage = props => {
+  let { dataJson, file } = useStaticQuery(
+    graphql`
+      query {
+        file(relativePath: { eq: "Profile.jpg" }) {
+          publicURL
         }
-        journal {
-          award
-          journal
-          name
-          teamAfter
-          teamBefore
-        }
-        poster {
-          award
-          journal
-          name
-          teamAfter
-          teamBefore
+        dataJson {
+          conference {
+            award
+            teamBefore
+            teamAfter
+            name
+            journal
+          }
+          journal {
+            award
+            journal
+            name
+            teamAfter
+            teamBefore
+          }
+          poster {
+            award
+            journal
+            name
+            teamAfter
+            teamBefore
+          }
         }
       }
-    }
-  `);
+    `
+  );
 
-  let {
-    conference,
-    journal,
-    poster
-  } = dataJson;
+  let { conference, journal, poster } = dataJson;
+  let imgurl = file.publicURL;
 
-  return <Layout>
-    <SEO title="Publications" />
-    <div className="panel" style={{
-      maxWidth: `100%`,
-      marginBottom: `1.45rem`,
-      padding: 20
-    }}>
-      <h3>Conference Papers</h3>
-      {conference.map((pub, i) => (
-        <PubEntry key={i} {...pub}/>
-        // null
-      ))}
-      <hr />
-      <h3>Journal Articles</h3>
-      {journal.map((pub, i) => (
-        <PubEntry key={i} {...pub} />
-        // null
-      ))}
-      <hr />
-      <h3>Short Papers, Posters & Abstracts</h3>
-      {poster.map((pub, i) => (
-        <PubEntry key={i} {...pub} />
-        // null
-      ))}
+  return (
+    <Layout>
+      <SEO
+        title='Publications'
+        imageurl={imgurl}
+        description={"Papers I have written and pubished"}
+      />
+      <div
+        className='panel'
+        style={{
+          maxWidth: `100%`,
+          marginBottom: `1.45rem`,
+          padding: 20,
+        }}
+      >
+        <h3>Conference Papers</h3>
+        {conference.map((pub, i) => (
+          <PubEntry key={i} {...pub} />
+          // null
+        ))}
+        <hr />
+        <h3>Journal Articles</h3>
+        {journal.map((pub, i) => (
+          <PubEntry key={i} {...pub} />
+          // null
+        ))}
+        <hr />
+        <h3>Short Papers, Posters & Abstracts</h3>
+        {poster.map((pub, i) => (
+          <PubEntry key={i} {...pub} />
+          // null
+        ))}
 
-      {/* {data.allMarkdownRemark.edges.map(edge => {
+        {/* {data.allMarkdownRemark.edges.map(edge => {
         let { date, path, title } = edge.node.frontmatter;
         return <div key={edge.node.id} style={{margin: "5px"}}>
           <Link key={edge.node.id} to={path}>
@@ -78,8 +86,17 @@ const PubsPage = () => {
           </Link>
         </div>
       })} */}
-    </div>
-  </Layout>
-}
+      </div>
+    </Layout>
+  );
+};
 
-export default PubsPage
+export const pageQuery = graphql`
+  query {
+    file(relativePath: { eq: "Profile.jpg" }) {
+      publicURL
+    }
+  }
+`;
+
+export default PubsPage;
