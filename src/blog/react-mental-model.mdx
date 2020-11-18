@@ -1,0 +1,54 @@
+---
+path: "/blog/react-mental-model"
+date: "2020-11-18"
+title: "Andrew's Mental Model of React"
+featuredImage: ../images/SAGE3-full.png
+---
+
+![SAGE3: Smart Amplified Group Environment](../images/SAGE3-full.png)
+
+# Overview
+
+Here I discuss my mental model of React and how it scales to the architecture of large applications like SAGE3. This will evolve as I have new thoughts or as I find better ways to articulate this information.
+
+One way to help frame the discussion about component architecture is to make sure we think in terms of the model of React: components are pure representations of **props + state**.
+
+### Definitions
+
+Some terms like "state" or "instance" are overloaded and could be interpreted in multiple ways. Below are definitions about how I primarily use these terms in this context.
+
+- **state**: referring primarily to React State, not the broader idea of stateful behavior which may be external to React (which we are going to implement in SAGE3 and is separate but related -- will get to this later)
+- **instance**: not an "instance" of a class like in OOP, but an instance of a component in the sense of an occurrence at a specific place in the DOM tree
+
+# Props and State
+
+In the most simplistic form, you have "stateless" Function Components (not sure how often this term is still in use after the advent of hooks). In this scenario, each component is a completely pure representation of props and contains no state. You can liken the idea to functional programming: given some input to the function, the function produces an output which is always consistent without mutating the input data. If the component is rendered with different props the next time, it doesn't matter what the previous props are.
+
+Next, you can roll in the concept of **state** to a component. For each component, props are passed down from the parent and the state lives within that component. If a component is "stateful", this state is persistent between renders for one instance of a component. State within a component is encapsulated -- the same component can be rendered multiple times throughout an interface with differing internal state. For example, an `isHovered` state value may be internal to a **Button** component, controlled by `onMouseOver` and `onMouseLeave` event listeners. This stateful behavior is associated with every Button used and will change the representation of a single instance of the Button.
+
+The next logical question is most likely: what if we need some state value to be connected between two components? For example, we have a **TextEditor** component that has some state (the current text which is shown), and then we want to add a Button component with a listener onClick to clear the text in the editor (interacting with the state of the text editor). In this case, we ["Lift State Up"](https://reactjs.org/docs/lifting-state-up.html). This idea is essentially just that we can raise the location of our state value to the nearest common ancestor and then pass down just what the child components need to do their job (e.g. TextEditor gets the text value and a function to update the text when the user inputs text; the Button gets a function to update the text to clear it).
+
+### Central State Stores
+
+A pattern seen in multiple state management patterns and libraries is to create a single top-level 'store' of a larger chunk of application state. This can be important when multiple stateful values depend on one another or when your state as a whole needs to have some action performed on it. For example, you may have _middleware_ which tracks or validates updates to this state, or the state may need to be synchronized with an external store using a technology like WebSocket.
+
+From this central store, you pare down the state values passed to each component based on what is required.
+
+This central store is how we transition from a more granular component-level or app-level React state to something which we can synchronize between clients as our SAGE3 state representation. This central store can contain all of the cross-client state values and be passed down on a per-app basis. For example, each app has SAGE3 state of the app's position and size, app ID, etc. The size value can be used at multiple places in the component hierarchy: the "Window" component needs the position and size of the app to show up in the proper location of the screen. The specific app implementation may need the size of the app to draw its content responsively and adapt to the screen space provided.
+
+# Composition and Inheritence
+
+For the most part, I defer to React's documentation on [Composition and Inheritence](https://reactjs.org/docs/composition-vs-inheritance.html).
+
+# Classes vs. Functions
+
+A post about the differences between Function and Class Components written by Dan Abramov (React Core Team) [is a good place to start](https://overreacted.io/how-are-function-components-different-from-classes/) if wondering about the implementation differences.
+
+I think classes in React can be a bit misleading. The class structure is just that - a structure to expose common functionality from a component to the React runtime so that the runtime can run lifecycle methods (componentDidMount, componentWillUnmount, etc.). This structure supports the Inversion of Control principle where the component provides methods to handle certain lifecycle events and React can find and call them when appropriate. Principles of classes in OOP don't really map to React. 
+For example, a few disconnects between the mental model of classes in OOP and their usage in React:
+
+- Class Components are a class but you never instantiate it (i.e. calling new MyComponent(...))
+- It extends React.Component, not any class you created
+  - Typically, inheritance isn't actually used outside of inheriting from this single superclass [More on Inheritence](https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance)
+
+On the other hand, there are a few OOP principles that are core to React:EncapsulationSeparation of concerns (or sometimes "crosscutting of concerns")Inversion of Control (a broader Software Engineering Principle)

@@ -61,19 +61,8 @@ const Header = ({ siteTitle, location }) => {
             ...styles,
           }}
         >
-          <div
-            style={
-              {
-                // width: "50%"
-              }
-            }
-          >
-            <h2
-              style={{
-                margin: `1.45rem 1.0875rem`,
-                display: "flex",
-              }}
-            >
+          <div>
+            <h2>
               <Link
                 to='/'
                 style={{

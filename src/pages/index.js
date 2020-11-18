@@ -103,7 +103,7 @@ const IndexPage = props => {
 
   return (
     <Layout>
-      <SEO title='Andrew Burks | Home' imageurl={props.data.file.publicURL} />
+      <SEO title='Home' imageurl={props.data.file.publicURL} />
       <div
         // className="panel"
         style={{

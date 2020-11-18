@@ -30,14 +30,7 @@ const Layout = ({ children, scheme, ...props }) => {
   return (
     <div className={`scheme${theme}`}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `100px auto 0`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+      <div className={`content-container`}>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

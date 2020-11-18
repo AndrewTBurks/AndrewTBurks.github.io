@@ -32,6 +32,20 @@ header {
     // background: var(--prim);
     // box-shadow: 0 0 8px 3px var(--prim), 0 0 20px 8px #0008;
   }
+
+  h2 {
+    display: flex;
+    margin: 1.45rem 1.0875rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .header-wrapper h2 {
+    background: var(--background);
+    margin: 0 0 1.45rem 0;
+
+    border-radius: 0 0 16px 16px;
+  }
 }
 
 /* The switch - the box around the slider */
