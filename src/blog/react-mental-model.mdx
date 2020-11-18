@@ -11,44 +11,262 @@ featuredImage: ../images/SAGE3-full.png
 
 Here I discuss my mental model of React and how it scales to the architecture of large applications like SAGE3. This will evolve as I have new thoughts or as I find better ways to articulate this information.
 
-One way to help frame the discussion about component architecture is to make sure we think in terms of the model of React: components are pure representations of **props + state**.
-
 ### Definitions
 
 Some terms like "state" or "instance" are overloaded and could be interpreted in multiple ways. Below are definitions about how I primarily use these terms in this context.
 
-- **state**: referring primarily to React State, not the broader idea of stateful behavior which may be external to React (which we are going to implement in SAGE3 and is separate but related -- will get to this later)
-- **instance**: not an "instance" of a class like in OOP, but an instance of a component in the sense of an occurrence at a specific place in the DOM tree
+- **state** - referring primarily to React State, not the broader idea of stateful behavior which may be external to React (which we are going to implement in SAGE3 and is separate but related -- will get to this later)
+- **instance** - not an "instance" of a class like in Object Oriented Programming (OOP), but an instance of a component in the sense of an occurrence at a specific place in the DOM tree
+- **app** - A SAGE app: functionality contained within a single window, not the React application
 
 # Props and State
 
-In the most simplistic form, you have "stateless" Function Components (not sure how often this term is still in use after the advent of hooks). In this scenario, each component is a completely pure representation of props and contains no state. You can liken the idea to functional programming: given some input to the function, the function produces an output which is always consistent without mutating the input data. If the component is rendered with different props the next time, it doesn't matter what the previous props are.
+A good way to frame the discussion about application and component architecture is to make sure we think in terms of the model of React: components are pure representations of **props + state**. Additionally, React is **declarative**. Your components aren't specifying how the DOM is updated, but only a description of _what_ it looks like when rendered. React handles the question of _how_ it gets rendered.
 
-Next, you can roll in the concept of **state** to a component. For each component, props are passed down from the parent and the state lives within that component. If a component is "stateful", this state is persistent between renders for one instance of a component. State within a component is encapsulated -- the same component can be rendered multiple times throughout an interface with differing internal state. For example, an `isHovered` state value may be internal to a **Button** component, controlled by `onMouseOver` and `onMouseLeave` event listeners. This stateful behavior is associated with every Button used and will change the representation of a single instance of the Button.
+> A React component is a description of how a piece of a UI will look given Props passed to it and the component's State.
 
-The next logical question is most likely: what if we need some state value to be connected between two components? For example, we have a **TextEditor** component that has some state (the current text which is shown), and then we want to add a Button component with a listener onClick to clear the text in the editor (interacting with the state of the text editor). In this case, we ["Lift State Up"](https://reactjs.org/docs/lifting-state-up.html). This idea is essentially just that we can raise the location of our state value to the nearest common ancestor and then pass down just what the child components need to do their job (e.g. TextEditor gets the text value and a function to update the text when the user inputs text; the Button gets a function to update the text to clear it).
+In the most simplistic form, you can have a component which is **stateless**. This means that your component is a completely pure representation of props, or parameters, passed to it and contains no state, itself. You can see this idea in functional programming: given some input to the function, the function produces an output which is always consistent and does not mutate the input data (purity/immutability). If the component is rendered any number of times any combination of different props, it doesn't matter what happened in the past.
+
+Next, you can add in the concept of **state** to a component. For each component, props are passed down from the parent and the state lives within that component. If a component is "stateful", this state is persistent between renders for one instance of a component in the interface. State within a component is encapsulated -- the same component can be rendered multiple times throughout an interface with differing internal state. For example, an `isHovered` state value may be internal to a **Button** component, controlled by `onMouseOver` and `onMouseLeave` event listeners. This stateful behavior is associated with every Button used but will only change the representation of a single _instance_ of the Button which the user hovered over.
+
+```jsx
+// usage
+<MyButton onClick={() => console.log("hello world!")}>Say Hello</MyButton>;
+
+// component
+function MyButton(props) {
+  const { onClick } = props;
+
+  // state to track interaction to make a cool effect
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <button
+      onClick={onClick}
+      onMouseOver={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {props.children}
+    </button>
+  );
+}
+```
+
+The next logical question is most likely: what if we need some state value to be connected between two components? For example, we have a **TextEditor** component that stores the current text which is shown. Next, we want to add a **Button** component with the ability `onClick` to clear the text in the editor (i.e. interacting with the state of the text editor). In this case, we ["Lift State Up"](https://reactjs.org/docs/lifting-state-up.html). This idea is essentially just that we can raise the location of our state value to the nearest common ancestor within the component hierarchy and then pass down just what the child components need to do their job (e.g. TextEditor gets the text value and a function to update the text when the user inputs text; the Button gets a function to update the text to clear it).
+
+#### Plain Editor
+
+```jsx
+function MyTextEditor(props) {
+  // how could other Components interact with this?
+  const [editorText, setEditorText] = React.useState("");
+
+  return (
+    <textarea
+      value={editorText}
+      onInput={event => setEditorText(event.target.value)}
+    />
+  );
+}
+```
+
+#### Editor with Lifted State
+
+```jsx
+function EditorWithClear(props) {
+  const [editorText, setEditorText] = React.useState("");
+
+  return (
+    <div>
+      <MyButton onClick={() => setEditorText("")}>Clear</MyButton>
+      <MyTextEditor
+        value={editorText}
+        onChange={event => setEditorText(event.target.value)}
+      />
+    </div>
+  );
+}
+```
 
 ### Central State Stores
 
 A pattern seen in multiple state management patterns and libraries is to create a single top-level 'store' of a larger chunk of application state. This can be important when multiple stateful values depend on one another or when your state as a whole needs to have some action performed on it. For example, you may have _middleware_ which tracks or validates updates to this state, or the state may need to be synchronized with an external store using a technology like WebSocket.
 
-From this central store, you pare down the state values passed to each component based on what is required.
+> From this central store, you pare down the state values passed to each subsection of your application based required or requested information.
 
-This central store is how we transition from a more granular component-level or app-level React state to something which we can synchronize between clients as our SAGE3 state representation. This central store can contain all of the cross-client state values and be passed down on a per-app basis. For example, each app has SAGE3 state of the app's position and size, app ID, etc. The size value can be used at multiple places in the component hierarchy: the "Window" component needs the position and size of the app to show up in the proper location of the screen. The specific app implementation may need the size of the app to draw its content responsively and adapt to the screen space provided.
+This central store is how we transition from a more granular component-level or app-level React state to something which we can synchronize between clients as our single SAGE3 state representation. This central store can contain all of the cross-client state values and be passed down on a per-app basis.
 
-# Composition and Inheritence
+For example, each app has SAGE3 state of the app's position and size, app ID, etc. The size value can be used at multiple places in the component hierarchy: the "Window" component needs the position and size of the app to show up in the proper location of the screen. The specific app implementation may need the size of the app to draw its content responsively and adapt to the screen space provided.
 
-For the most part, I defer to React's documentation on [Composition and Inheritence](https://reactjs.org/docs/composition-vs-inheritance.html).
+# Composition
+
+For the most part, I defer to React's documentation on [Composition and Inheritence](https://reactjs.org/docs/composition-vs-inheritance.html). Here I will provde an example of how I would compose functionalit defined by a SAGE3 app into a general form.
+
+### Designing the SAGE3 App
+
+> What does a SAGE3 app need?
+
+Based on our current working definition of a SAGE3 app, we can come up with a set of critical information required for an app to exist. I will call this information `AppState`:
+
+```typescript
+/* context:
+  a "DataType" is some recognized type of information within SAGE3
+  a "DataReference" refers to a piece of data living somewhere & metadata
+*/
+
+type AppState = {
+  id: string;
+  appName: string; // the name of a distinct SAGE3 app
+  position: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+  data: {
+    [key: string]: DataReference<DataType> | DataReference<DataType>[];
+  };
+  // there could be more that we add in the future
+};
+```
+
+Everything contained in this representation is synchronized across all users or displays connected to SAGE3. [As mentioned above](#central-state-stores), this `AppState` information will be used in both the SAGE3 system as well as by the App itself. There are a few ways that an app may use this information.
+
+#### Image App Components
+
+An app will obviously want all of this information in order to provide proper functionality. Distilled to the most fundamental pieces (and also ignoring some important implementation details), this is how the content of an _ImageViewer_ app may look:
+
+```tsx
+/* context:
+  useData(): gets the data based on a DataReference.
+  | think of useData as analagous to useState,
+  | but allows an app to read and interact with SAGE3 AppState
+*/
+
+function ImageViewerContent(props: AppState) {
+  const [imageData] = useData(props.data.image);
+
+  return <img src={imageData} />;
+}
+```
+
+Aside from the `js~useData(props.data.image)` "magic", this app is directly rendering an element based on the AppState passed into the component Similarly, we can allow the ImageViewer to define a dynamic title based on the image filename.
+
+```tsx
+function ImageViewerTitle(props: AppState) {
+  const { meta } = props.data.image; // get metadata
+
+  return <strong>{meta.filename}</strong>;
+}
+```
+
+To put all the pieces together for this app, we need one file per app which [aggregates the export](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) of each of these components if they use multiple files for different components.
+
+```ts
+/* image-viewer/index.ts */
+import { ImageViewerContent } from "./content";
+import { ImageViewerTitle } from "./title";
+
+export { ImageViewerContent as Content, ImageViewerTitle as Title };
+```
+
+#### Text Editor App Components
+
+Just like the ImageViewer app, we could create a simple TextEditor app similar to our [`EditorWithClear`](#editor-with-lifted-state), as well. Here, instead of a dynamic Title we will add a Control for the app.
+
+```tsx
+/* text-editor/index.ts */
+function Content(props: AppState) {
+  // here, we need the second return value of useData(...),
+  // a function to update the data
+  const [text, updateText] = useData(props.data.text);
+
+  // just like MyTextEditor from above
+  return (
+    <textarea value={text} onChange={event => updateText(event.target.value)} />
+  );
+}
+
+function Controls(props: AppState) {
+  const [, updateText] = useData(props.data.text);
+
+  return (
+    <>
+      <button onClick={() => updateText("")}>Clear Text</button>
+    </>
+  );
+}
+
+export { Content, Controls };
+```
+
+### Putting the App into SAGE3
+
+To handle the shared functionality which is common between all app windows, we want a single Window component to which we can pass the app state and the app components to use. The Window component is one that SAGE3 would use, not the individual apps. Each individual app would simply export a component for the Content and optionally one for the Title and/or Controls.
+
+```tsx
+import * as ImageViewer from "./image-viewer";
+import * as TextEditor from "./text-editor";
+
+// create an image viewer
+<Window appState={myImageState} app={ImageViewer} />;
+
+// create a text editor
+<Window appState={myTextState} app={TextEditor} />;
+```
+
+This looks nice and simple, but how can we create this Window component? This component needs to properly compose each of the pieces of the app that we defined. We can do so as follows:
+
+```tsx
+function Window(props) {
+  const { app, appState } = props;
+
+  // get the pieces of the app
+  const { Content, Controls, Title = () => appState.name } = app;
+
+  return (
+    <div className='window'>
+      // ~~ render the Title into the titlebar location ~~
+      <div className='titlebar'>
+        <Title {...appState} />
+      </div>
+      // ~~ render the Content into the main content area ~~
+      <div className='content'>
+        <Content {...appState} />
+      </div>
+      // ~~ if defined, render the Controls into an interface near the app ~~
+      {Controls ? (
+        <div className='controls'>
+          <Controls {...appState} />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+```
+
+This Window component handles the layout and composition of the subsections making up an app. The HTML layout will position the subcomponents properly and it passes through the `appState` to each of the components defined for an app so that they can render properly based on the SAGE3 AppState.
 
 # Classes vs. Functions
 
-A post about the differences between Function and Class Components written by Dan Abramov (React Core Team) [is a good place to start](https://overreacted.io/how-are-function-components-different-from-classes/) if wondering about the implementation differences.
+A post about the differences between Function and Class Components written by Dan Abramov (React Core Team) [is a good place to start](https://overreacted.io/how-are-function-components-different-from-classes/) if you are curious about the implementation differences.
 
-I think classes in React can be a bit misleading. The class structure is just that - a structure to expose common functionality from a component to the React runtime so that the runtime can run lifecycle methods (componentDidMount, componentWillUnmount, etc.). This structure supports the Inversion of Control principle where the component provides methods to handle certain lifecycle events and React can find and call them when appropriate. Principles of classes in OOP don't really map to React. 
-For example, a few disconnects between the mental model of classes in OOP and their usage in React:
+Classes in React can be a bit misleading if coming from an OOP background. The class structure is just that - a **_structure_** to organize and present common functionality from a component to the React runtime so that the runtime can run lifecycle methods like `componentDidMount` or `componentWillUnmount`. This structure follows the Inversion of Control principle where the component can optionally implement methods to handle chosen lifecycle events and React can find and call them when appropriate.
 
-- Class Components are a class but you never instantiate it (i.e. calling new MyComponent(...))
-- It extends React.Component, not any class you created
-  - Typically, inheritance isn't actually used outside of inheriting from this single superclass [More on Inheritence](https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance)
+Certain principles of classes from traditional OOP don't align perfectly with the utilization of classes in React. For example, here are a few instances of disconnects between the mental model of classes in OOP and in React:
 
-On the other hand, there are a few OOP principles that are core to React:EncapsulationSeparation of concerns (or sometimes "crosscutting of concerns")Inversion of Control (a broader Software Engineering Principle)
+1. Class Components are a class but you never instantiate it yourself
+
+- i.e. `javascript~new MyComponent(/*...*/)`
+
+2. It extends a class `javascript~React.Component` but not any class you created
+
+- In practice, inheritance isn't typically used outside of this single situation [More on Inheritence](https://reactjs.org/docs/composition-vs-inheritance.html#so-what-about-inheritance)
+
+On the other hand, there are a few OOP principles that are core to React:
+
+- Encapsulation
+- Separation of concerns (or sometimes _crosscutting of concerns_)
+- Inversion of Control (a broader Software Engineering Principle)
+
+In practice, the usage of Function and Class Components are identical. After all, both are just an encapsulated definition of how some section of the interface will look when it is rendered. Personally, I believe that the Function Component model better reflects some of the principles of React.

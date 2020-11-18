@@ -8,7 +8,7 @@
 
 import React, { useState } from "react";
 import ThemeProvider from "./src/components/theme-context";
-require("prismjs/themes/prism-tomorrow.css");
+require("prism-themes/themes/prism-dracula.css");
 
 export const wrapRootElement = ({ element }) => {
   return <ThemeProvider>{element}</ThemeProvider>;

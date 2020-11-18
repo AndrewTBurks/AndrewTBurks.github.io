@@ -462,6 +462,13 @@ blockquote {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+
+  border-left: 1px solid var(--accent);
+
+  padding-left: 0.6rem;
+  @include accent-font();
+
+  color: var(--text-emph);
 }
 form {
   margin-left: 0;
@@ -562,6 +569,9 @@ li > p {
 code {
   font-size: 0.85rem;
   line-height: 1.45rem;
+
+  padding-left: 0.3em !important;
+  padding-right: 0.3em !important;
 }
 kbd {
   font-size: 0.85rem;
